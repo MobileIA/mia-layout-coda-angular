@@ -1,5 +1,13 @@
 # MiaLayoutCoda
 
+## Instalación
+1. Instalar libreria:
+```bash
+ng add @angular/material
+npm install @mobileia/layout-coda --save
+```
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
 ## Development server
