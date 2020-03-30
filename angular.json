@@ -128,7 +128,7 @@
       "projectType": "library",
       "root": "projects/mobileia/layout-coda",
       "sourceRoot": "projects/mobileia/layout-coda/src",
-      "prefix": "lib",
+      "prefix": "coda",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
