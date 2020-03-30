@@ -17,7 +17,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@mobileia/layout-coda": [
+        "dist/mobileia/layout-coda/mobileia-layout-coda",
+        "dist/mobileia/layout-coda"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

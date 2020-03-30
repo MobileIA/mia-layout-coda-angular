@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "mia-layout-coda": {
@@ -123,6 +123,50 @@
           }
         }
       }
-    }},
-  "defaultProject": "mia-layout-coda"
+    },
+    "@mobileia/layout-coda": {
+      "projectType": "library",
+      "root": "projects/mobileia/layout-coda",
+      "sourceRoot": "projects/mobileia/layout-coda/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/mobileia/layout-coda/tsconfig.lib.json",
+            "project": "projects/mobileia/layout-coda/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/mobileia/layout-coda/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mobileia/layout-coda/src/test.ts",
+            "tsConfig": "projects/mobileia/layout-coda/tsconfig.spec.json",
+            "karmaConfig": "projects/mobileia/layout-coda/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mobileia/layout-coda/tsconfig.lib.json",
+              "projects/mobileia/layout-coda/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "mia-layout-coda",
+  "cli": {
+    "analytics": "fd7c33f3-1a9e-4f18-bc8d-caea031f6336"
+  }
 }
