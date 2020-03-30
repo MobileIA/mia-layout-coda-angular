@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build2": "ng build @mobileia/layout-coda && cp -R projects/mobileia/layout-coda/src/lib/scss/ dist/mobileia/layout-coda/scss/ && cd dist/mobileia/layout-coda/ && npm publish"
   },
   "private": true,
   "dependencies": {
