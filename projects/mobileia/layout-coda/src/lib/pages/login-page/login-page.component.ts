@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CodaConfigService } from '../../services/coda-config.service';
 
 @Component({
   selector: 'coda-login-page',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    protected configService: CodaConfigService
+  ) { }
 
   ngOnInit(): void {
   }
