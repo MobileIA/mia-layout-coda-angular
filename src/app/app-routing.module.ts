@@ -1,9 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginPageComponent } from 'projects/mobileia/layout-coda/src/lib/pages/login-page/login-page.component';
+import { CodaMainLayoutComponent } from 'projects/mobileia/layout-coda/src/lib/pages/coda-main-layout/coda-main-layout.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes: Routes = [
+  {
+    path: '',
+    component: CodaMainLayoutComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      }
+    ]
+  },
   {
     path: 'login',
     component: LoginPageComponent,
