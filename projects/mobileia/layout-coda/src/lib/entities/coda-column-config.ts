@@ -5,4 +5,5 @@ export interface CodaColumnConfig {
     title: string;
     classes?: string;
     is_order?: boolean;
+    options?: [];
 }

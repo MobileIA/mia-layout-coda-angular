@@ -1,1 +1,29 @@
-<p>coda-table works!</p>
+<div *ngIf="tableConfig" class="coda-table">
+
+    <table mat-table [dataSource]="dataItems.data">
+
+        <ng-container *ngFor="let column of tableConfig.columns" [matColumnDef]="column.key">
+            <!-- TH -->
+            <mat-header-cell *matHeaderCellDef>{{ column.title }}</mat-header-cell>
+            <!-- TD -->
+            <mat-cell *matCellDef="let item">
+
+                <ng-container *ngIf="column.type == 'integer' || column.type == 'string'">
+                    <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
+                </ng-container>
+
+                <ng-container *ngIf="column.type == 'option'">
+                    <p class="{{ column.classes }}">{{ column.options[item[column.field_key]].title }}</p>
+                </ng-container>
+
+            </mat-cell>
+
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="getDisplayColumns()"></tr>
+        <tr mat-row *matRowDef="let row; columns: getDisplayColumns();"></tr>
+    </table>
+
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>

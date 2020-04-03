@@ -9,6 +9,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LayoutCodaModule } from 'projects/mobileia/layout-coda/src/public-api';
 import { AuthenticationModule } from '@mobileia/authentication';
 
+import {MatTableModule} from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { AuthenticationModule } from '@mobileia/authentication';
     AppRoutingModule,
     BrowserAnimationsModule,
     AuthenticationModule.forRoot({apiKey: '', isInternal: true, baseUrlInternal: ''}),
-    LayoutCodaModule
+    LayoutCodaModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
