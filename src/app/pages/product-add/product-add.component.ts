@@ -23,6 +23,26 @@ export class ProductAddComponent implements OnInit {
         title: 'Categoria'
       }
     ];
+    // Ejemplo de row
+    this.formConfig.fields = [
+      {
+        type: 'row',
+        key: 'row_1',
+        title: '',
+        children: [
+          {
+            type: 'string',
+            key: 'title',
+            title: 'Titulo'
+          },
+          {
+            type: 'string',
+            key: ['category', 'name'],
+            title: 'Categoria'
+          }
+        ]
+      }
+    ];
     this.formConfig.item = {
       title: 'Producto de prueba',
       category: {

@@ -18,9 +18,10 @@ import { CodaFormComponent } from './components/coda-form/coda-form.component';
 import { StringFieldComponent } from './fields/string-field/string-field.component';
 import { BaseFieldComponent } from './fields/base-field/base-field.component';
 import { FormsModule } from '@angular/forms';
+import { RowFieldComponent } from './fields/row-field/row-field.component';
 
 @NgModule({
-  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent],
+  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent],
   imports: [
     BrowserModule,
     RouterModule,

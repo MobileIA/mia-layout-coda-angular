@@ -2,6 +2,8 @@
 
     <!-- Recorremos campos --->
     <ng-container *ngFor="let field of formConfig.fields">
+        <coda-row-field *ngIf="field.type == 'row'" [field]="field" [item]="formConfig.item"></coda-row-field>
+
         <coda-string-field *ngIf="field.type == 'string'" [field]="field" [item]="formConfig.item"></coda-string-field>
     </ng-container>
 
