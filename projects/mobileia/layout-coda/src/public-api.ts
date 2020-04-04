@@ -17,6 +17,13 @@ export * from './lib/entities/coda-field-config';
  */
 export * from './lib/services/coda-config.service';
 export * from './lib/services/coda-table.service';
+export * from './lib/services/coda-file.service';
+
+/**
+ * Pages
+ */
+export * from './lib/pages/coda-main-layout/coda-main-layout.component';
+export * from './lib/pages/login-page/login-page.component';
 
 /**
  * Others
