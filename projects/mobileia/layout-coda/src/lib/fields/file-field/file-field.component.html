@@ -1,0 +1,12 @@
+<div>
+    <mat-label>{{ field.title }}</mat-label>
+    <div fxLayout="row">
+        <!--<mat-spinner *ngIf="isUploading" [diameter]="50"></mat-spinner>-->
+        <p *ngIf="internalValue && internalValue.length > 0">{{ internalValue }}</p>
+        <div *ngIf="!isUploading">
+            <input #inputFile type="file" (change)="onUploadFiles($event.target.files)" style="display: none;" />
+            <button (click)="inputFile.click()">Subir archivo <i class="fa fa-upload"></i></button><br/>
+            <button *ngIf="internalValue && internalValue.length > 0" (click)="removeFile()">Eliminar <i class="fa fa-trash"></i></button>
+        </div>
+    </div>
+</div>

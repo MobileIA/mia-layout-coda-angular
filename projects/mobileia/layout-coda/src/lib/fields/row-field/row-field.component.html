@@ -2,4 +2,5 @@
 <ng-container *ngFor="let child of field.children">
     <coda-string-field *ngIf="child.type == 'string'" [field]="child" [item]="item"></coda-string-field>
     <coda-select-field *ngIf="child.type == 'select'" [field]="child" [item]="item"></coda-select-field>
+    <coda-file-field *ngIf="child.type == 'file'" [field]="child" [item]="item"></coda-file-field>
 </ng-container>

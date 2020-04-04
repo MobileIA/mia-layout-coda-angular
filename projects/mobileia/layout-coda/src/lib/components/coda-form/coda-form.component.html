@@ -6,6 +6,7 @@
 
         <coda-string-field *ngIf="field.type == 'string'" [field]="field" [item]="formConfig.item"></coda-string-field>
         <coda-select-field *ngIf="field.type == 'select'" [field]="field" [item]="formConfig.item"></coda-select-field>
+        <coda-file-field *ngIf="field.type == 'file'" [field]="field" [item]="formConfig.item"></coda-file-field>
     </ng-container>
 
 </div>

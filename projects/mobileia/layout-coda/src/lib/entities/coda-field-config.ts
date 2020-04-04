@@ -1,3 +1,5 @@
+import { CodaFileService } from '../services/coda-file.service';
+
 export interface CodaFieldConfig {
     type: string;
     key: any;
@@ -8,4 +10,6 @@ export interface CodaFieldConfig {
     classes?: string;
     options?: any[];
     children?: CodaFieldConfig[];
+    required?: boolean;
+    serviceFile?: CodaFileService;
 }

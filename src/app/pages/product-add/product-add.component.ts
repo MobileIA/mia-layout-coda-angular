@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CodaFormConfig } from 'projects/mobileia/layout-coda/src/lib/entities/coda-form-config';
+import { GoogleStorageService } from 'src/app/services/google-storage.service';
 
 @Component({
   selector: 'app-product-add',
@@ -10,7 +11,9 @@ export class ProductAddComponent implements OnInit {
 
   formConfig = new CodaFormConfig();
 
-  constructor() {
+  constructor(
+    protected fileService: GoogleStorageService
+  ) {
     this.formConfig.fields = [
       {
         type: 'string',
@@ -57,14 +60,23 @@ export class ProductAddComponent implements OnInit {
             value: 0
           }
         ]
-      }
+      },
+      {
+        type: 'file',
+        key: 'url_file',
+        title: 'Archivo',
+        caption: '',
+        required: true,
+        serviceFile: this.fileService
+      },
     ];
     this.formConfig.item = {
       title: 'Producto de prueba',
       category: {
         name: 'Categoria 1'
       },
-      status: 0
+      status: 0,
+      url_file: 'filename.txt'
     }
   }
 

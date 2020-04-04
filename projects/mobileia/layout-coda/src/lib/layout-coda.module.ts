@@ -21,9 +21,10 @@ import { BaseFieldComponent } from './fields/base-field/base-field.component';
 import { FormsModule } from '@angular/forms';
 import { RowFieldComponent } from './fields/row-field/row-field.component';
 import { SelectFieldComponent } from './fields/select-field/select-field.component';
+import { FileFieldComponent } from './fields/file-field/file-field.component';
 
 @NgModule({
-  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent],
+  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent],
   imports: [
     BrowserModule,
     RouterModule,
