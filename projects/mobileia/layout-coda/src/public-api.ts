@@ -9,6 +9,8 @@ export * from './lib/entities/coda-login-config';
 export * from './lib/entities/coda-sidebar-config';
 export * from './lib/entities/coda-table-config';
 export * from './lib/entities/coda-column-config';
+export * from './lib/entities/coda-form-config';
+export * from './lib/entities/coda-field-config';
 
 /**
  * Services

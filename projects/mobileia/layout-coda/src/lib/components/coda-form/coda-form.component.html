@@ -1,0 +1,8 @@
+<div *ngIf="formConfig" class="coda-form">
+
+    <!-- Recorremos campos --->
+    <ng-container *ngFor="let field of formConfig.fields">
+        <coda-string-field *ngIf="field.type == 'string'" [field]="field" [item]="formConfig.item"></coda-string-field>
+    </ng-container>
+
+</div>

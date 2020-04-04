@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginPageComponent } from 'projects/mobileia/layout-coda/src/lib/pages/login-page/login-page.component';
 import { CodaMainLayoutComponent } from 'projects/mobileia/layout-coda/src/lib/pages/coda-main-layout/coda-main-layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ProductAddComponent } from './pages/product-add/product-add.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'product-add',
+        component: ProductAddComponent
       }
     ]
   },

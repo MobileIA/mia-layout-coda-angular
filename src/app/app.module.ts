@@ -10,12 +10,14 @@ import { LayoutCodaModule } from 'projects/mobileia/layout-coda/src/public-api';
 import { AuthenticationModule } from '@mobileia/authentication';
 
 import {MatTableModule} from '@angular/material/table';
+import { ProductAddComponent } from './pages/product-add/product-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SystemComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
