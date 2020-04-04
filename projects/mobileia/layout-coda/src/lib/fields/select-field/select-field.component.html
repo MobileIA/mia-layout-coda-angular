@@ -1,0 +1,8 @@
+<mat-form-field>
+    <mat-label>{{ field.title }}</mat-label>
+    <mat-select [(ngModel)]="internalValue" (selectionChange)="onChangeValue()">
+        <mat-option *ngFor="let opt of field.options" [value]="opt.value">
+            {{ opt.title }}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

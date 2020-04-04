@@ -5,6 +5,7 @@
         <coda-row-field *ngIf="field.type == 'row'" [field]="field" [item]="formConfig.item"></coda-row-field>
 
         <coda-string-field *ngIf="field.type == 'string'" [field]="field" [item]="formConfig.item"></coda-string-field>
+        <coda-select-field *ngIf="field.type == 'select'" [field]="field" [item]="formConfig.item"></coda-select-field>
     </ng-container>
 
 </div>

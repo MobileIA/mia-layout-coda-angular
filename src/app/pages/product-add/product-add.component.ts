@@ -41,13 +41,30 @@ export class ProductAddComponent implements OnInit {
             title: 'Categoria'
           }
         ]
+      },
+      {
+        type: 'select',
+        key: 'status',
+        title: '¿Estado?',
+        caption: '',
+        options: [
+          {
+            title: 'SI',
+            value: 1
+          },
+          {
+            title: 'NO',
+            value: 0
+          }
+        ]
       }
     ];
     this.formConfig.item = {
       title: 'Producto de prueba',
       category: {
         name: 'Categoria 1'
-      }
+      },
+      status: 0
     }
   }
 

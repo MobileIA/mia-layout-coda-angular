@@ -6,6 +6,6 @@ export interface CodaFieldConfig {
     placeholder?: string;
     icon?: string;
     classes?: string;
-    options?: [];
+    options?: any[];
     children?: CodaFieldConfig[];
 }
