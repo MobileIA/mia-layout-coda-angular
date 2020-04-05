@@ -4,9 +4,44 @@
 1. Instalar libreria:
 ```bash
 ng add @angular/material
+npm install @angular/flex-layout --save
 npm install @mobileia/layout-coda --save
 ```
+2. Agregar modulo:
+```ts
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
 
+    LayoutCodaModule
+  ]
+})
+export class CoreModule { }
+```
+3. Configuración de AppComponent:
+```html
+<router-outlet></router-outlet>
+
+<swal #reserveSuccess title="Se ha enviado correctamente!" text="En breve nos pondremos en contacto, muchas gracias!" type="success">
+</swal>
+<swal #reserveError title="Se ha enviado correctamente!" text="En breve nos pondremos en contacto, muchas gracias!" type="error">
+</swal>
+```
+4. Crear componente del sistema:
+```bash
+ng g c pages/system
+```
+5. Agregar ruta de System:
+```ts
+{
+    path: '',
+    component: SystemComponent,
+    children: [
+        { path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) }
+    ]
+},
+```
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
