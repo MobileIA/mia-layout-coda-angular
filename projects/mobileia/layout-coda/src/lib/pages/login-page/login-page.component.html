@@ -1,1 +1,6 @@
 <p>login-page works!</p>
+<div class="form">
+    <input type="email" [(ngModel)]="emailInput" placeholder="Email" />
+    <input type="password" [(ngModel)]="passInput" placeholder="Pass" />
+    <button (click)="onSubmit()">Ingresar!</button>
+</div>
