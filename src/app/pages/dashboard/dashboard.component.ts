@@ -47,7 +47,17 @@ export class DashboardComponent implements OnInit {
           { value: 0, title: 'Pendiente'},
           { value: 1, title: 'Activo'},
         ]
-      }
+      },
+      {
+        key: 'actions',
+        type: 'actions',
+        title: 'Acciones',
+        fields_url: ['id'],
+        options: [
+          { url: '/product-edit/:id', title: 'Edit' },
+          { url: '/product-archive/:id', title: 'Archive' },
+        ]
+      },
   ];
   }
 

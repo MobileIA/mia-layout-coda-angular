@@ -42,8 +42,16 @@ export class CodaTableComponent implements OnInit {
     return columns;
   }
 
-  getLinkUrl(column: CodaColumnConfig, item) {
+  getLinkUrl(column, item) {
     let url = column.url;
+    for (const fieldKey of column.fields_url) {
+      url = url.replace(':' + fieldKey, item[fieldKey]);
+    }
+    return [url];
+  }
+
+  getLinkAction(column, act, item) {
+    let url = act.url;
     for (const fieldKey of column.fields_url) {
       url = url.replace(':' + fieldKey, item[fieldKey]);
     }

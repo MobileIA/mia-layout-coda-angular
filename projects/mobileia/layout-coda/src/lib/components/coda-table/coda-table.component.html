@@ -50,6 +50,10 @@
                     </mat-form-field>
                 </ng-container>
 
+                <ng-container *ngIf="column.type == 'actions'">
+                    <a *ngFor="let act of column.options" [routerLink]="getLinkAction(column, act, item)" class="{{ column.classes }}">{{ act.title }}</a>
+                </ng-container>
+
             </mat-cell>
 
         </ng-container>
