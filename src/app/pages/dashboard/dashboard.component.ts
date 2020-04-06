@@ -37,11 +37,27 @@ export class DashboardComponent implements OnInit {
         field_key: 'price',
         type: 'money',
         title: 'Total'
+      },
+      {
+        key: 'status',
+        field_key: 'status',
+        type: 'select',
+        title: 'Estado',
+        options: [
+          { value: 0, title: 'Pendiente'},
+          { value: 1, title: 'Activo'},
+        ]
       }
   ];
   }
 
   ngOnInit(): void {
+    this.configSelectors();
   }
 
+  configSelectors() {
+    this.tableConfig.onChangeField.subscribe(data => {
+      console.log(data);
+    });
+  }
 }

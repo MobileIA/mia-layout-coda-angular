@@ -18,16 +18,20 @@ export class CodaTableComponent implements OnInit {
     this.dataItems.current_page = 1;
     this.dataItems.total = 10;
     this.dataItems.data = [
-      {id: 1, title: 'uno', name: 'Categoria', price: 400 },
-      {id: 2, title: 'uno2', name: 'Categoria2', price: 500},
-      {id: 3, title: 'uno3', name: 'Categoria3', price: 600},
-      {id: 4, title: 'uno4', name: 'Categoria4', price: 700},
-      {id: 5, title: 'uno5', name: 'Categoria5', price: 800},
-      {id: 6, title: 'uno6', name: 'Categoria6', price: 900},
+      {id: 1, title: 'uno', name: 'Categoria', price: 400, status: 0 },
+      {id: 2, title: 'uno2', name: 'Categoria2', price: 500, status: 1 },
+      {id: 3, title: 'uno3', name: 'Categoria3', price: 600, status: 0 },
+      {id: 4, title: 'uno4', name: 'Categoria4', price: 700, status: 1 },
+      {id: 5, title: 'uno5', name: 'Categoria5', price: 800, status: 1 },
+      {id: 6, title: 'uno6', name: 'Categoria6', price: 900, status: 0 },
     ];
   }
 
   ngOnInit(): void {
+  }
+
+  onChangeSelectValue(column, item) {
+    this.tableConfig.onChangeField.next({ column: column, item: item });
   }
 
   getDisplayColumns(): Array<String> {
