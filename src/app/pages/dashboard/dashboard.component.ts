@@ -13,6 +13,14 @@ export class DashboardComponent implements OnInit {
   constructor() {
     this.tableConfig.columns = [
       {
+        key: 'name',
+        field_key: 'name',
+        type: 'link',
+        title: 'Categoria',
+        url: '/category/:id',
+        fields_url: ['id']
+      },
+      {
         key: 'title',
         field_key: 'title',
         type: 'string',

@@ -12,6 +12,10 @@
                     <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
                 </ng-container>
 
+                <ng-container *ngIf="column.type == 'link'">
+                    <a [routerLink]="getLinkUrl(column, item)" class="{{ column.classes }}">{{ item[column.field_key] }}</a>
+                </ng-container>
+
                 <ng-container *ngIf="column.type == 'option'">
                     <p class="{{ column.classes }}">{{ column.options[item[column.field_key]].title }}</p>
                 </ng-container>
