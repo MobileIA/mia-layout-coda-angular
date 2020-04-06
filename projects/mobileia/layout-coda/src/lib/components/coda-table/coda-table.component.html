@@ -27,6 +27,10 @@
                     <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
                 </ng-container>
 
+                <ng-container *ngIf="column.type == 'money'">
+                    <p class="{{ column.classes }}">{{ item[column.field_key] | currency }}</p>
+                </ng-container>
+
                 <ng-container *ngIf="column.type == 'link'">
                     <a [routerLink]="getLinkUrl(column, item)" class="{{ column.classes }}">{{ item[column.field_key] }}</a>
                 </ng-container>

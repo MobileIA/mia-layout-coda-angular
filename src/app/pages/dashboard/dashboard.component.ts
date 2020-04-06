@@ -31,6 +31,12 @@ export class DashboardComponent implements OnInit {
         field_key: 'title',
         type: 'string',
         title: 'Titulo'
+      },
+      {
+        key: 'price',
+        field_key: 'price',
+        type: 'money',
+        title: 'Total'
       }
   ];
   }
