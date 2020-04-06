@@ -13,6 +13,12 @@ export class DashboardComponent implements OnInit {
   constructor() {
     this.tableConfig.columns = [
       {
+        key: 'checkbox',
+        field_key: '',
+        type: 'checkbox',
+        title: ''
+      },
+      {
         key: 'name',
         field_key: 'name',
         type: 'link',

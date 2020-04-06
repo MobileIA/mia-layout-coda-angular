@@ -7,6 +7,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 /* Componente internos */
 import { LayoutCodaComponent } from './layout-coda.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -34,7 +35,8 @@ import { FileFieldComponent } from './fields/file-field/file-field.component';
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   exports: [
     FormsModule,
@@ -42,6 +44,7 @@ import { FileFieldComponent } from './fields/file-field/file-field.component';
     MatPaginatorModule,
     MatInputModule,
     MatSelectModule,
+    MatCheckboxModule,
 
     LayoutCodaComponent,
     CodaSidebarComponent,

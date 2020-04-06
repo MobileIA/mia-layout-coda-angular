@@ -4,9 +4,24 @@
 
         <ng-container *ngFor="let column of tableConfig.columns" [matColumnDef]="column.key">
             <!-- TH -->
-            <mat-header-cell *matHeaderCellDef>{{ column.title }}</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>
+
+                <ng-container *ngIf="column.type == 'checkbox'; else defaultTh">
+                    <mat-checkbox></mat-checkbox>
+                </ng-container>
+                <ng-template #defaultTh>
+                    {{ column.title }}
+                </ng-template>
+                
+            </mat-header-cell>
+
+            
             <!-- TD -->
             <mat-cell *matCellDef="let item">
+
+                <ng-container *ngIf="column.type == 'checkbox'">
+                    <mat-checkbox></mat-checkbox>
+                </ng-container>
 
                 <ng-container *ngIf="column.type == 'integer' || column.type == 'string'">
                     <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
@@ -24,8 +39,8 @@
 
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="getDisplayColumns()"></tr>
-        <tr mat-row *matRowDef="let row; columns: getDisplayColumns();"></tr>
+        <mat-header-row *matHeaderRowDef="getDisplayColumns(); sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: getDisplayColumns();"></mat-row>
     </table>
 
     <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
