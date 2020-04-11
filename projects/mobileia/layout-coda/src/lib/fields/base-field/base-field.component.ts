@@ -37,24 +37,22 @@ export class BaseFieldComponent implements OnInit {
   }
 
   loadValue() {
-    if (typeof this.field.key == 'string') {
+    if (this.item == undefined) {
+      return;
+    }
+
+    if (typeof this.field.key == 'string' && this.item[this.field.key] != undefined) {
       this.internalValue = this.item[this.field.key];
       return;
     }
 
     let valueFinal = this.item;
     for (const key of this.field.key) {
+      if(valueFinal[key] == undefined){
+        return;
+      }
       valueFinal = valueFinal[key];
     }
     this.internalValue = valueFinal;
-
-    // Recorrer los distintos niveles version basica
-    /*if (this.field.key.length == 2) {
-      this.internalValue = this.item[this.field.key[0]][this.field.key[1]];
-    } else if (this.field.key.length == 3) {
-      this.internalValue = this.item[this.field.key[0]][this.field.key[1]][this.field.key[2]];
-    } else if (this.field.key.length == 4) {
-      this.internalValue = this.item[this.field.key[0]][this.field.key[1]][this.field.key[2]][this.field.key[3]];
-    }*/
   }
 }

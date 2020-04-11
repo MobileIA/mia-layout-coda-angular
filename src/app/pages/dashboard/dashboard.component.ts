@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CodaTableConfig } from 'projects/mobileia/layout-coda/src/public-api';
+import { CodaTableConfig, CodaModalService, CodaFormConfig } from 'projects/mobileia/layout-coda/src/public-api';
 import { TestService } from 'src/app/services/test.service';
+import { dashboardColumns } from './dashbord.columns';
+import { dashboardFields } from './dashboard.fields';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,74 +12,14 @@ import { TestService } from 'src/app/services/test.service';
 export class DashboardComponent implements OnInit {
 
   tableConfig = new CodaTableConfig();
+  formConfig = new CodaFormConfig();
 
   constructor(
-    protected testService: TestService
+    protected testService: TestService,
+    protected modalService: CodaModalService
   ) {
-    this.tableConfig.service = testService;
-    this.tableConfig.columns = [
-      {
-        key: 'checkbox',
-        field_key: '',
-        type: 'checkbox',
-        title: ''
-      },
-      {
-        key: 'photo',
-        field_key: 'firstname',
-        field_key_photo: 'photo',
-        type: 'photo',
-        title: 'Name',
-        is_order: true
-      },
-      {
-        key: 'name',
-        field_key: 'lastname',
-        type: 'link',
-        title: 'Categoria',
-        url: '/category/:id',
-        fields_url: ['id'],
-        is_order: true
-      },
-      {
-        key: 'title',
-        field_key: 'title',
-        type: 'string',
-        title: 'Titulo'
-      },
-      {
-        key: 'price',
-        field_key: 'price',
-        type: 'money',
-        title: 'Total'
-      },
-      {
-        key: 'status',
-        field_key: 'status',
-        type: 'select',
-        title: 'Estado',
-        options: [
-          { value: 0, title: 'Pendiente'},
-          { value: 1, title: 'Activo'},
-        ]
-      },
-      {
-        key: 'actions',
-        type: 'actions',
-        title: 'Acciones',
-        fields_url: ['id'],
-        options: [
-          { url: '/product-edit/:id', title: 'Edit' },
-          { icon: 'home', url: '/product-archive/:id', title: 'Archive' },
-        ]
-      },
-  ];
-  this.tableConfig.onAfterLoad = (items) => {
-    items.forEach(element => {
-      element.fullname = element.firstname + ' ' + element.lastname;
-    });
-    return items;
-  };
+    this.loadTableConfig();
+    this.loadFormConfig();
   }
 
   ngOnInit(): void {
@@ -88,5 +30,30 @@ export class DashboardComponent implements OnInit {
     this.tableConfig.onChangeField.subscribe(data => {
       console.log(data);
     });
+  }
+
+  onClickAdd() {
+    this.modalService.openForm({
+      title: 'Nuevo cliente',
+      form: this.formConfig
+    });
+  }
+
+  loadTableConfig() {
+    this.tableConfig.service = this.testService;
+    this.tableConfig.columns = dashboardColumns;
+    this.tableConfig.onAfterLoad = (items) => {
+      items.forEach(element => {
+        element.fullname = element.firstname + ' ' + element.lastname;
+      });
+      return items;
+    };
+  }
+
+  loadFormConfig() {
+    this.formConfig.fields = dashboardFields;
+    this.formConfig.item = {
+      name: ''
+    };
   }
 }

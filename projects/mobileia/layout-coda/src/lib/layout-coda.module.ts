@@ -1,7 +1,6 @@
 /* Librerias */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthenticationModule } from '@mobileia/authentication';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
 /* Componente internos */
 import { LayoutCodaComponent } from './layout-coda.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -25,10 +25,11 @@ import { BaseFieldComponent } from './fields/base-field/base-field.component';
 import { RowFieldComponent } from './fields/row-field/row-field.component';
 import { SelectFieldComponent } from './fields/select-field/select-field.component';
 import { FileFieldComponent } from './fields/file-field/file-field.component';
+import { CodaFormModalComponent } from './modals/coda-form-modal/coda-form-modal.component';
 
 
 @NgModule({
-  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent],
+  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -40,7 +41,8 @@ import { FileFieldComponent } from './fields/file-field/file-field.component';
     MatInputModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   exports: [
     FormsModule,
@@ -50,12 +52,17 @@ import { FileFieldComponent } from './fields/file-field/file-field.component';
     MatSelectModule,
     MatCheckboxModule,
     MatIconModule,
+    MatDialogModule,
 
     LayoutCodaComponent,
     CodaSidebarComponent,
     CodaMainLayoutComponent,
     CodaTableComponent,
-    CodaFormComponent
+    CodaFormComponent,
+    CodaFormModalComponent
+  ],
+  entryComponents: [
+    CodaFormModalComponent
   ]
 })
 export class LayoutCodaModule { }
