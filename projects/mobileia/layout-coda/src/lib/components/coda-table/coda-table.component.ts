@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CodaTableConfig } from '../../entities/coda-table-config';
-import { ApiPagination } from '@mobileia/core';
+import { ApiPagination, MIATableModel } from '@mobileia/core';
 import { CodaColumnConfig } from '../../entities/coda-column-config';
 
 @Component({
@@ -12,22 +12,29 @@ export class CodaTableComponent implements OnInit {
 
   @Input() tableConfig: CodaTableConfig;
   dataItems = new ApiPagination<any>();
+  params = new MIATableModel();
+
+  isLoading = true;
 
   constructor() {
     // Borrar esto
     this.dataItems.current_page = 1;
     this.dataItems.total = 10;
-    this.dataItems.data = [
-      {id: 1, title: 'uno', name: 'Categoria', price: 400, status: 0 },
-      {id: 2, title: 'uno2', name: 'Categoria2', price: 500, status: 1 },
-      {id: 3, title: 'uno3', name: 'Categoria3', price: 600, status: 0 },
-      {id: 4, title: 'uno4', name: 'Categoria4', price: 700, status: 1 },
-      {id: 5, title: 'uno5', name: 'Categoria5', price: 800, status: 1 },
-      {id: 6, title: 'uno6', name: 'Categoria6', price: 900, status: 0 },
-    ];
   }
 
   ngOnInit(): void {
+    this.loadItems();
+  }
+
+  loadItems() {
+    this.isLoading = true;
+    this.tableConfig.service.fetchList(this.params).toPromise().then(data => {
+      this.isLoading = false;
+      if (!data.success) {
+        return;
+      }
+      this.dataItems = data.response;
+    });
   }
 
   onChangeSelectValue(column, item) {
