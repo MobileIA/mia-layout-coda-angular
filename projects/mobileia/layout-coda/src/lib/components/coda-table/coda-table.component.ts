@@ -18,9 +18,6 @@ export class CodaTableComponent implements OnInit {
   isLoading = true;
 
   constructor() {
-    // Borrar esto
-    this.dataItems.current_page = 1;
-    this.dataItems.total = 10;
   }
 
   ngOnInit(): void {
