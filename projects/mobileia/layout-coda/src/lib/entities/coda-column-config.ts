@@ -9,4 +9,5 @@ export interface CodaColumnConfig {
     options?: any[];
     url?: string;
     fields_url?: string[];
+    order_type?: number;
 }

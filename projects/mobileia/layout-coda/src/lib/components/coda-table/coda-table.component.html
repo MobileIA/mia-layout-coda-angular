@@ -10,7 +10,11 @@
                     <mat-checkbox></mat-checkbox>
                 </ng-container>
                 <ng-template #defaultTh>
-                    {{ column.title }}
+                    <button (click)="onClickOrder(column)">
+                        {{ column.title }}
+                        <span *ngIf="column.is_order && column.order_type == 1">+</span>
+                        <span *ngIf="column.is_order && column.order_type == 2">-</span>
+                    </button>
                 </ng-template>
                 
             </mat-header-cell>

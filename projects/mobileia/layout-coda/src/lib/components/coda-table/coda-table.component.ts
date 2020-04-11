@@ -37,6 +37,31 @@ export class CodaTableComponent implements OnInit {
     });
   }
 
+  onClickOrder(column: CodaColumnConfig) {
+    // Verificar si se puede ordenar esta columna
+    if (!column.is_order) {
+      return;
+    }
+    // Limpiar todas las columnas
+    this.tableConfig.columns.forEach(el => {
+      if (el.field_key != column.field_key) {
+        el.order_type = undefined;
+      }
+    });
+
+    if (column.order_type == undefined) {
+      column.order_type = 1; // Asc
+      this.params.ordType = { title: column.field_key, asc: 0 };
+    } else if (column.order_type == 1) {
+      column.order_type = 2; // DESC
+      this.params.ordType = { title: column.field_key, asc: 1 };
+    } else if (column.order_type == 2) {
+      column.order_type = undefined;
+      this.params.ordType = { title: '', asc: 0 };
+    }
+    this.loadItems();
+  }
+
   onPageChange(event: PageEvent) {
     this.params.itemPerPage = event.pageSize;
     this.params.pageCurrent = event.pageIndex + 1;

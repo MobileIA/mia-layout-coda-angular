@@ -24,18 +24,20 @@ export class DashboardComponent implements OnInit {
       },
       {
         key: 'photo',
-        field_key: 'fullname',
+        field_key: 'firstname',
         field_key_photo: 'photo',
         type: 'photo',
-        title: 'Name'
+        title: 'Name',
+        is_order: true
       },
       {
         key: 'name',
-        field_key: 'firstname',
+        field_key: 'lastname',
         type: 'link',
         title: 'Categoria',
         url: '/category/:id',
-        fields_url: ['id']
+        fields_url: ['id'],
+        is_order: true
       },
       {
         key: 'title',
