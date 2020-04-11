@@ -2,6 +2,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthenticationModule } from '@mobileia/authentication';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 /* Material Design */
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -15,14 +18,13 @@ import { CodaToolbarComponent } from './components/coda-toolbar/coda-toolbar.com
 import { CodaSidebarComponent } from './components/coda-sidebar/coda-sidebar.component';
 import { CodaTableComponent } from './components/coda-table/coda-table.component';
 import { CodaMainLayoutComponent } from './pages/coda-main-layout/coda-main-layout.component';
-import { RouterModule } from '@angular/router';
 import { CodaFormComponent } from './components/coda-form/coda-form.component';
 import { StringFieldComponent } from './fields/string-field/string-field.component';
 import { BaseFieldComponent } from './fields/base-field/base-field.component';
-import { FormsModule } from '@angular/forms';
 import { RowFieldComponent } from './fields/row-field/row-field.component';
 import { SelectFieldComponent } from './fields/select-field/select-field.component';
 import { FileFieldComponent } from './fields/file-field/file-field.component';
+
 
 @NgModule({
   declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent],
@@ -30,6 +32,7 @@ import { FileFieldComponent } from './fields/file-field/file-field.component';
     BrowserModule,
     RouterModule,
     FormsModule,
+    HttpClientModule,
     AuthenticationModule,
 
     MatTableModule,
