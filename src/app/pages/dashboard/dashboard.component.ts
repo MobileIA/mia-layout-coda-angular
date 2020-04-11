@@ -53,7 +53,13 @@ export class DashboardComponent implements OnInit {
   loadFormConfig() {
     this.formConfig.fields = dashboardFields;
     this.formConfig.item = {
-      name: ''
+      name: '',
+      latitude: 0,
+      longitude: 0
     };
+    this.formConfig.onSelectPlace.subscribe(data => {
+      this.formConfig.item.latitude = data.place.geometry.location.lat();
+      this.formConfig.item.longitude = data.place.geometry.location.lng();
+    });
   }
 }

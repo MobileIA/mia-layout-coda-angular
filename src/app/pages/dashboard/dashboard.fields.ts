@@ -1,7 +1,7 @@
 import { CodaFieldConfig } from 'projects/mobileia/layout-coda/src/lib/entities/coda-field-config';
 
 export const dashboardFields: CodaFieldConfig[] = [
-    {
+      {
         type: 'row',
         key: 'row_1',
         title: '',
@@ -18,6 +18,24 @@ export const dashboardFields: CodaFieldConfig[] = [
           }
         ]
       },
+      {
+        type: 'row',
+        key: 'row_2',
+        title: '',
+        children: [
+          {
+            type: 'address',
+            key: 'address',
+            title: 'Dirección'
+          },
+          {
+            type: 'string',
+            key: 'city',
+            title: 'Ciudad'
+          }
+        ]
+      },
+      
       {
         type: 'select',
         key: 'status',

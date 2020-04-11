@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 /* Material Design */
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -26,15 +27,17 @@ import { RowFieldComponent } from './fields/row-field/row-field.component';
 import { SelectFieldComponent } from './fields/select-field/select-field.component';
 import { FileFieldComponent } from './fields/file-field/file-field.component';
 import { CodaFormModalComponent } from './modals/coda-form-modal/coda-form-modal.component';
+import { AddressFieldComponent } from './fields/address-field/address-field.component';
 
 
 @NgModule({
-  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent],
+  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     HttpClientModule,
+    GooglePlaceModule,
 
     MatTableModule,
     MatPaginatorModule,
@@ -46,6 +49,7 @@ import { CodaFormModalComponent } from './modals/coda-form-modal/coda-form-modal
   ],
   exports: [
     FormsModule,
+    GooglePlaceModule,
 
     MatPaginatorModule,
     MatInputModule,

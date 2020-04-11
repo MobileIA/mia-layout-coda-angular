@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BaseFieldComponent } from '../base-field/base-field.component';
+import { CodaFieldConfig } from '../../entities/coda-field-config';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'coda-row-field',
@@ -7,6 +9,8 @@ import { BaseFieldComponent } from '../base-field/base-field.component';
   styleUrls: ['./row-field.component.scss']
 })
 export class RowFieldComponent extends BaseFieldComponent implements OnInit {
+
+  @Output() selectedPlace = new EventEmitter<{ field: CodaFieldConfig, place: Address }>();
 
   constructor() {
     super();
@@ -16,4 +20,7 @@ export class RowFieldComponent extends BaseFieldComponent implements OnInit {
     super.ngOnInit();
   }
 
+  onSelectedPlace(event) {
+    this.selectedPlace.emit(event);
+  }
 }

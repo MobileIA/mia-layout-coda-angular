@@ -15,4 +15,7 @@ export class CodaFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSelectedPlace(event) {
+    this.formConfig.onSelectPlace.next(event);
+  }
 }
