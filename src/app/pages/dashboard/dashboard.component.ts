@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CodaTableConfig } from 'projects/mobileia/layout-coda/src/public-api';
+import { TestService } from 'src/app/services/test.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,10 @@ export class DashboardComponent implements OnInit {
 
   tableConfig = new CodaTableConfig();
 
-  constructor() {
+  constructor(
+    protected testService: TestService
+  ) {
+    this.tableConfig.service = testService;
     this.tableConfig.columns = [
       {
         key: 'checkbox',
@@ -19,8 +23,15 @@ export class DashboardComponent implements OnInit {
         title: ''
       },
       {
+        key: 'photo',
+        field_key: 'fullname',
+        field_key_photo: 'photo',
+        type: 'photo',
+        title: 'Name'
+      },
+      {
         key: 'name',
-        field_key: 'name',
+        field_key: 'firstname',
         type: 'link',
         title: 'Categoria',
         url: '/category/:id',
@@ -59,6 +70,12 @@ export class DashboardComponent implements OnInit {
         ]
       },
   ];
+  this.tableConfig.onAfterLoad = (items) => {
+    items.forEach(element => {
+      element.fullname = element.firstname + ' ' + element.lastname;
+    });
+    return items;
+  };
   }
 
   ngOnInit(): void {

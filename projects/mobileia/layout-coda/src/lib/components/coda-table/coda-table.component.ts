@@ -34,6 +34,8 @@ export class CodaTableComponent implements OnInit {
         return;
       }
       this.dataItems = data.response;
+      // Procesar si se necesita
+      this.dataItems.data = this.tableConfig.onAfterLoad(this.dataItems.data);
     });
   }
 

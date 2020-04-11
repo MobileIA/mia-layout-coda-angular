@@ -27,6 +27,12 @@
                     <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
                 </ng-container>
 
+                <ng-container *ngIf="column.type == 'photo'">
+                    <img *ngIf="item[column.field_key_photo] == '' || item[column.field_key_photo] == undefined" [src]="'https://i0.wp.com/avatar-management--avatars.us-west-2.prod.public.atl-paas.net/initials/MC-2.png?ssl=1'" style="width: 30px;" />
+                    <img *ngIf="item[column.field_key_photo] != '' && item[column.field_key_photo] != undefined" [src]="item[column.field_key_photo]" style="width: 30px;" />
+                    <p *ngIf="column.field_key" class="{{ column.classes }}">{{ item[column.field_key] }}</p>
+                </ng-container>
+
                 <ng-container *ngIf="column.type == 'money'">
                     <p class="{{ column.classes }}">{{ item[column.field_key] | currency }}</p>
                 </ng-container>
