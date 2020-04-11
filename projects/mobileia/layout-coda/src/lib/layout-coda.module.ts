@@ -1,6 +1,6 @@
 /* Librerias */
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { AuthenticationModule } from '@mobileia/authentication';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -29,11 +29,10 @@ import { FileFieldComponent } from './fields/file-field/file-field.component';
 @NgModule({
   declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent],
   imports: [
-    BrowserModule,
+    CommonModule,
     RouterModule,
     FormsModule,
     HttpClientModule,
-    AuthenticationModule,
 
     MatTableModule,
     MatPaginatorModule,
