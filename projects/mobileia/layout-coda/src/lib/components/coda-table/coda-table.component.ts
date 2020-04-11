@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CodaTableConfig } from '../../entities/coda-table-config';
 import { ApiPagination, MIATableModel } from '@mobileia/core';
 import { CodaColumnConfig } from '../../entities/coda-column-config';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'coda-table',
@@ -37,6 +38,12 @@ export class CodaTableComponent implements OnInit {
       // Procesar si se necesita
       this.dataItems.data = this.tableConfig.onAfterLoad(this.dataItems.data);
     });
+  }
+
+  onPageChange(event: PageEvent) {
+    this.params.itemPerPage = event.pageSize;
+    this.params.pageCurrent = event.pageIndex + 1;
+    this.loadItems();
   }
 
   onChangeSelectValue(column, item) {
