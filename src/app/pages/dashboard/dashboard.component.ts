@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit {
         fields_url: ['id'],
         options: [
           { url: '/product-edit/:id', title: 'Edit' },
-          { url: '/product-archive/:id', title: 'Archive' },
+          { icon: 'home', url: '/product-archive/:id', title: 'Archive' },
         ]
       },
   ];
