@@ -13,6 +13,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
 /* Componente internos */
 import { LayoutCodaComponent } from './layout-coda.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -45,7 +47,9 @@ import { AddressFieldComponent } from './fields/address-field/address-field.comp
     MatSelectModule,
     MatCheckboxModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule,
+    MatDividerModule
   ],
   exports: [
     FormsModule,
@@ -57,6 +61,8 @@ import { AddressFieldComponent } from './fields/address-field/address-field.comp
     MatCheckboxModule,
     MatIconModule,
     MatDialogModule,
+    MatButtonModule,
+    MatDividerModule,
 
     LayoutCodaComponent,
     CodaSidebarComponent,
