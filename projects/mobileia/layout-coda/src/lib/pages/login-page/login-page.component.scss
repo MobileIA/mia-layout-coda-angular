@@ -118,32 +118,33 @@
                 }
 
                 input:-internal-autofill-selected { background-color: white !important; }
-            }
 
-            .bar-actions{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                a{
-                    color: white;
-                    opacity: .75;
-                    letter-spacing: 0.5px;
-                    &:hover { opacity: 1; }
+                .bar-actions{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+    
+                    a{
+                        color: white;
+                        opacity: .75;
+                        letter-spacing: 0.5px;
+                        font-weight: 600;
+                        &:hover { opacity: 1; }
+                    }
+    
+                    mat-checkbox {
+                        opacity: .75;
+                        &:hover { opacity: 1; }
+                        &::ng-deep { .mat-checkbox-frame { border-color: white; } }
+                    }
                 }
-
-                mat-checkbox {
-                    opacity: .75;
-                    &:hover { opacity: 1; }
-                    &::ng-deep { .mat-checkbox-frame { border-color: white; } }
+    
+                .button-submit{
+                    background-color: $colorTitle;
+                    width: 100%;
+                    margin-top: 24px;
+                    margin-bottom: 12px;
                 }
-            }
-
-            .button-submit{
-                background-color: $colorTitle;
-                width: 100%;
-                margin-top: 24px;
-                margin-bottom: 12px;
             }
 
             mat-divider{
@@ -156,6 +157,7 @@
                 font-weight: 300;
                 opacity: .75;
                 transition: $animation;
+                letter-spacing: 0.5px;
 
                 &:hover { opacity: 1; }
 

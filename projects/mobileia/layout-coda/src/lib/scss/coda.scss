@@ -3,11 +3,13 @@
 @import "./media-breakpoint";
 
 // Colors
-$colorBlue: #3397f4;
-$colorGreen: #8cd867;
-$colorViolet: #7f3fff;
+$colorBlue: rgb(51, 151, 255);
+$colorGreen: rgb(140, 216, 103);
+$colorViolet: rgb(127, 63, 255);
 $colorGray: #bcbbc9;
 $colorTitle: #414042;
+$colorBackground: #f5f7f9;
+
 
 $fontText: 'Open Sans', sans-serif;
 $fontTitle: 'Montserrat', sans-serif;
@@ -16,6 +18,7 @@ $animation: all 0.3s ease;
 
 body{
     font-family: $fontText;
+    color: rgb(140, 216, 103);
 }
 
 h1{
