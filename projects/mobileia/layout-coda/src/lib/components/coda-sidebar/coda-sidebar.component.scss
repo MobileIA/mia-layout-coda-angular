@@ -1,0 +1,56 @@
+@import "../../scss/coda.scss";
+
+.sidebar{
+    background-color: $colorBlue;
+    width: 300px;
+    height: 100vh;
+    padding-top: 16px;
+    display: inline-block;
+
+    .logo{
+        margin-bottom: 48px;
+
+        h1{
+            color: white;
+            padding-left: 48px;
+            font-weight: 600;
+            font-family: $fontTitle;
+            font-size: 28px;
+        }
+    }
+
+    mat-action-list{
+        &::ng-deep .mat-list-item-content{
+            padding-left: 48px;
+            padding-right: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        button{
+            color: white;
+            padding: 0;
+        }
+
+        .active{
+            background-color: $colorBackground;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            color: $colorBlue;
+        }
+    }
+
+    hr{
+        border-color: white;
+        opacity: 0.15;
+    }
+
+    .section-text{
+        color: white;
+        opacity: 0.5;
+        padding-left: 48px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: $fontTitle;
+        margin-top: 20px;
+    }
+}

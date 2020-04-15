@@ -15,6 +15,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatTreeModule} from '@angular/material/tree';
 /* Componente internos */
 import { LayoutCodaComponent } from './layout-coda.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -49,7 +51,9 @@ import { AddressFieldComponent } from './fields/address-field/address-field.comp
     MatIconModule,
     MatDialogModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatListModule,
+    MatTreeModule
   ],
   exports: [
     FormsModule,
