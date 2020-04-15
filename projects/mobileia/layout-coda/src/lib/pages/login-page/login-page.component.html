@@ -10,13 +10,13 @@
                     <button (click)="onSubmit()">Ingresar!</button>
                     <p>{{ messageError }}</p>
                 </div> -->
-                <div class="logo">CRM GetterIQ</div>
+                <div class="logo">{{ config.title }}</div>
 
-                <h1>Welcome Back</h1>
+                <h1>{{ config.titleTwo }}</h1>
 
-                <button mat-button class="button-google"><div class="icon-google"></div> Log in with Google</button>
+                <button *ngIf="config.isLoginWithGoogle" mat-button class="button-google"><div class="icon-google"></div> Log in with Google</button>
 
-                <div class="separate-line">­­­­­<span>_­­­­­_­­­­­_­­­­­_</span> OR ­­­­­<span>­­­­­_­­­­­_­­­­­_­­­­­_</span></div>
+                <div *ngIf="config.isLoginWithGoogle" class="separate-line">­­­­­<span>_­­­­­_­­­­­_­­­­­_</span> OR ­­­­­<span>­­­­­_­­­­­_­­­­­_­­­­­_</span></div>
 
                 <div class="form">
                     <mat-form-field appearance="fill">
@@ -45,14 +45,14 @@
 
                 <mat-divider></mat-divider>
 
-                <p class="footer-text">Don't have an account? <a href="#">Sign up</a></p>
+                <p class="footer-text">Don't have an account? <a href="#" [routerLink]="['/' + config.registerRoute]">Sign up</a></p>
             </div>
         </div>
     </div>
 
     <div class="background-image">
         <div class="blue-clarity-effect"></div>
-        <img src="/assets/img/illustration-login.png" alt="Illustration">
+        <img *ngIf="config.backgroundImage" [src]="config.backgroundImage" alt="Illustration">
     </div>
 
 </div>
