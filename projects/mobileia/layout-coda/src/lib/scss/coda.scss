@@ -1,1 +1,90 @@
 // Main SCSS
+
+@import "./media-breakpoint";
+
+// Colors
+$colorBlue: rgb(51, 151, 255);
+$colorGreen: rgb(140, 216, 103);
+$colorViolet: rgb(127, 63, 255);
+$colorGray: #bcbbc9;
+$colorTitle: #414042;
+$colorBackground: #f5f7f9;
+
+
+$fontText: 'Open Sans', sans-serif;
+$fontTitle: 'Montserrat', sans-serif;
+
+$animation: all 0.3s ease;
+
+body{
+    font-family: $fontText;
+    color: rgb(140, 216, 103);
+}
+
+h1{
+    font-family: $fontTitle;
+}
+
+h2{
+    font-family: $fontTitle;
+}
+
+h3{
+    font-family: $fontTitle;
+}
+
+h4{
+    font-family: $fontTitle;
+}
+
+h5{
+    font-family: $fontTitle;
+}
+
+h6{
+    font-family: $fontTitle;
+}
+
+p{
+    font-family: $fontText;
+}
+
+li{
+    font-family: $fontText;
+}
+
+button{
+    font-family: $fontText;
+    font-weight: 600;
+    padding: 6px 24px;
+}
+
+a{
+    font-family: $fontText;
+    text-decoration: none;
+    color: $colorTitle;
+}
+
+span{
+    font-family: $fontText;
+}
+
+.mat-checkbox{
+    font-family: $fontText;
+}
+
+div{
+    font-family: $fontText;
+}
+
+.mat-form-field-label{
+    font-family: $fontText;
+}
+
+mat-form-field{
+    font-family: $fontText;
+}
+
+.mat-body{
+    font-family: $fontText;
+}

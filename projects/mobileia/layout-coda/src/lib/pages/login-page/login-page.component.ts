@@ -16,6 +16,7 @@ export class LoginPageComponent implements OnInit {
   emailInput = '';
   passInput = '';
   messageError = '';
+  hide = true;
 
   constructor(
     protected configService: CodaConfigService,

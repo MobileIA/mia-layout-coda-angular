@@ -1,3 +1,59 @@
 <p>dashboard works!</p>
-<button (click)="onClickAdd()">Agregar nuevo</button>
-<coda-table [tableConfig]="tableConfig"></coda-table>
+
+<div class="dashboard">
+    <div class="header">
+        <div class="texts">
+            <h1>Welcome back, Axel!</h1>
+            <p>
+                You've learned 50% of your goal this week!
+                <br>
+                Keep it up and improve yout results!
+            </p>
+        </div>
+
+        <div class="image">
+            <img src="/assets/img/dashboard-header.png" alt="Benefits Image">
+        </div>
+    </div>
+
+    <p class="title-chart">How are your active users trending over time?</p>
+
+    <div class="charts-group">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="32px">
+            <div fxFlex>
+                <div class="chart">
+                    <p>New Leads</p>
+                    <div class="h1">49</div>
+                    <p><small><span class="">+3</span> - last month</small></p>
+                    <div class="icon lead"></div>
+                </div>
+            </div>
+
+            <div fxFlex>
+                <div class="chart">
+                    <p>New Customers</p>
+                    <div class="h1">24</div>
+                    <p><small><span class="">+6</span> - last month</small></p>
+                    <div class="icon customer"></div>
+                </div>
+            </div>
+
+            <div fxFlex>
+                <div class="chart">
+                    <p>Est. Revenue</p>
+                    <div class="h1">$4,448</div>
+                    <p><small><span class="">+$2,110</span> - last month</small></p>
+                    <div class="icon revenue"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <p class="title-chart">Where are your users?</p>
+
+
+    <button (click)="onClickAdd()">Agregar nuevo</button>
+    <coda-table [tableConfig]="tableConfig"></coda-table>
+
+</div>

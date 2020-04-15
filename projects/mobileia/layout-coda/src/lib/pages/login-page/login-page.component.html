@@ -1,7 +1,58 @@
-<p>login-page works!</p>
-<div class="form">
-    <input type="email" [(ngModel)]="emailInput" placeholder="Email" />
-    <input type="password" [(ngModel)]="passInput" placeholder="Pass" />
-    <button (click)="onSubmit()">Ingresar!</button>
-    <p>{{ messageError }}</p>
+
+<div class="login_page">
+
+    <div class="login-bar">
+        <div class="login-bar-content">
+            <div class="content-scroll">
+                <!-- <div class="form">
+                    <input type="email" [(ngModel)]="emailInput" placeholder="Email" />
+                    <input type="password" [(ngModel)]="passInput" placeholder="Pass" />
+                    <button (click)="onSubmit()">Ingresar!</button>
+                    <p>{{ messageError }}</p>
+                </div> -->
+                <div class="logo">CRM GetterIQ</div>
+
+                <h1>Welcome Back</h1>
+
+                <button mat-button class="button-google"><div class="icon-google"></div> Log in with Google</button>
+
+                <div class="separate-line">­­­­­<span>_­­­­­_­­­­­_­­­­­_</span> OR ­­­­­<span>­­­­­_­­­­­_­­­­­_­­­­­_</span></div>
+
+                <div class="form">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email Address</mat-label>
+                        <input matInput type="text" placeholder="mail@getteriq.com" name="email_login" [(ngModel)]="emailInput" />
+                        <i matSuffix class="material-icons">alternate_email</i>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" placeholder="********" [(ngModel)]="passInput" />
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <i class="material-icons">{{hide ? 'visibility' : 'visibility_off'}}</i>
+                        </button>
+                    </mat-form-field>
+
+                    <div class="bar-actions">
+                        <mat-checkbox>Keep me logged in</mat-checkbox>
+                        <a href="#"><small>Forgot password?</small></a>
+                    </div>
+
+                    <button mat-button class="button-submit" (click)="onSubmit()">Log in</button>
+
+                    <p style="font-weight: 600;">{{ messageError }}</p>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <p class="footer-text">Don't have an account? <a href="#">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="background-image">
+        <div class="blue-clarity-effect"></div>
+        <img src="/assets/img/illustration-login.png" alt="Illustration">
+    </div>
+
 </div>
