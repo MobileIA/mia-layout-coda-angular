@@ -15,13 +15,15 @@ import { AuthenticationModule } from '@mobileia/authentication';
 
 import { MatTableModule } from '@angular/material/table';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
+import { TestFieldComponent } from './components/test-field/test-field.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SystemComponent,
     DashboardComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    TestFieldComponent
   ],
   imports: [
     BrowserModule,

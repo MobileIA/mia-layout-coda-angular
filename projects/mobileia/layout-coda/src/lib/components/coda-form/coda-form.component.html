@@ -8,6 +8,7 @@
         <coda-address-field *ngIf="field.type == 'address'" [field]="field" [item]="formConfig.item" (selectedPlace)="onSelectedPlace($event)"></coda-address-field>
         <coda-select-field *ngIf="field.type == 'select'" [field]="field" [item]="formConfig.item"></coda-select-field>
         <coda-file-field *ngIf="field.type == 'file'" [field]="field" [item]="formConfig.item"></coda-file-field>
+        <coda-custom-field *ngIf="field.type == 'custom'" [field]="field" [item]="formConfig.item"></coda-custom-field>
     </ng-container>
 
 </div>

@@ -4,4 +4,5 @@
     <coda-address-field *ngIf="child.type == 'address'" [field]="child" [item]="item" (selectedPlace)="onSelectedPlace($event)"></coda-address-field>
     <coda-select-field *ngIf="child.type == 'select'" [field]="child" [item]="item"></coda-select-field>
     <coda-file-field *ngIf="child.type == 'file'" [field]="child" [item]="item"></coda-file-field>
+    <coda-custom-field *ngIf="child.type == 'file'" [field]="child" [item]="item"></coda-custom-field>
 </ng-container>

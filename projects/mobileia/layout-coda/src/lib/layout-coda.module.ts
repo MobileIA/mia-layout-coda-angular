@@ -30,10 +30,11 @@ import { SelectFieldComponent } from './fields/select-field/select-field.compone
 import { FileFieldComponent } from './fields/file-field/file-field.component';
 import { CodaFormModalComponent } from './modals/coda-form-modal/coda-form-modal.component';
 import { AddressFieldComponent } from './fields/address-field/address-field.component';
+import { CustomFieldComponent } from './fields/custom-field/custom-field.component';
 
 
 @NgModule({
-  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent],
+  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -68,6 +69,7 @@ import { AddressFieldComponent } from './fields/address-field/address-field.comp
     CodaSidebarComponent,
     CodaMainLayoutComponent,
     CodaTableComponent,
+    BaseFieldComponent,
     CodaFormComponent,
     CodaFormModalComponent
   ],
