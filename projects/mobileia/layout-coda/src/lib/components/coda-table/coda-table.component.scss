@@ -1,7 +1,26 @@
-table {
-    width: 100%;
+@import "../../scss/coda.scss";
 
-    mat-row{
-        display: flex;
+.coda-table{
+    overflow-x: auto;
+
+    .scroll-x{
+        overflow-x: auto;
+        width: 100%;
+
+        table {
+            width: 100%;
+            min-width: 1200px;
+
+            /* mat-row{
+                display: flex;
+            } */
+
+            .mat-column-actions{
+                color: $colorTitle;
+                a{
+                    
+                }
+            }
+        }
     }
 }

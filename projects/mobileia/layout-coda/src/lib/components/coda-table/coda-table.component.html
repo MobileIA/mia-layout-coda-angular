@@ -1,80 +1,81 @@
 <div *ngIf="tableConfig" class="coda-table">
 
-    <table mat-table [dataSource]="dataItems.data">
+    <div class="scroll-x">
+        <table mat-table [dataSource]="dataItems.data">
 
-        <ng-container *ngFor="let column of tableConfig.columns" [matColumnDef]="column.key">
-            <!-- TH -->
-            <mat-header-cell *matHeaderCellDef>
+            <ng-container *ngFor="let column of tableConfig.columns" [matColumnDef]="column.key">
+                <!-- TH -->
+                <mat-header-cell *matHeaderCellDef>
 
-                <ng-container *ngIf="column.type == 'checkbox'; else defaultTh">
-                    <mat-checkbox></mat-checkbox>
-                </ng-container>
-                <ng-template #defaultTh>
-                    <button (click)="onClickOrder(column)">
-                        {{ column.title }}
-                        <span *ngIf="column.is_order && column.order_type == 1">+</span>
-                        <span *ngIf="column.is_order && column.order_type == 2">-</span>
-                    </button>
-                </ng-template>
+                    <ng-container *ngIf="column.type == 'checkbox'; else defaultTh">
+                        <mat-checkbox></mat-checkbox>
+                    </ng-container>
+                    <ng-template #defaultTh>
+                        <button (click)="onClickOrder(column)">
+                            {{ column.title }}
+                            <span *ngIf="column.is_order && column.order_type == 1">+</span>
+                            <span *ngIf="column.is_order && column.order_type == 2">-</span>
+                        </button>
+                    </ng-template>
+                    
+                </mat-header-cell>
+
                 
-            </mat-header-cell>
+                <!-- TD -->
+                <mat-cell *matCellDef="let item">
 
-            
-            <!-- TD -->
-            <mat-cell *matCellDef="let item">
+                    <ng-container *ngIf="column.type == 'checkbox'" sticky>
+                        <mat-checkbox></mat-checkbox>
+                    </ng-container>
 
-                <ng-container *ngIf="column.type == 'checkbox'">
-                    <mat-checkbox></mat-checkbox>
-                </ng-container>
+                    <ng-container *ngIf="column.type == 'integer' || column.type == 'string'">
+                        <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
+                    </ng-container>
 
-                <ng-container *ngIf="column.type == 'integer' || column.type == 'string'">
-                    <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
-                </ng-container>
+                    <ng-container *ngIf="column.type == 'photo'">
+                        <img *ngIf="item[column.field_key_photo] == '' || item[column.field_key_photo] == undefined" [src]="'https://i0.wp.com/avatar-management--avatars.us-west-2.prod.public.atl-paas.net/initials/MC-2.png?ssl=1'" style="width: 30px;" />
+                        <img *ngIf="item[column.field_key_photo] != '' && item[column.field_key_photo] != undefined" [src]="item[column.field_key_photo]" style="width: 30px;" />
+                        <p *ngIf="column.field_key" class="{{ column.classes }}">{{ item[column.field_key] }}</p>
+                    </ng-container>
 
-                <ng-container *ngIf="column.type == 'photo'">
-                    <img *ngIf="item[column.field_key_photo] == '' || item[column.field_key_photo] == undefined" [src]="'https://i0.wp.com/avatar-management--avatars.us-west-2.prod.public.atl-paas.net/initials/MC-2.png?ssl=1'" style="width: 30px;" />
-                    <img *ngIf="item[column.field_key_photo] != '' && item[column.field_key_photo] != undefined" [src]="item[column.field_key_photo]" style="width: 30px;" />
-                    <p *ngIf="column.field_key" class="{{ column.classes }}">{{ item[column.field_key] }}</p>
-                </ng-container>
+                    <ng-container *ngIf="column.type == 'money'">
+                        <p class="{{ column.classes }}">{{ item[column.field_key] | currency }}</p>
+                    </ng-container>
 
-                <ng-container *ngIf="column.type == 'money'">
-                    <p class="{{ column.classes }}">{{ item[column.field_key] | currency }}</p>
-                </ng-container>
+                    <ng-container *ngIf="column.type == 'link'">
+                        <a [routerLink]="getLinkUrl(column, item)" class="{{ column.classes }}">{{ item[column.field_key] }}</a>
+                    </ng-container>
 
-                <ng-container *ngIf="column.type == 'link'">
-                    <a [routerLink]="getLinkUrl(column, item)" class="{{ column.classes }}">{{ item[column.field_key] }}</a>
-                </ng-container>
+                    <ng-container *ngIf="column.type == 'option'">
+                        <p class="{{ column.classes }}">{{ column.options[item[column.field_key]].title }}</p>
+                    </ng-container>
 
-                <ng-container *ngIf="column.type == 'option'">
-                    <p class="{{ column.classes }}">{{ column.options[item[column.field_key]].title }}</p>
-                </ng-container>
+                    <ng-container *ngIf="column.type == 'select'">
+                        <mat-form-field>
+                            <mat-label>{{ column.title }}</mat-label>
+                            <mat-select [(ngModel)]="item[column.field_key]" (selectionChange)="onChangeSelectValue(column, item)">
+                                <mat-option *ngFor="let opt of column.options" [value]="opt.value">
+                                    {{ opt.title }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </ng-container>
 
-                <ng-container *ngIf="column.type == 'select'">
-                    <mat-form-field>
-                        <mat-label>{{ column.title }}</mat-label>
-                        <mat-select [(ngModel)]="item[column.field_key]" (selectionChange)="onChangeSelectValue(column, item)">
-                            <mat-option *ngFor="let opt of column.options" [value]="opt.value">
-                                {{ opt.title }}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </ng-container>
+                    <ng-container *ngIf="column.type == 'actions'" class="actions">
+                        <a *ngFor="let act of column.options" [routerLink]="getLinkAction(column, act, item)" class="{{ column.classes }}">
+                            <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
+                            {{ act.title }}
+                        </a>
+                    </ng-container>
 
-                <ng-container *ngIf="column.type == 'actions'">
-                    <a *ngFor="let act of column.options" [routerLink]="getLinkAction(column, act, item)" class="{{ column.classes }}">
-                        <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
-                        {{ act.title }}
-                    </a>
-                </ng-container>
+                </mat-cell>
 
-            </mat-cell>
+            </ng-container>
 
-        </ng-container>
-
-        <mat-header-row *matHeaderRowDef="getDisplayColumns(); sticky: true"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: getDisplayColumns();"></mat-row>
-    </table>
+            <mat-header-row *matHeaderRowDef="getDisplayColumns(); sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: getDisplayColumns();"></mat-row>
+        </table>
+    </div>
 
     <mat-paginator [length]="dataItems.total" [pageSize]="params.itemPerPage" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)"></mat-paginator>
-
 </div>

@@ -28,9 +28,9 @@ export class CodaTableComponent implements OnInit {
   loadItems() {
     // No comitear
     this.dataItems.data = [
-      { title: 'uno', },
-      { title: 'uno2' },
-      { title: 'uno3' },
+      { title: 'uno', name:' ñkljasd' },
+      { title: 'uno2', type: 'asdasd', string: 'asdzxczxc' },
+      { title: 'uno3', options: 'asd' },
       { title: 'uno4' },
       { title: 'uno5' },
       { title: 'uno6' },
