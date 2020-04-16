@@ -23,8 +23,20 @@ export class CodaTableComponent implements OnInit {
   ngOnInit(): void {
     this.loadItems();
   }
+  
 
   loadItems() {
+    // No comitear
+    this.dataItems.data = [
+      {title: 'uno'},
+      {title: 'uno2'},
+      {title: 'uno3'},
+      {title: 'uno4'},
+      {title: 'uno5'},
+      {title: 'uno6'},
+    ];
+  // No comitear
+
     this.isLoading = true;
     this.tableConfig.service.fetchList(this.params).toPromise().then(data => {
       this.isLoading = false;

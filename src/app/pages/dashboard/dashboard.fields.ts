@@ -10,7 +10,7 @@ export const dashboardFields: CodaFieldConfig[] = [
     type: 'string',
     key: 'lastname',
     title: 'Apellido'
-  },/*
+  },
       {
         type: 'row',
         key: 'row_1',
@@ -28,7 +28,7 @@ export const dashboardFields: CodaFieldConfig[] = [
           }
         ]
       },
-      {
+/*       {
         type: 'row',
         key: 'row_2',
         title: '',
@@ -69,5 +69,5 @@ export const dashboardFields: CodaFieldConfig[] = [
         caption: '',
         required: true,
         //serviceFile: this.fileService
-      },*/
+      }, */
 ];

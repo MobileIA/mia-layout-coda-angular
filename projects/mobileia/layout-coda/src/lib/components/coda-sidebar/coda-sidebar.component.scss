@@ -29,13 +29,17 @@
         button{
             color: white;
             padding: 0;
+
+            mat-icon { width: 44px; }
         }
 
         .active{
             background-color: $colorBackground;
             border-top-left-radius: 100px;
             border-bottom-left-radius: 100px;
-            color: $colorBlue;
+            color: $colorTitle;
+
+            mat-icon { color: $colorBlue; }
         }
     }
 

@@ -1,0 +1,9 @@
+@import "../../scss/coda.scss";
+
+.main-container{
+    coda-sidebar{
+        @include xs{
+            display: none;
+        }
+    }
+}

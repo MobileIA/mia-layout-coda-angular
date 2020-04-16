@@ -1,1 +1,45 @@
-<p>coda-toolbar works!</p>
+<div class="toolbar">
+
+    <div class="menu" matTooltip="Ocultar Menu">
+        <button mat-flat-button><mat-icon>menu_open</mat-icon></button>
+    </div>
+
+    <div class="search">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Click and type to search anywhere..." name="search_input" id="search_input" />
+    </div>
+
+    <div class="add-new">
+        <button mat-flat-button [matMenuTriggerFor]="addNew">
+            <mat-icon>add_circle_outline</mat-icon>
+            <span fxHide.xs>Add New</span>
+        </button>
+
+        <mat-menu #addNew="matMenu">
+            <button mat-menu-item style="padding: 0 24px;"> <mat-icon style="color: rgb(51, 151, 255);">add_circle_outline</mat-icon> Estimate</button>
+            <button mat-menu-item style="padding: 0 24px;"> <mat-icon style="color: rgb(140, 216, 103);">add_circle_outline</mat-icon> Job</button>
+            <button mat-menu-item style="padding: 0 24px;"> <mat-icon style="color: rgb(127, 63, 255);">list</mat-icon> Appointment</button>
+        </mat-menu>
+    </div>
+
+    <div class="notifications">
+        <button mat-flat-button [matMenuTriggerFor]="notifications" matTooltip="Tienes 4 notificaciones">
+            <mat-icon matBadge="4" matBadgePosition="above after" matBadgeColor="accent">notifications</mat-icon>
+        </button>
+
+        <mat-menu #notifications="matMenu">
+            add content
+        </mat-menu>
+    </div>
+
+    <div class="user-account">
+        <button mat-flat-button>
+            <div class="user-account-content">
+                <div class="user-image" matTooltip="Axel Camiletti">
+                    <img src="/assets/img/image-user-profile.png" onerror="this.src='/assets/img/image-user-profile-not-found.png';" />
+                </div>
+                <span fxHide.xs>Axel Camiletti</span>
+            </div>
+        </button>
+    </div>
+</div>

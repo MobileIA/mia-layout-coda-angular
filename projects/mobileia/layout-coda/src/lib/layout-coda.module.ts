@@ -5,18 +5,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { FlexLayoutModule } from '@angular/flex-layout';
 /* Material Design */
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatListModule} from '@angular/material/list';
-import {MatTreeModule} from '@angular/material/tree';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatTooltipModule } from '@angular/material/tooltip';
 /* Componente internos */
 import { LayoutCodaComponent } from './layout-coda.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -43,6 +47,7 @@ import { CustomFieldComponent } from './fields/custom-field/custom-field.compone
     FormsModule,
     HttpClientModule,
     GooglePlaceModule,
+    FlexLayoutModule,
 
     MatTableModule,
     MatPaginatorModule,
@@ -54,7 +59,10 @@ import { CustomFieldComponent } from './fields/custom-field/custom-field.compone
     MatButtonModule,
     MatDividerModule,
     MatListModule,
-    MatTreeModule
+    MatTreeModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatTooltipModule
   ],
   exports: [
     FormsModule,
