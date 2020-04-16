@@ -1,8 +1,8 @@
 <!-- Recorremos campos --->
-<ng-container *ngFor="let child of field.children">
-    <coda-string-field *ngIf="child.type == 'string'" [field]="child" [item]="item"></coda-string-field>
-    <coda-address-field *ngIf="child.type == 'address'" [field]="child" [item]="item" (selectedPlace)="onSelectedPlace($event)"></coda-address-field>
-    <coda-select-field *ngIf="child.type == 'select'" [field]="child" [item]="item"></coda-select-field>
-    <coda-file-field *ngIf="child.type == 'file'" [field]="child" [item]="item"></coda-file-field>
-    <coda-custom-field *ngIf="child.type == 'file'" [field]="child" [item]="item"></coda-custom-field>
+<ng-container *ngFor="let child of field.children" fxLayout="row">
+    <coda-string-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'string'" [field]="child" [item]="item"></coda-string-field>
+    <coda-address-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'address'" [field]="child" [item]="item" (selectedPlace)="onSelectedPlace($event)"></coda-address-field>
+    <coda-select-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'select'" [field]="child" [item]="item"></coda-select-field>
+    <coda-file-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'file'" [field]="child" [item]="item"></coda-file-field>
+    <coda-custom-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'file'" [field]="child" [item]="item"></coda-custom-field>
 </ng-container>

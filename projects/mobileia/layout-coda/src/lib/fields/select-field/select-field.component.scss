@@ -1,0 +1,30 @@
+@import "../../scss/coda.scss";
+
+.form-field-container{
+    display: flex;
+    align-items: center;
+
+    mat-form-field{
+        width: 100%;
+        padding-left: 32px;
+    
+        mat-label { color: $colorGray; }
+    
+        input {
+            font-weight: 600;
+            color: $colorTitle;
+        }
+
+        &::ng-deep .mat-form-field-prefix{
+            margin-left: -32px;
+            margin-right: 12px;
+            color: $colorGray;
+        }
+    }
+
+    &::ng-deep .mat-focused{
+        .mat-form-field-prefix{
+           mat-icon { color: $colorBlue; }
+        }
+    }
+}

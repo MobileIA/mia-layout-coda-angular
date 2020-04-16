@@ -1,19 +1,32 @@
 @import "../../scss/coda.scss";
 
-.input-container{
-    display: flex;
-
-    .icon{
-        display: inline-block;
-        width: 60px;
-        text-align: center;
-    }
-}
-
-mat-form-field{
+.form-field-container{
+    display: inline-block;
     width: 100%;
 
-    mat-label{
-        color: $colorGray;
+    mat-form-field{
+        width: calc(100% - 32px);
+        padding-left: 32px;
+    
+        mat-label { color: $colorGray; }
+    
+        input {
+            font-weight: 600;
+            color: $colorTitle;
+        }
+
+        &::ng-deep .mat-form-field-prefix{
+            margin-left: -32px;
+            margin-right: 12px;
+            color: $colorGray;
+            top: 4px;
+        }
+    }
+
+    &::ng-deep .mat-focused{
+        .mat-form-field-prefix{
+           mat-icon { color: $colorBlue; }
+        }
     }
 }
+
