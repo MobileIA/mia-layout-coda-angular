@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CodaFormConfig } from 'projects/mobileia/layout-coda/src/lib/entities/coda-form-config';
 import { GoogleStorageService } from 'src/app/services/google-storage.service';
+import { TestFieldComponent } from 'src/app/components/test-field/test-field.component';
 
 @Component({
   selector: 'app-product-add',
@@ -69,6 +70,12 @@ export class ProductAddComponent implements OnInit {
         required: true,
         serviceFile: this.fileService
       },
+      {
+        type: 'custom',
+        key: 'custom_data',
+        title: 'Custom',
+        component: TestFieldComponent
+      }
     ];
     this.formConfig.item = {
       title: 'Producto de prueba',

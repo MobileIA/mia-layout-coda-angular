@@ -12,4 +12,5 @@ export interface CodaFieldConfig {
     children?: CodaFieldConfig[];
     required?: boolean;
     serviceFile?: CodaFileService;
+    component?: any;
 }

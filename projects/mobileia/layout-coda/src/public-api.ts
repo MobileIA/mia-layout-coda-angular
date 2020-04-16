@@ -22,6 +22,11 @@ export * from './lib/services/coda-file.service';
 export * from './lib/services/coda-modal.service';
 
 /**
+ * Components
+ */
+export * from './lib/fields/base-field/base-field.component';
+
+/**
  * Pages
  */
 export * from './lib/pages/coda-main-layout/coda-main-layout.component';

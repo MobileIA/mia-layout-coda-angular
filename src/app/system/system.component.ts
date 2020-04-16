@@ -12,15 +12,6 @@ export class SystemComponent implements OnInit {
     protected configService: CodaConfigService
   ) { }
 
-  ngOnInit(): void {
-    this.configService.login.next({
-      title: 'Login Test',
-      logoUrl: '',
-      successRoute: '/dashboard',
-      verifyRole: false,
-      withRole: 0,
-      isInternal: true
-    });
-  }
+  ngOnInit(): void { }
 
 }

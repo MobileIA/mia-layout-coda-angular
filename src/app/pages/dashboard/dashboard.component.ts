@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CodaTableConfig, CodaModalService, CodaFormConfig } from 'projects/mobileia/layout-coda/src/public-api';
 import { TestService } from 'src/app/services/test.service';
 import { dashboardColumns } from './dashbord.columns';
 import { dashboardFields } from './dashboard.fields';
+import { CodaTableComponent } from 'projects/mobileia/layout-coda/src/lib/components/coda-table/coda-table.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +11,8 @@ import { dashboardFields } from './dashboard.fields';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
+  @ViewChild('tableHtml') tableHtml: CodaTableComponent;
 
   tableConfig = new CodaTableConfig();
   formConfig = new CodaFormConfig();
@@ -35,7 +38,9 @@ export class DashboardComponent implements OnInit {
   onClickAdd() {
     this.modalService.openForm({
       title: 'Nuevo cliente',
-      form: this.formConfig
+      form: this.formConfig,
+      textSaveButton: 'Save',
+      textCancelButton: 'Cancel'
     });
   }
 
@@ -51,6 +56,7 @@ export class DashboardComponent implements OnInit {
   }
 
   loadFormConfig() {
+    this.formConfig.service = this.testService;
     this.formConfig.fields = dashboardFields;
     this.formConfig.item = {
       name: '',
@@ -60,6 +66,9 @@ export class DashboardComponent implements OnInit {
     this.formConfig.onSelectPlace.subscribe(data => {
       this.formConfig.item.latitude = data.place.geometry.location.lat();
       this.formConfig.item.longitude = data.place.geometry.location.lng();
+    });
+    this.formConfig.onResponse.subscribe(data => {
+      this.tableHtml.loadItems();
     });
   }
 }

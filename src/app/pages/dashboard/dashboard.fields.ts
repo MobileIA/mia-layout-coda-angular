@@ -1,6 +1,16 @@
 import { CodaFieldConfig } from 'projects/mobileia/layout-coda/src/lib/entities/coda-field-config';
 
 export const dashboardFields: CodaFieldConfig[] = [
+  {
+    type: 'string',
+    key: 'firstname',
+    title: 'Nombre'
+  },
+  {
+    type: 'string',
+    key: 'lastname',
+    title: 'Apellido'
+  },/*
       {
         type: 'row',
         key: 'row_1',
@@ -59,5 +69,5 @@ export const dashboardFields: CodaFieldConfig[] = [
         caption: '',
         required: true,
         //serviceFile: this.fileService
-      },
+      },*/
 ];
