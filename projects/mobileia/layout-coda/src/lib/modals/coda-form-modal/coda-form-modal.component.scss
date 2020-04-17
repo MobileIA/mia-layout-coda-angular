@@ -2,7 +2,7 @@
 
 .close{
     position: absolute;
-    top: 24px;
+    top: 12px;
     right: 24px;
     border-radius: 100px;
     height: 40px;
@@ -18,24 +18,26 @@
 }
 
 h2{
-    background-color: $colorViolet;
+    /* background-color: $colorViolet; */
     color: white;
     font-family: $fontTitle;
-    padding: 12px 24px;
+    padding: 16px 24px;
+    margin: 0;
 }
 
 mat-dialog-actions{
     border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
     justify-content: flex-end;
-    padding: 16px 0;
+    padding: 16px 24px;
+    margin: 0 !important;
 
     button {
         background-color: $colorGray;
         color: white;
         padding: 6px 48px;
 
-        &:last-of-type{
+        /* &:last-of-type{
             background-color: $colorViolet;
-        }
+        } */
     }
 }

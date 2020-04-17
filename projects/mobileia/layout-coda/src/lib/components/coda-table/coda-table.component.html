@@ -13,8 +13,12 @@
                     <ng-template #defaultTh>
                         <button (click)="onClickOrder(column)">
                             {{ column.title }}
-                            <span *ngIf="column.is_order && column.order_type == 1">+</span>
-                            <span *ngIf="column.is_order && column.order_type == 2">-</span>
+                            <div class="sort-icon">
+                                <mat-icon [ngClass]="{'active': column.is_order && column.order_type == 1}">arrow_drop_up</mat-icon>
+                                <mat-icon [ngClass]="{'active': column.is_order && column.order_type == 2}">arrow_drop_down</mat-icon>
+                            </div>
+                            <!-- <mat-icon *ngIf="column.is_order && column.order_type == 1">arrow_drop_up</mat-icon>
+                            <mat-icon *ngIf="column.is_order && column.order_type == 2">arrow_drop_down</mat-icon> -->
                         </button>
                     </ng-template>
                     
@@ -33,9 +37,9 @@
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'photo'">
-                        <img *ngIf="item[column.field_key_photo] == '' || item[column.field_key_photo] == undefined" [src]="'https://i0.wp.com/avatar-management--avatars.us-west-2.prod.public.atl-paas.net/initials/MC-2.png?ssl=1'" style="width: 30px;" />
-                        <img *ngIf="item[column.field_key_photo] != '' && item[column.field_key_photo] != undefined" [src]="item[column.field_key_photo]" style="width: 30px;" />
-                        <p *ngIf="column.field_key" class="{{ column.classes }}">{{ item[column.field_key] }}</p>
+                        <!-- <img *ngIf="item[column.field_key_photo] == '' || item[column.field_key_photo] == undefined" [src]="'https://i0.wp.com/avatar-management--avatars.us-west-2.prod.public.atl-paas.net/initials/MC-2.png?ssl=1'" /> -->
+                        <img *ngIf="item[column.field_key_photo] == '' || item[column.field_key_photo] == undefined" [src]="item[column.field_key_photo]" onerror="this.src='/assets/img/image-user-profile-not-found.png';" />
+                        <a href="#" *ngIf="column.field_key" class="{{ column.classes }}"><p>{{ item[column.field_key] }}</p></a>
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'money'">
@@ -51,7 +55,7 @@
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'select'">
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <mat-label>{{ column.title }}</mat-label>
                             <mat-select [(ngModel)]="item[column.field_key]" (selectionChange)="onChangeSelectValue(column, item)">
                                 <mat-option *ngFor="let opt of column.options" [value]="opt.value">
@@ -61,8 +65,8 @@
                         </mat-form-field>
                     </ng-container>
 
-                    <ng-container *ngIf="column.type == 'actions'" class="actions">
-                        <a *ngFor="let act of column.options" [routerLink]="getLinkAction(column, act, item)" class="{{ column.classes }}">
+                    <ng-container *ngIf="column.type == 'actions'">
+                        <a *ngFor="let act of column.options" [routerLink]="getLinkAction(column, act, item)" class="{{ act.classes }}">
                             <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
                             {{ act.title }}
                         </a>

@@ -12,7 +12,8 @@ export const dashboardFields: CodaFieldConfig[] = [
         key: 'firstname',
         title: 'First Name',
         placeholder: 'Axel',
-        icon: 'person_outline'
+        icon: 'person_outline',
+        classes: 'asd'
       },
       {
         type: 'string',

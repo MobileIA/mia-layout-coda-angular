@@ -12,7 +12,7 @@ export const dashboardColumns: CodaColumnConfig[] = [
         field_key: 'firstname',
         field_key_photo: 'photo',
         type: 'photo',
-        title: 'Name',
+        title: 'Photo & Name',
         is_order: true
       },
       {
@@ -40,10 +40,11 @@ export const dashboardColumns: CodaColumnConfig[] = [
         key: 'status',
         field_key: 'status',
         type: 'select',
-        title: 'Estado',
+        title: 'Assign to',
         options: [
-          { value: 0, title: 'Pendiente'},
-          { value: 1, title: 'Activo'},
+          { title: 'Assign to'},
+          { value: 0, title: 'Cristian Fittipaldi'},
+          { value: 1, title: 'Jim Morrison'},
         ]
       },
       {
@@ -52,8 +53,8 @@ export const dashboardColumns: CodaColumnConfig[] = [
         title: 'Acciones',
         fields_url: ['id'],
         options: [
-          { url: '/product-edit/:id', title: 'Edit' },
-          { icon: 'home', url: '/product-archive/:id', title: 'Archive' },
+          { icon: 'create', url: '/product-edit/:id', title: 'Edit', classes: 'icon-edit' },
+          { icon: 'delete_outline', url: '/product-archive/:id', title: 'Archive', classes: 'icon-delete' },
         ]
       }
 ];

@@ -11,3 +11,60 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
 .mat-badge-accent .mat-badge-content{
     background: rgb(127, 63, 255);
 }
+
+.modal-new-appointment{
+    mat-dialog-container{
+        border-radius: 16px;
+        position: relative;
+        padding: 0 !important;
+        overflow: hidden !important;
+        
+        h2 { background-color: rgb(127, 63, 255); }
+
+        mat-dialog-content{
+            margin: 0;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+
+        mat-dialog-actions { button { &:last-of-type{ background-color: rgb(127, 63, 255); } } }
+    }
+}
+
+.modal-new-estimate{
+    mat-dialog-container{
+        border-radius: 16px;
+        position: relative;
+        padding: 0 !important;
+        overflow: hidden !important;
+        
+        h2 { background-color: rgb(51, 151, 255); }
+
+        mat-dialog-content{
+            margin: 0;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+
+        mat-dialog-actions { button { &:last-of-type{ background-color: rgb(51, 151, 255); } } }
+    }
+}
+
+.modal-new-job{
+    mat-dialog-container{
+        border-radius: 16px;
+        position: relative;
+        padding: 0 !important;
+        overflow: hidden !important;
+        
+        h2 { background-color: rgb(140, 216, 103); }
+
+        mat-dialog-content{
+            margin: 0;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+
+        mat-dialog-actions { button { &:last-of-type{ background-color: rgb(140, 216, 103); } } }
+    }
+}
