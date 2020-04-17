@@ -1,24 +1,20 @@
-<div class="sidebar">
+<div *ngIf="config" class="sidebar">
     <div class="logo">
         <a [routerLink]="['/dashboard']">
-            <h1>GetterIQ</h1>
+            <h1>{{ config.title }}</h1>
         </a>
     </div>
 
-    <p class="section-text">SECTIONS</p>
+    <ng-container *ngFor="let item of config.items">
 
-    <mat-action-list>
-        <button mat-list-item [routerLink]="['/dashboard']" routerLinkActive="active" > <mat-icon>menu</mat-icon> Dashboard </button>
-        <button mat-list-item [routerLink]="['/calendar']" routerLinkActive="active"> <mat-icon>event_available</mat-icon> Calendar </button>
-        <button mat-list-item [routerLink]="['/email']" routerLinkActive="active"> <mat-icon>email</mat-icon> Emails </button>
-        <button mat-list-item [routerLink]="['/leads']" routerLinkActive="active"> <mat-icon>equalizer</mat-icon> Leads </button>
-        <button mat-list-item [routerLink]="['/customers']" routerLinkActive="active"> <mat-icon>supervisor_account</mat-icon> Customers </button>
-        <button mat-list-item [routerLink]="['/jobs']" routerLinkActive="active"> <mat-icon></mat-icon> Jobs </button>
-        <button mat-list-item [routerLink]="['/task']" routerLinkActive="active"> <mat-icon>list</mat-icon> Appointments </button>
-        <button mat-list-item [routerLink]="['/campaign']" routerLinkActive="active"> <mat-icon></mat-icon> Campaign </button>
-    </mat-action-list>
+        <p *ngIf="item.type == 'header'" class="section-text">{{ item.title }}</p>
 
-    <hr>
+        <mat-action-list *ngIf="item.type == 'item'">
+            <button mat-list-item [routerLink]="[item.url]" [ngClass]="{'active': item.isActive}" (click)="clickItem(item)"> <mat-icon>{{ item.icon }}</mat-icon> {{ item.title}} </button>
+        </mat-action-list>
 
-    <p class="section-text">SETTINGS</p>
+        <hr *ngIf="item.type == 'divider'" />
+
+    </ng-container>
+
 </div>

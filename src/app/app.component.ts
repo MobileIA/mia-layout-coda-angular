@@ -25,5 +25,72 @@ export class AppComponent implements OnInit {
       isLoginWithGoogle: true,
       backgroundImage: '/assets/img/illustration-login.png'
     });
+
+    this.configService.sidebar.next({
+      title: 'GetterIQ',
+      backgroundColor: '',
+      items: [
+        {
+          type: 'header',
+          title: 'SECTIONS'
+        },
+        {
+          type: 'item',
+          title: 'Dashboard',
+          icon: 'menu',
+          url: '/dashboard'
+        },
+        {
+          type: 'item',
+          title: 'Calendar',
+          icon: 'event_available',
+          url: '/'
+        },
+        {
+          type: 'item',
+          title: 'Emails',
+          icon: 'email',
+          url: '/'
+        },
+        {
+          type: 'item',
+          title: 'Leads',
+          icon: 'equalizer',
+          url: '/'
+        },
+        {
+          type: 'item',
+          title: 'Customers',
+          icon: 'supervisor_account',
+          url: '/'
+        },
+        {
+          type: 'item',
+          title: 'Jobs',
+          icon: '',
+          url: '/'
+        },
+        {
+          type: 'item',
+          title: 'Apointments',
+          icon: 'list',
+          url: '/'
+        },
+        {
+          type: 'item',
+          title: 'Campaign',
+          icon: '',
+          url: '/'
+        },
+        {
+          type: 'divider',
+          title: ''
+        },
+        {
+          type: 'header',
+          title: 'SETTINGS'
+        },
+      ]
+    });
   }
 }
