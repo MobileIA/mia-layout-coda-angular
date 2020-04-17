@@ -1,1 +1,24 @@
-<p>coda-sidebar works!</p>
+<div class="sidebar">
+    <div class="logo">
+        <a [routerLink]="['/dashboard']">
+            <h1>GetterIQ</h1>
+        </a>
+    </div>
+
+    <p class="section-text">SECTIONS</p>
+
+    <mat-action-list>
+        <button mat-list-item [routerLink]="['/dashboard']" routerLinkActive="active" > <mat-icon>menu</mat-icon> Dashboard </button>
+        <button mat-list-item [routerLink]="['/calendar']" routerLinkActive="active"> <mat-icon>event_available</mat-icon> Calendar </button>
+        <button mat-list-item [routerLink]="['/email']" routerLinkActive="active"> <mat-icon>email</mat-icon> Emails </button>
+        <button mat-list-item [routerLink]="['/leads']" routerLinkActive="active"> <mat-icon>equalizer</mat-icon> Leads </button>
+        <button mat-list-item [routerLink]="['/customers']" routerLinkActive="active"> <mat-icon>supervisor_account</mat-icon> Customers </button>
+        <button mat-list-item [routerLink]="['/jobs']" routerLinkActive="active"> <mat-icon></mat-icon> Jobs </button>
+        <button mat-list-item [routerLink]="['/task']" routerLinkActive="active"> <mat-icon>list</mat-icon> Appointments </button>
+        <button mat-list-item [routerLink]="['/campaign']" routerLinkActive="active"> <mat-icon></mat-icon> Campaign </button>
+    </mat-action-list>
+
+    <hr>
+
+    <p class="section-text">SETTINGS</p>
+</div>

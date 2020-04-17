@@ -1,0 +1,17 @@
+@import "../../scss/coda.scss";
+
+.main-container{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+
+    coda-sidebar{
+        @include xs { display: none; }
+    }
+
+    .page-container{
+        width: calc(100% - 300px);
+
+        @include xs { width: 100%; }
+    }
+}

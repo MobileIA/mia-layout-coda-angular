@@ -4,6 +4,11 @@
     padding: 24px;
     background-color: $colorBackground;
 
+    @include xs{
+        width: calc(100% - 48px);
+        overflow: hidden;
+    }
+
     .header{
         background-color: rgba($color: $colorBlue, $alpha: 0.10);
         border-radius: 8px;
@@ -13,10 +18,14 @@
         justify-content: center;
         margin-bottom: 38px;
 
+        @include xs { display: block; }
+
         .texts{
             width: 400px;
             display: inline-block;
             margin: 0 24px;
+
+            @include xs { width: 100%; }
 
             h1{
                 font-family: $fontTitle;
@@ -29,12 +38,16 @@
             width: 400px;
             display: inline-block;
             margin: 0 24px;
+
+            @include xs { width: 100%; }
+
+            img { width: 100%; }
         }
     }
 
     .title-chart{
-        font-size: 20px;
-        color: $colorGray;
+        font-size: 18px;
+        color: $colorTitle;
         margin-bottom: 24px;
     }
 
@@ -69,8 +82,8 @@
             }
 
             .icon{
-                width: 70px;
-                height: 70px;
+                width: 60px;
+                height: 60px;
                 margin: auto;
                 background-repeat: no-repeat;
                 background-size: 100%;

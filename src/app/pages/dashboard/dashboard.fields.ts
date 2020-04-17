@@ -1,34 +1,54 @@
 import { CodaFieldConfig } from 'projects/mobileia/layout-coda/src/lib/entities/coda-field-config';
 
 export const dashboardFields: CodaFieldConfig[] = [
+
   {
-    type: 'string',
-    key: 'firstname',
-    title: 'Nombre'
+    type: 'row',
+    key: 'row_1',
+    title: '',
+    children: [
+      {
+        type: 'string',
+        key: 'firstname',
+        title: 'First Name',
+        placeholder: 'Axel',
+        icon: 'person_outline'
+      },
+      {
+        type: 'string',
+        key: 'lastname',
+        title: 'Last Name',
+        placeholder: 'Camiletti',
+      }
+    ]
+  },
+  {
+    type: 'row',
+    key: 'row_2',
+    title: '',
+    children: [
+      {
+        type: 'string',
+        key: 'number',
+        title: 'Phone Number',
+        icon: 'call'
+      },
+      {
+        type: 'string',
+        key: 'email',
+        title: 'Email Adress',
+        icon: 'mail'
+      }
+    ]
   },
   {
     type: 'string',
-    key: 'lastname',
-    title: 'Apellido'
-  },/*
-      {
-        type: 'row',
-        key: 'row_1',
-        title: '',
-        children: [
-          {
-            type: 'string',
-            key: 'title',
-            title: 'Titulo'
-          },
-          {
-            type: 'string',
-            key: ['category', 'name'],
-            title: 'Categoria'
-          }
-        ]
-      },
-      {
+    key: 'addressOrigin',
+    title: 'Appointment Date and Time',
+    icon: 'airport_shuttle',
+    placeholder: 'Location 1543, New York, CTHG34',
+  },
+/*       {
         type: 'row',
         key: 'row_2',
         title: '',
@@ -69,5 +89,5 @@ export const dashboardFields: CodaFieldConfig[] = [
         caption: '',
         required: true,
         //serviceFile: this.fileService
-      },*/
+      }, */
 ];

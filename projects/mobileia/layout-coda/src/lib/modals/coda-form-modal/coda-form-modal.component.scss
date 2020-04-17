@@ -1,0 +1,41 @@
+@import "../../scss/coda.scss";
+
+.close{
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border-radius: 100px;
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+    color: white;
+    background-color: transparent;
+    opacity: 0.75;
+    transition: $animation;
+    &:hover { opacity: 1; }
+}
+
+h2{
+    background-color: $colorViolet;
+    color: white;
+    font-family: $fontTitle;
+    padding: 12px 24px;
+}
+
+mat-dialog-actions{
+    border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+    justify-content: flex-end;
+    padding: 16px 0;
+
+    button {
+        background-color: $colorGray;
+        color: white;
+        padding: 6px 48px;
+
+        &:last-of-type{
+            background-color: $colorViolet;
+        }
+    }
+}
