@@ -7,6 +7,7 @@ export class CodaTableConfig {
     columns: CodaColumnConfig[];
     service: CodaTableService<any>;
     params = new MIATableModel();
+    isShowPaginator = true;
     
     onChangeField = new Subject<{ column: CodaColumnConfig, item: any}>();
     onAfterLoad = (items) => {
