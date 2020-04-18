@@ -113,5 +113,12 @@
         </table>
     </div>
 
-    <mat-paginator *ngIf="tableConfig.isShowPaginator" [length]="dataItems.total" [pageSize]="tableConfig.params.itemPerPage" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)"></mat-paginator>
+    <div class="">
+
+        <a *ngFor="let action of tableConfig.extrasActions" [routerLink]="action.url">{{ action.title }}</a>
+
+        <mat-paginator *ngIf="tableConfig.isShowPaginator" [length]="dataItems.total" [pageSize]="tableConfig.params.itemPerPage" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)"></mat-paginator>
+    </div>
+
+    
 </div>

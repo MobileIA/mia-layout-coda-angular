@@ -48,6 +48,9 @@ export class DashboardComponent implements OnInit {
     this.tableConfig.service = this.testService;
     this.tableConfig.columns = dashboardColumns;
     //this.tableConfig.isShowPaginator = false;
+    this.tableConfig.extrasActions = [
+      { url: '/product-edit/:id', title: 'Go to Jobs' },
+    ];
     this.tableConfig.onAfterLoad = (items) => {
       items.forEach(element => {
         element.fullname = element.firstname + ' ' + element.lastname;
