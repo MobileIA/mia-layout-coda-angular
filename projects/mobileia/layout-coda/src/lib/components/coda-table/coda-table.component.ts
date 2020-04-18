@@ -13,7 +13,6 @@ export class CodaTableComponent implements OnInit {
 
   @Input() tableConfig: CodaTableConfig;
   dataItems = new ApiPagination<any>();
-  params = new MIATableModel();
 
   isLoading = true;
 
@@ -43,7 +42,7 @@ export class CodaTableComponent implements OnInit {
   // No comitear
 
     this.isLoading = true;
-    this.tableConfig.service.fetchList(this.params).toPromise().then(data => {
+    this.tableConfig.service.fetchList(this.tableConfig.params).toPromise().then(data => {
       this.isLoading = false;
       if (!data.success) {
         return;
@@ -68,20 +67,20 @@ export class CodaTableComponent implements OnInit {
 
     if (column.order_type == undefined) {
       column.order_type = 1; // Asc
-      this.params.ordType = { title: column.field_key, asc: 0 };
+      this.tableConfig.params.ordType = { title: column.field_key, asc: 0 };
     } else if (column.order_type == 1) {
       column.order_type = 2; // DESC
-      this.params.ordType = { title: column.field_key, asc: 1 };
+      this.tableConfig.params.ordType = { title: column.field_key, asc: 1 };
     } else if (column.order_type == 2) {
       column.order_type = undefined;
-      this.params.ordType = { title: '', asc: 0 };
+      this.tableConfig.params.ordType = { title: '', asc: 0 };
     }
     this.loadItems();
   }
 
   onPageChange(event: PageEvent) {
-    this.params.itemPerPage = event.pageSize;
-    this.params.pageCurrent = event.pageIndex + 1;
+    this.tableConfig.params.itemPerPage = event.pageSize;
+    this.tableConfig.params.pageCurrent = event.pageIndex + 1;
     this.loadItems();
   }
 

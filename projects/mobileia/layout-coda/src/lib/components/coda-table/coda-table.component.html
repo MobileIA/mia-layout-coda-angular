@@ -88,5 +88,5 @@
         </table>
     </div>
 
-    <mat-paginator [length]="dataItems.total" [pageSize]="params.itemPerPage" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)"></mat-paginator>
+    <mat-paginator [length]="dataItems.total" [pageSize]="tableConfig.params.itemPerPage" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)"></mat-paginator>
 </div>
