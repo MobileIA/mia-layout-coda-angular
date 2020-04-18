@@ -32,8 +32,10 @@
 
             mat-icon { width: 44px; }
         }
+    }
 
-        .active{
+    .active{
+        &::ng-deep .mat-list-item-content{
             background-color: $colorBackground;
             border-top-left-radius: 100px;
             border-bottom-left-radius: 100px;
@@ -41,6 +43,21 @@
 
             mat-icon { color: $colorBlue; }
         }
+    }
+
+    mat-expansion-panel{
+        box-shadow: none;
+        background-color: transparent;
+        padding-left: 26px;
+        padding-right: 0px;
+        font-weight: 600;
+
+        mat-expansion-panel-header{
+            mat-panel-title { color: white; font-weight: 600; font-size: 16px; }
+            mat-icon { width: 44px; }
+        }
+
+        &::ng-deep .mat-expansion-panel-body { padding-right: 0; }
     }
 
     hr{

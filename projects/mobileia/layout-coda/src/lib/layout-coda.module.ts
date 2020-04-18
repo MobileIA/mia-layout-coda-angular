@@ -20,6 +20,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 /* Componente internos */
 import { LayoutCodaComponent } from './layout-coda.component';
@@ -62,6 +63,7 @@ import { CustomFieldComponent } from './fields/custom-field/custom-field.compone
     MatTreeModule,
     MatMenuModule,
     MatBadgeModule,
+    MatExpansionModule,
     MatTooltipModule
   ],
   exports: [
