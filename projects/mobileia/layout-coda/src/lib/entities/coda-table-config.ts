@@ -6,7 +6,7 @@ import { MIATableModel } from '@mobileia/core';
 export class CodaTableConfig {
     columns: CodaColumnConfig[];
     service: CodaTableService<any>;
-    params: MIATableModel;
+    params = new MIATableModel();
     
     onChangeField = new Subject<{ column: CodaColumnConfig, item: any}>();
     onAfterLoad = (items) => {

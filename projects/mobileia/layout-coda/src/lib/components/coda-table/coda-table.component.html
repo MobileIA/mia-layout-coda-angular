@@ -79,6 +79,31 @@
                         
                     </ng-container>
 
+                    <ng-container *ngIf="column.type == 'actions-list'">
+                        <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="Actions" (click)="$event.stopPropagation();">
+                            <mat-icon class="secondary-text">more_vert</mat-icon>
+                        </button>
+
+                        <mat-menu #moreMenu="matMenu">
+
+                            <ng-container *ngFor="let act of column.options">
+
+                                <button *ngIf="act.type != 'delete'" [routerLink]="getLinkAction(column, act, item)" class="{{ column.classes }}" mat-menu-item>
+                                    <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
+                                    {{ act.title }}
+                                </button>
+    
+                                <button *ngIf="act.type == 'delete'" class="{{ column.classes }}" mat-menu-item [swal]="{ title: 'Eliminar ', text: '¿Se encuentra seguro de eliminar?', type: 'warning', focusCancel: true, showCancelButton: true, confirmButtonText: 'Eliminar', cancelButtonText: 'Cancelar' }" icon="question"
+                                (confirm)="onRemoveItem(item)">
+                                    <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
+                                    {{ act.title }}
+                                </button>
+    
+                            </ng-container>
+                            
+                        </mat-menu>
+                    </ng-container>
+
                 </mat-cell>
 
             </ng-container>
