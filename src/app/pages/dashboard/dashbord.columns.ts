@@ -54,6 +54,7 @@ export const dashboardColumns: CodaColumnConfig[] = [
         options: [
           { url: '/product-edit/:id', title: 'Edit' },
           { icon: 'home', url: '/product-archive/:id', title: 'Archive' },
+          { icon: 'remove', type: 'delete', title: 'Delete' },
         ]
       }
 ];

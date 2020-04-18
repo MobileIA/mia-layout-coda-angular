@@ -24,6 +24,11 @@ export class CodaTableComponent implements OnInit {
     this.loadItems();
   }
   
+  onRemoveItem(item) {
+    this.tableConfig.service.remove(item.id).toPromise().then(data => {
+      this.loadItems();
+    });
+  }
 
   loadItems() {
     // No comitear

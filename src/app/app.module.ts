@@ -16,6 +16,7 @@ import { AuthenticationModule } from '@mobileia/authentication';
 import { MatTableModule } from '@angular/material/table';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { TestFieldComponent } from './components/test-field/test-field.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TestFieldComponent } from './components/test-field/test-field.component
     FlexLayoutModule,
     AuthenticationModule.forRoot({apiKey: '', isInternal: true, baseUrlInternal: ''}),
     LayoutCodaModule,
-    MatTableModule
+    MatTableModule,
+    SweetAlert2Module.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent]
