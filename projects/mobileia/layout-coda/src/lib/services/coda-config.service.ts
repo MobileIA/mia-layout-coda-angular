@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { CodaLoginConfig } from '../entities/coda-login-config';
 import { CodaSidebarConfig } from '../entities/coda-sidebar-config';
 import * as _ from 'lodash';
+import { CodaToolbarConfig } from '../entities/coda-toolbar-config';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,12 @@ export class CodaConfigService {
 
   login: BehaviorSubject<CodaLoginConfig>;
   sidebar: BehaviorSubject<CodaSidebarConfig>;
+  toolbar: BehaviorSubject<CodaToolbarConfig>;
 
   constructor() {
     this.login = new BehaviorSubject<CodaLoginConfig>({} as CodaLoginConfig);
     this.sidebar = new BehaviorSubject<CodaSidebarConfig>({} as CodaSidebarConfig);
+    this.toolbar = new BehaviorSubject<CodaToolbarConfig>({} as CodaToolbarConfig);
   }
 
   setLoginVariables(value) {
@@ -27,5 +30,11 @@ export class CodaConfigService {
     let config = this.sidebar.getValue();
     config = _.merge({}, config, value);
     this.sidebar.next(config);
+  }
+
+  setToolbarVariables(value) {
+    let config = this.toolbar.getValue();
+    config = _.merge({}, config, value);
+    this.toolbar.next(config);
   }
 }

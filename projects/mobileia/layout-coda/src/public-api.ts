@@ -12,6 +12,7 @@ export * from './lib/entities/coda-column-config';
 export * from './lib/entities/coda-form-config';
 export * from './lib/entities/coda-field-config';
 export * from './lib/entities/coda-modal-config';
+export * from './lib/entities/coda-toolbar-config';
 
 /**
  * Services

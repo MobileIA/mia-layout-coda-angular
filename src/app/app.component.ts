@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CodaConfigService } from 'projects/mobileia/layout-coda/src/lib/services/coda-config.service';
+import { CodaToolbarConfig } from 'projects/mobileia/layout-coda/src/lib/entities/coda-toolbar-config';
 
 @Component({
   selector: 'app-root',
@@ -92,5 +93,18 @@ export class AppComponent implements OnInit {
         },
       ]
     });
+
+    let toolbar = new CodaToolbarConfig();
+    toolbar.extraMenus = [
+      { icon: 'add_circle_outline', title: 'Add New2', items: [
+        { id: 1, icon: 'add_circle_outline', title: 'Estimate 2', color: 'rgb(51, 151, 255)' },
+        { id: 2, icon: 'add_circle_outline', title: 'Job 2', color: 'rgb(140, 216, 103)' },
+        { id: 3, icon: 'list', title: 'Appointment 2', color: 'rgb(127, 63, 255)' },
+      ] }
+    ];
+    toolbar.onExtraItemClick.subscribe(item => {
+      console.log(item);
+    });
+    this.configService.toolbar.next(toolbar);
   }
 }
