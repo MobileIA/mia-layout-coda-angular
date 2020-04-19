@@ -9,20 +9,18 @@
         <input type="text" placeholder="Click and type to search anywhere..." name="search_input" id="search_input" />
     </div>
 
-    <div class="add-new">
+    <div *ngFor="let emenu of config.extraMenus" class="add-new">
         <button mat-flat-button [matMenuTriggerFor]="addNew">
-            <mat-icon>add_circle_outline</mat-icon>
-            <span fxHide.xs>Add New</span>
+            <mat-icon *ngIf="emenu.icon">{{ emenu.icon }}</mat-icon>
+            <span fxHide.xs>{{ emenu.title }}</span>
         </button>
 
         <mat-menu #addNew="matMenu">
-            <button mat-menu-item style="padding: 0 24px;"> <mat-icon style="color: rgb(51, 151, 255);">add_circle_outline</mat-icon> Estimate</button>
-            <button mat-menu-item style="padding: 0 24px;"> <mat-icon style="color: rgb(140, 216, 103);">add_circle_outline</mat-icon> Job</button>
-            <button mat-menu-item style="padding: 0 24px;"> <mat-icon style="color: rgb(127, 63, 255);">list</mat-icon> Appointment</button>
+            <button *ngFor="let ei of emenu.items" mat-menu-item style="padding: 0 24px;" (click)="onClickItemExtraMenu(ei)"> <mat-icon *ngIf="ei.icon" [ngStyle]="{'color': (ei.color != undefined ? ei.color : '' )}" >{{ ei.icon }}</mat-icon> {{ ei.title }}</button>
         </mat-menu>
     </div>
 
-    <div class="notifications">
+    <div *ngIf="config.isShowNotifications" class="notifications">
         <button mat-flat-button [matMenuTriggerFor]="notifications" matTooltip="Tienes 4 notificaciones">
             <mat-icon matBadge="4" matBadgePosition="above after" matBadgeColor="accent">notifications</mat-icon>
         </button>

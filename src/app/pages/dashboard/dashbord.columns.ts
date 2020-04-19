@@ -48,13 +48,24 @@ export const dashboardColumns: CodaColumnConfig[] = [
         ]
       },
       {
-        key: 'actions',
+        key: 'actions2',
         type: 'actions',
         title: 'Acciones',
         fields_url: ['id'],
         options: [
           { icon: 'create', url: '/product-edit/:id', title: 'Edit', classes: 'icon-edit' },
           { icon: 'delete_outline', url: '/product-archive/:id', title: 'Archive', classes: 'icon-delete' },
+        ]
+      },
+      {
+        key: 'actions',
+        type: 'actions-list',
+        title: 'Acciones',
+        fields_url: ['id'],
+        options: [
+          { url: '/product-edit/:id', title: 'Edit' },
+          { icon: 'home', url: '/product-archive/:id', title: 'Archive' },
+          { icon: 'remove', type: 'delete', title: 'Delete' },
         ]
       }
 ];

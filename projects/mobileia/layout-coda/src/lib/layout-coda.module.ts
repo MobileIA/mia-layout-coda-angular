@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 /* Material Design */
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -49,6 +50,7 @@ import { CustomFieldComponent } from './fields/custom-field/custom-field.compone
     HttpClientModule,
     GooglePlaceModule,
     FlexLayoutModule,
+    SweetAlert2Module,
 
     MatTableModule,
     MatPaginatorModule,
