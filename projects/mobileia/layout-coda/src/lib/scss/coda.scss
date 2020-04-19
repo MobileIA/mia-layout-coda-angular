@@ -6,6 +6,7 @@
 $colorBlue: rgb(51, 151, 255);
 $colorGreen: rgb(140, 216, 103);
 $colorViolet: rgb(127, 63, 255);
+$colorRed: rgb(216, 23, 77);
 $colorGray: #bcbbc9;
 $colorTitle: #414042;
 $colorBackground: #f5f7f9;
@@ -81,6 +82,10 @@ div{
     font-family: $fontText;
 }
 
+mat-expansion-panel-header{
+    font-family: $fontText;
+}
+
 .mat-form-field-label{
     font-family: $fontText;
 }
@@ -92,3 +97,4 @@ mat-form-field{
 .mat-body{
     font-family: $fontText;
 }
+

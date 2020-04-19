@@ -9,12 +9,31 @@
 
         <p *ngIf="item.type == 'header'" class="section-text">{{ item.title }}</p>
 
-        <mat-action-list *ngIf="item.type == 'item'">
-            <button mat-list-item [routerLink]="[item.url]" [ngClass]="{'active': item.isActive}" (click)="clickItem(item)"> <mat-icon>{{ item.icon }}</mat-icon> {{ item.title}} </button>
+        <mat-action-list *ngIf="item.type == 'item'" [ngClass]="{'active': item.isActive}">
+            <button mat-list-item [routerLink]="[item.url]" (click)="clickItem(item)"> <mat-icon>{{ item.icon }}</mat-icon> {{ item.title}} </button>
         </mat-action-list>
 
         <hr *ngIf="item.type == 'divider'" />
 
     </ng-container>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-icon>settings</mat-icon> Settings
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-action-list><button mat-list-item> Account info </button></mat-action-list>
+        <mat-action-list class="active"><button mat-list-item> Company Profile </button></mat-action-list>
+        <mat-action-list><button mat-list-item> Offers </button></mat-action-list>
+        <mat-action-list><button mat-list-item> Materials </button></mat-action-list>
+        <mat-action-list><button mat-list-item> Job Types </button></mat-action-list>
+        <mat-action-list><button mat-list-item> Job Statuses </button></mat-action-list>
+        <mat-action-list><button mat-list-item> Lead Sources </button></mat-action-list>
+        <mat-action-list><button mat-list-item> Email templates </button></mat-action-list>
+        <mat-action-list><button mat-list-item> User Managements </button></mat-action-list>
+        <mat-action-list><button mat-list-item> Units (vehicles) </button></mat-action-list>
+    </mat-expansion-panel>
 
 </div>
