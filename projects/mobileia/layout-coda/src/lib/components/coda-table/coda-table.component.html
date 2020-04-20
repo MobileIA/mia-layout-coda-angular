@@ -38,8 +38,9 @@
 
                     <ng-container *ngIf="column.type == 'photo'">
                         <!-- <img *ngIf="item[column.field_key_photo] == '' || item[column.field_key_photo] == undefined" [src]="'https://i0.wp.com/avatar-management--avatars.us-west-2.prod.public.atl-paas.net/initials/MC-2.png?ssl=1'" /> -->
-                        <img *ngIf="item[column.field_key_photo] == '' || item[column.field_key_photo] == undefined" [src]="item[column.field_key_photo]" onerror="this.src='/assets/img/image-user-profile-not-found.png';" />
-                        <a href="#" *ngIf="column.field_key" class="{{ column.classes }}"><p>{{ item[column.field_key] }}</p></a>
+                        <img [src]="item[column.field_key_photo]" onerror="this.src='/assets/img/image-user-profile-not-found.png';" />
+                        <a *ngIf="column.url == undefined && column.field_key" class="{{ column.classes }}"><p>{{ item[column.field_key] }}</p></a>
+                        <a *ngIf="column.url != undefined && column.field_key" [routerLink]="getLinkUrl(column, item)" class="{{ column.classes }}"><p>{{ item[column.field_key] }}</p></a>
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'money'">
