@@ -49,6 +49,14 @@ export const dashboardFields: CodaFieldConfig[] = [
     icon: 'airport_shuttle',
     placeholder: 'Location 1543, New York, CTHG34',
   },
+  {
+    type: 'text',
+    key: 'Notes',
+    title: 'Note',
+    placeholder: 'as das dajdjaksdas da',
+    icon: 'person_outline',
+    classes: 'asd'
+  },
 /*       {
         type: 'row',
         key: 'row_2',

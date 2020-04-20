@@ -1,0 +1,7 @@
+<div class="form-field-container {{ field.classes }}">
+    <mat-form-field>
+        <mat-label>{{ field.title }}</mat-label>
+        <textarea matInput placeholder="{{ field.placeholder }}" [(ngModel)]="internalValue" (change)="onChangeValue()"></textarea>
+        <mat-icon matPrefix> {{ field.icon }}</mat-icon>
+    </mat-form-field>
+</div>
