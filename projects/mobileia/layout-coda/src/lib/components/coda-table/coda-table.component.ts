@@ -30,14 +30,6 @@ export class CodaTableComponent implements OnInit {
   }
 
   loadItems() {
-    // No comitear
-    this.dataItems.data = [
-      { title: 'uno', firstname:'Axel Camiletti',  },
-      { title: 'uno2', type: 'asdasd', string: 'asdzxczxc' },
-      { title: 'uno3', options: 'asd', firstname: 'zxczxxzc' },
-    ];
-  // No comitear
-
     this.isLoading = true;
     this.tableConfig.service.fetchList(this.tableConfig.params).toPromise().then(data => {
       this.isLoading = false;
