@@ -36,6 +36,19 @@
                         <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
                     </ng-container>
 
+                    <ng-container *ngIf="column.type == 'date'">
+                        <p class="{{ column.classes }}">03 - 20 - 2020</p>
+                        <p class="{{ column.classes }}"><small>12:00 am</small></p>
+                    </ng-container>
+
+                    <ng-container *ngIf="column.type == 'status'">
+                        <div class="state new">
+                            <div class="circle"></div>
+                            <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
+                        </div>
+                        
+                    </ng-container>
+
                     <ng-container *ngIf="column.type == 'photo'">
                         <!-- <img *ngIf="item[column.field_key_photo] == '' || item[column.field_key_photo] == undefined" [src]="'https://i0.wp.com/avatar-management--avatars.us-west-2.prod.public.atl-paas.net/initials/MC-2.png?ssl=1'" /> -->
                         <img [src]="item[column.field_key_photo]" onerror="this.src='/assets/img/image-user-profile-not-found.png';" />
@@ -119,7 +132,7 @@
         </table>
     </div>
 
-    <div class="">
+    <div class="footer-pagination">
 
         <a *ngFor="let action of tableConfig.extrasActions" [routerLink]="action.url">{{ action.title }}</a>
 
