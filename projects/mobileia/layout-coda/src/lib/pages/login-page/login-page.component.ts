@@ -46,6 +46,20 @@ export class LoginPageComponent implements OnInit {
     }
   }
 
+  onClickRecovery() {
+    // Limpiar mensaje de error
+    this.messageError = '';
+    // Verificar si ingreso el email
+    if (this.emailInput == '') {
+      this.messageError = 'Debe ingresar el email';
+      return;
+    }
+
+    this.authService.recoveryPassInternal(this.emailInput).toPromise().then(data => {
+      alert('Se ha enviado un email con los pasos a seguir.');
+    });
+  }
+
   requestInternal() {
     this.authService.signInWithEmailAndPasswordInternal(this.emailInput, this.passInput).toPromise().then(data => {
       if (data.success) {

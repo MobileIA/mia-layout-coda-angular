@@ -24,7 +24,7 @@
     "@angular/platform-browser": "~9.0.0",
     "@angular/platform-browser-dynamic": "~9.0.0",
     "@angular/router": "~9.0.0",
-    "@mobileia/authentication": "^9.0.3",
+    "@mobileia/authentication": "^9.0.6",
     "@mobileia/core": "^9.0.1",
     "@ngx-pwa/local-storage": "^9.0.3",
     "@sweetalert2/ngx-sweetalert2": "^8.1.0",

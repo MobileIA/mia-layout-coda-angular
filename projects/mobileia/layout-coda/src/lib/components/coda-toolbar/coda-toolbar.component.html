@@ -30,13 +30,13 @@
         </mat-menu>
     </div>
 
-    <div class="user-account">
+    <div *ngIf="currentUser" class="user-account">
         <button mat-flat-button>
             <div class="user-account-content">
                 <div class="user-image" matTooltip="Axel Camiletti">
-                    <img src="/assets/img/image-user-profile.png" onerror="this.src='/assets/img/image-user-profile-not-found.png';" />
+                    <img [src]="currentUser.photo" onerror="this.src='/assets/img/image-user-profile-not-found.png';" />
                 </div>
-                <span fxHide.xs>Axel Camiletti</span>
+                <span fxHide.xs>{{ currentUser.firstname }} {{ currentUser.lastname }}</span>
             </div>
         </button>
     </div>
