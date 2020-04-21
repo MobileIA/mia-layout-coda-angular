@@ -40,10 +40,11 @@ import { CodaFormModalComponent } from './modals/coda-form-modal/coda-form-modal
 import { AddressFieldComponent } from './fields/address-field/address-field.component';
 import { CustomFieldComponent } from './fields/custom-field/custom-field.component';
 import { TextFieldComponent } from './fields/text-field/text-field.component';
+import { RecoveryPageComponent } from './pages/recovery-page/recovery-page.component';
 
 
 @NgModule({
-  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent, TextFieldComponent],
+  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent, TextFieldComponent, RecoveryPageComponent],
   imports: [
     CommonModule,
     RouterModule,

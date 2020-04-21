@@ -40,7 +40,8 @@ export class DashboardComponent implements OnInit {
       title: 'Nuevo cliente',
       form: this.formConfig,
       textSaveButton: 'Save',
-      textCancelButton: 'Cancel'
+      textCancelButton: 'Cancel',
+      classModal: 'modal-new-appointment'
     });
   }
 

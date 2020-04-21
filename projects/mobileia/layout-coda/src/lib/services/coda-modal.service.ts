@@ -16,9 +16,7 @@ export class CodaModalService {
     this.dialog.open(CodaFormModalComponent, {
       data: config,
       width: '700px',
-      panelClass: 'modal-new-appointment',
-      //panelClass: 'modal-new-job',
-      //panelClass: 'modal-new-estimate',
+      panelClass: config.classModal,
     });
   }
 }

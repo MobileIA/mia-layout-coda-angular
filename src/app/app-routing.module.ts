@@ -4,6 +4,7 @@ import { LoginPageComponent } from 'projects/mobileia/layout-coda/src/lib/pages/
 import { CodaMainLayoutComponent } from 'projects/mobileia/layout-coda/src/lib/pages/coda-main-layout/coda-main-layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
+import { RecoveryPageComponent } from 'projects/mobileia/layout-coda/src/lib/pages/recovery-page/recovery-page.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,13 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginPageComponent,
+    data: {
+      config: {}
+    }
+  },
+  {
+    path: 'recovery',
+    component: RecoveryPageComponent,
     data: {
       config: {}
     }
