@@ -74,7 +74,32 @@
                 }
             }
 
+            .mat-column-date{
+                p { margin: 0; }
+            }
+
             .mat-column-status{
+                min-width: 200px;
+
+                .state{
+                    display: flex;
+                    align-items: center;
+
+                    .circle{
+                        width: 14px;
+                        height: 14px;
+                        border-radius: 14px;
+                        margin-right: 4px;
+                    }
+
+                    .new { .circle { background-color: $colorGreen; } }
+                    .in-progress { .circle { background-color: $colorYellow; } }
+                    .converted { .circle { background-color: $colorViolet; } }
+                    .closed { p { color: $colorGray; } .circle { background-color: $colorgray; } }
+                }
+            }
+
+            .mat-column-select{
                 min-width: 160px;
                 mat-form-field{
                     width: 90%;
