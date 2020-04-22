@@ -95,7 +95,7 @@
                     .new { .circle { background-color: $colorGreen; } }
                     .in-progress { .circle { background-color: $colorYellow; } }
                     .converted { .circle { background-color: $colorViolet; } }
-                    .closed { p { color: $colorGray; } .circle { background-color: $colorgray; } }
+                    .closed { p { color: $colorGray; } .circle { background-color: $colorGray; } }
                 }
             }
 

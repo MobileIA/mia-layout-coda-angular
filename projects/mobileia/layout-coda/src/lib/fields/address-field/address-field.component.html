@@ -1,4 +1,8 @@
-<mat-form-field class="example-full-width">
-    <mat-label>{{ field.title }}</mat-label>
-    <input matInput ngx-google-places-autocomplete (onAddressChange)="onChangeAddress($event)" />
-</mat-form-field>
+<div class="form-field-container {{ field.classes }}">
+    <mat-icon class="icon-section"> {{ field.icon }}</mat-icon>
+    <mat-form-field>
+        <mat-label>{{ field.title }}</mat-label>
+        <input matInput ngx-google-places-autocomplete (onAddressChange)="onChangeAddress($event)" />
+        <mat-icon matSuffix>check</mat-icon>
+    </mat-form-field>
+</div>

@@ -50,6 +50,11 @@ export const dashboardFields: CodaFieldConfig[] = [
     placeholder: 'Location 1543, New York, CTHG34',
   },
   {
+    type: 'address',
+    key: 'address',
+    title: 'Dirección'
+  },
+  {
     type: 'text',
     key: 'Notes',
     title: 'Note',

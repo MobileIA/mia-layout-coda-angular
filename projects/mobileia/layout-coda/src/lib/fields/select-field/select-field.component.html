@@ -1,4 +1,5 @@
 <div class="form-field-container">
+    <mat-icon class="icon-section"> {{ field.icon }}</mat-icon>
     <mat-form-field>
         <mat-label>{{ field.title }}</mat-label>
         <mat-select [(ngModel)]="internalValue" (selectionChange)="onChangeValue()">
@@ -6,6 +7,5 @@
                 {{ opt.title }}
             </mat-option>
         </mat-select>
-        <mat-icon matPrefix> {{ field.icon }}</mat-icon>
     </mat-form-field>
 </div>
