@@ -10,6 +10,7 @@ export class CodaTableConfig {
     isShowPaginator = true;
     extrasActions = [];
     
+    onClickRow = new Subject<any>();
     onChangeField = new Subject<{ column: CodaColumnConfig, item: any}>();
     onAfterLoad = (items) => {
         return items;

@@ -52,6 +52,9 @@ export class DashboardComponent implements OnInit {
     this.tableConfig.extrasActions = [
       { url: '/product-edit/:id', title: 'Go to Jobs' },
     ];
+    this.tableConfig.onClickRow.subscribe(item => {
+      console.log(item);
+    });
     this.tableConfig.onAfterLoad = (items) => {
       items.forEach(element => {
         element.fullname = element.firstname + ' ' + element.lastname;

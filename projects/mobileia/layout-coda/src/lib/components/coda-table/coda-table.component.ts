@@ -22,6 +22,10 @@ export class CodaTableComponent implements OnInit {
   ngOnInit(): void {
     this.loadItems();
   }
+
+  onClickItem(item) {
+    this.tableConfig.onClickRow.next(item);
+  }
   
   onRemoveItem(item) {
     this.tableConfig.service.remove(item.id).toPromise().then(data => {

@@ -128,7 +128,7 @@
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="getDisplayColumns(); sticky: true"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: getDisplayColumns();"></mat-row>
+            <mat-row *matRowDef="let row; columns: getDisplayColumns();" (click)="onClickItem(row)"></mat-row>
         </table>
     </div>
 
