@@ -1,4 +1,4 @@
-<div *ngIf="tableConfig" class="coda-table">
+<div *ngIf="tableConfig" class="coda-table {{ tableConfig.clasess }}">
 
     <div class="scroll-x">
         <table mat-table [dataSource]="dataItems.data">
