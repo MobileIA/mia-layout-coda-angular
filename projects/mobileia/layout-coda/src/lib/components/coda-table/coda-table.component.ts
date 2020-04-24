@@ -49,6 +49,21 @@ export class CodaTableComponent implements OnInit {
     });
   }
 
+  getFieldValue(column, item): any {
+    if (typeof column.field_key == 'string' && item[column.field_key] != undefined) {
+      return item[column.field_key];
+    }
+
+    let valueFinal = item;
+    for (const key of column.field_key) {
+      if(valueFinal[key] == undefined){
+        return;
+      }
+      valueFinal = valueFinal[key];
+    }
+    return valueFinal;
+  }
+
   onClickOrder(column: CodaColumnConfig) {
     // Verificar si se puede ordenar esta columna
     if (!column.is_order) {
