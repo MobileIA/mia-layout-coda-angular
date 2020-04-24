@@ -9,6 +9,8 @@ import { CodaSidebarConfig, CodaSidebarItem } from '../../entities/coda-sidebar-
 })
 export class CodaSidebarComponent implements OnInit {
 
+  sidebarClose: boolean = true;
+
   config: CodaSidebarConfig;
 
   constructor(

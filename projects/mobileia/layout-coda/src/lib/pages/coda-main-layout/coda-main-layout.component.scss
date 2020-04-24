@@ -1,18 +1,30 @@
 @import "../../scss/coda.scss";
 
-.main-container{
-    width: 100%;
-    overflow: hidden;
-    display: flex;
+.layout-coda{
+    height: 100vh;
 
-    coda-sidebar{
-        @include xs { display: none; }
-    }
+    .main-container{
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
 
-    .page-container{
-        width: calc(100% - 300px);
+        coda-sidebar{
+            @include xs { display: none; }
+        }
 
-        @include xs { width: 100%; }
+        .page-container{
+            width: calc(100% - 300px);
+
+            @include xs { width: 100%; }
+        }
+
+        .scroll-bar-content{
+            max-height: calc(100vh - 62px);
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {display: none;}
+        }
     }
 }
 

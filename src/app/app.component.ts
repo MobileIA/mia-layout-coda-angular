@@ -68,7 +68,7 @@ export class AppComponent implements OnInit {
         {
           type: 'item',
           title: 'Jobs',
-          icon: '',
+          icon: 'swap_horiz',
           url: '/'
         },
         {
@@ -80,7 +80,7 @@ export class AppComponent implements OnInit {
         {
           type: 'item',
           title: 'Campaign',
-          icon: '',
+          icon: 'shop',
           url: '/'
         },
         {
