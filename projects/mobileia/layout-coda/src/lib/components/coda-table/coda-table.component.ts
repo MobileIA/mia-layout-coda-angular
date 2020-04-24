@@ -100,7 +100,9 @@ export class CodaTableComponent implements OnInit {
     return [url];
   }
 
-  onClickAction(column, act, item) {
+  onClickAction(event, column, act, item) {
+    event.stopPropagation();
+
     if (act.subject != undefined) {
       act.subject.next(item);
       return;

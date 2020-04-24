@@ -36,6 +36,7 @@ export class CodaFormComponent implements OnInit {
       this.formConfig.onResponse.next({ item: this.formConfig.item, response: data.response });
     })
     .catch(error => {
+      this.isSending = false;
       alert('Se ha producido un error');
     });
   }

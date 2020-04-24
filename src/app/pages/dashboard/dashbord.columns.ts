@@ -1,4 +1,5 @@
 import { CodaColumnConfig } from 'projects/mobileia/layout-coda/src/lib/entities/coda-column-config';
+import { Subject } from 'rxjs';
 
 export const dashboardColumns: CodaColumnConfig[] = [
     {
@@ -53,7 +54,7 @@ export const dashboardColumns: CodaColumnConfig[] = [
         title: 'Acciones',
         fields_url: ['id'],
         options: [
-          { icon: 'create', url: '/product-edit/:id', title: 'Edit', classes: 'icon-edit' },
+          { icon: 'create', subject: new Subject<any>(), title: 'Edit', classes: 'icon-edit' },
           { icon: 'delete_outline', url: '/product-archive/:id', title: 'Archive', classes: 'icon-delete' },
         ]
       },
@@ -63,7 +64,7 @@ export const dashboardColumns: CodaColumnConfig[] = [
         title: 'Acciones',
         fields_url: ['id'],
         options: [
-          { url: '/product-edit/:id', title: 'Edit' },
+          { subject: new Subject<any>(), title: 'Edit' },
           { icon: 'home', url: '/product-archive/:id', title: 'Archive' },
           { icon: 'remove', type: 'delete', title: 'Delete' },
         ]
