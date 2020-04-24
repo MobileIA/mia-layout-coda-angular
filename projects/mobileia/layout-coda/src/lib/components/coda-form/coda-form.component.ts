@@ -27,6 +27,7 @@ export class CodaFormComponent implements OnInit {
 
     this.isSending = true;
     this.formConfig.service.save(this.formConfig.item).toPromise().then(data => {
+      this.isSending = false;
       if (!data.success) {
         alert('No se pudo guardar, volver a intentar');
         return;
