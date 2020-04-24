@@ -3,6 +3,7 @@ import { CodaTableConfig } from '../../entities/coda-table-config';
 import { ApiPagination, MIATableModel } from '@mobileia/core';
 import { CodaColumnConfig } from '../../entities/coda-column-config';
 import { PageEvent } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'coda-table',
@@ -16,7 +17,9 @@ export class CodaTableComponent implements OnInit {
 
   isLoading = true;
 
-  constructor() {
+  constructor(
+    protected navigator: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -95,6 +98,21 @@ export class CodaTableComponent implements OnInit {
       url = url.replace(':' + fieldKey, item[fieldKey]);
     }
     return [url];
+  }
+
+  onClickAction(column, act, item) {
+    if (act.subject != undefined) {
+      act.subject.next(item);
+      return;
+    }
+
+    let url = act.url;
+    for (const fieldKey of column.fields_url) {
+      url = url.replace(':' + fieldKey, item[fieldKey]);
+    }
+    if (url != undefined && url != '') {
+      this.navigator.navigateByUrl(url);
+    }
   }
 
   getLinkAction(column, act, item) {
