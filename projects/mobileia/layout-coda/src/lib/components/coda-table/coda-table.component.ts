@@ -139,4 +139,19 @@ export class CodaTableComponent implements OnInit {
     }
     return [url];
   }
+
+  getStyle(column, item) {
+    if (column.colors == undefined) {
+      return;
+    }
+
+    let value = this.getFieldValue(column, item);
+    console.log(value);
+    console.log(column.colors);
+    if (column.colors[value] != undefined) {
+      return {
+        color: column.colors[value]
+      }
+    }
+  }
 }

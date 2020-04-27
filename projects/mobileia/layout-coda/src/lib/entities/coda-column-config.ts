@@ -10,4 +10,5 @@ export interface CodaColumnConfig {
     url?: string;
     fields_url?: string[];
     order_type?: number;
+    colors?: any;
 }

@@ -23,13 +23,29 @@ export const dashboardColumns: CodaColumnConfig[] = [
         title: 'Categoria',
         url: '/category/:id',
         fields_url: ['id'],
-        is_order: true
+        is_order: true,
+      },
+      {
+        key: 'title_two2',
+        field_key: 'lastname',
+        type: 'string',
+        title: 'Titulo',
+        colors: {
+          0: 'red',
+          1: 'blue',
+          'Camiletti': 'green'
+        }
       },
       {
         key: 'title',
-        field_key: 'title',
+        field_key: 'status',
         type: 'string',
-        title: 'Titulo'
+        title: 'Titulo',
+        colors: {
+          0: 'red',
+          1: 'blue',
+          2: 'green'
+        }
       },
       {
         key: 'price',

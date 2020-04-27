@@ -33,7 +33,7 @@
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'integer' || column.type == 'string'">
-                        <p class="{{ column.classes }}">{{ getFieldValue(column, item) }}</p>
+                        <p class="{{ column.classes }}" [ngStyle]="getStyle(column, item)">{{ getFieldValue(column, item) }}</p>
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'date'">
