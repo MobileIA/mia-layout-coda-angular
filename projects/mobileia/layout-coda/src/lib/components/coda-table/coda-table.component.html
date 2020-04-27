@@ -68,14 +68,18 @@
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'select'">
-                        <mat-form-field appearance="outline">
+                        <!-- <mat-form-field appearance="outline">
                             <mat-label>{{ column.title }}</mat-label>
                             <mat-select [(ngModel)]="item[column.field_key]" (selectionChange)="onChangeSelectValue(column, item)">
                                 <mat-option *ngFor="let opt of column.options" [value]="opt.value">
                                     {{ opt.title }}
                                 </mat-option>
                             </mat-select>
-                        </mat-form-field>
+                        </mat-form-field> -->
+
+                        <select name="select" [(ngModel)]="item[column.field_key]" (selectionChange)="onChangeSelectValue(column, item)">
+                            <option *ngFor="let opt of column.options" [value]="opt.value">{{ opt.title }}</option> 
+                        </select>
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'actions'" class="actions">
