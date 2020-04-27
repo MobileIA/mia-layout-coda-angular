@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CodaConfigService } from '../../services/coda-config.service';
 import { CodaToolbarConfig } from '../../entities/coda-toolbar-config';
 import { AuthenticationService, MIAUser } from '@mobileia/authentication';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'coda-toolbar',
@@ -15,7 +16,8 @@ export class CodaToolbarComponent implements OnInit {
 
   constructor(
     protected configService: CodaConfigService,
-    protected authService: AuthenticationService
+    protected authService: AuthenticationService,
+    protected navigator: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,8 +25,9 @@ export class CodaToolbarComponent implements OnInit {
     this.loadUser();
   }
 
-  onClickLogoout() {
+  onClickLogout() {
     this.authService.signOut();
+    this.navigator.navigateByUrl('/');
   }
 
   onClickItemExtraMenu(item) {

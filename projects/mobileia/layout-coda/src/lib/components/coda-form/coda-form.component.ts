@@ -27,6 +27,7 @@ export class CodaFormComponent implements OnInit {
 
     this.isSending = true;
     this.formConfig.service.save(this.formConfig.item).toPromise().then(data => {
+      this.isSending = false;
       if (!data.success) {
         alert('No se pudo guardar, volver a intentar');
         return;
@@ -35,6 +36,7 @@ export class CodaFormComponent implements OnInit {
       this.formConfig.onResponse.next({ item: this.formConfig.item, response: data.response });
     })
     .catch(error => {
+      this.isSending = false;
       alert('Se ha producido un error');
     });
   }

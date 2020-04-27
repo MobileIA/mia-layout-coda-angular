@@ -3,6 +3,7 @@ import { CodaTableConfig } from '../../entities/coda-table-config';
 import { ApiPagination, MIATableModel } from '@mobileia/core';
 import { CodaColumnConfig } from '../../entities/coda-column-config';
 import { PageEvent } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'coda-table',
@@ -16,7 +17,9 @@ export class CodaTableComponent implements OnInit {
 
   isLoading = true;
 
-  constructor() {
+  constructor(
+    protected navigator: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -44,6 +47,21 @@ export class CodaTableComponent implements OnInit {
       // Procesar si se necesita
       this.dataItems.data = this.tableConfig.onAfterLoad(this.dataItems.data);
     });
+  }
+
+  getFieldValue(column, item): any {
+    if (typeof column.field_key == 'string' && item[column.field_key] != undefined) {
+      return item[column.field_key];
+    }
+
+    let valueFinal = item;
+    for (const key of column.field_key) {
+      if(valueFinal[key] == undefined){
+        return;
+      }
+      valueFinal = valueFinal[key];
+    }
+    return valueFinal;
   }
 
   onClickOrder(column: CodaColumnConfig) {
@@ -97,11 +115,43 @@ export class CodaTableComponent implements OnInit {
     return [url];
   }
 
+  onClickAction(event, column, act, item) {
+    event.stopPropagation();
+
+    if (act.subject != undefined) {
+      act.subject.next(item);
+      return;
+    }
+
+    let url = act.url;
+    for (const fieldKey of column.fields_url) {
+      url = url.replace(':' + fieldKey, item[fieldKey]);
+    }
+    if (url != undefined && url != '') {
+      this.navigator.navigateByUrl(url);
+    }
+  }
+
   getLinkAction(column, act, item) {
     let url = act.url;
     for (const fieldKey of column.fields_url) {
       url = url.replace(':' + fieldKey, item[fieldKey]);
     }
     return [url];
+  }
+
+  getStyle(column, item) {
+    if (column.colors == undefined) {
+      return;
+    }
+
+    let value = this.getFieldValue(column, item);
+    console.log(value);
+    console.log(column.colors);
+    if (column.colors[value] != undefined) {
+      return {
+        color: column.colors[value]
+      }
+    }
   }
 }

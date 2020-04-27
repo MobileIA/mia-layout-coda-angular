@@ -1,6 +1,6 @@
 export interface CodaColumnConfig {
     key: string;
-    field_key?: string;
+    field_key?: any;
     field_key_photo?: string;
     type: string;
     title?: string;
@@ -10,4 +10,5 @@ export interface CodaColumnConfig {
     url?: string;
     fields_url?: string[];
     order_type?: number;
+    colors?: any;
 }

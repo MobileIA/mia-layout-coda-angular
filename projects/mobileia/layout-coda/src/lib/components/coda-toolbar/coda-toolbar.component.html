@@ -31,7 +31,7 @@
     </div>
 
     <div *ngIf="currentUser" class="user-account">
-        <button mat-flat-button>
+        <button mat-flat-button [matMenuTriggerFor]="actionsUser">
             <div class="user-account-content">
                 <div class="user-image" matTooltip="Axel Camiletti">
                     <img [src]="currentUser.photo" onerror="this.src='/assets/img/image-user-profile-not-found.png';" />
@@ -39,5 +39,9 @@
                 <span fxHide.xs>{{ currentUser.firstname }} {{ currentUser.lastname }}</span>
             </div>
         </button>
+
+        <mat-menu #actionsUser="matMenu">
+            <button mat-menu-item style="padding: 0 24px;" (click)="onClickLogout()"> <mat-icon>exit_to_app</mat-icon> Logout</button>
+        </mat-menu>
     </div>
 </div>

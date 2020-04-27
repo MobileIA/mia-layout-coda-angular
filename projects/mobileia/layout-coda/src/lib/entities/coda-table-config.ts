@@ -9,6 +9,7 @@ export class CodaTableConfig {
     params = new MIATableModel();
     isShowPaginator = true;
     extrasActions = [];
+    clasess = '';
     
     onClickRow = new Subject<any>();
     onChangeField = new Subject<{ column: CodaColumnConfig, item: any}>();

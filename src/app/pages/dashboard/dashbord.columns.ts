@@ -1,4 +1,5 @@
 import { CodaColumnConfig } from 'projects/mobileia/layout-coda/src/lib/entities/coda-column-config';
+import { Subject } from 'rxjs';
 
 export const dashboardColumns: CodaColumnConfig[] = [
     {
@@ -22,13 +23,29 @@ export const dashboardColumns: CodaColumnConfig[] = [
         title: 'Categoria',
         url: '/category/:id',
         fields_url: ['id'],
-        is_order: true
+        is_order: true,
+      },
+      {
+        key: 'title_two2',
+        field_key: 'lastname',
+        type: 'string',
+        title: 'Titulo',
+        colors: {
+          0: 'red',
+          1: 'blue',
+          'Camiletti': 'green'
+        }
       },
       {
         key: 'title',
-        field_key: 'title',
+        field_key: 'status',
         type: 'string',
-        title: 'Titulo'
+        title: 'Titulo',
+        colors: {
+          0: 'red',
+          1: 'blue',
+          2: 'green'
+        }
       },
       {
         key: 'price',
@@ -53,7 +70,7 @@ export const dashboardColumns: CodaColumnConfig[] = [
         title: 'Acciones',
         fields_url: ['id'],
         options: [
-          { icon: 'create', url: '/product-edit/:id', title: 'Edit', classes: 'icon-edit' },
+          { icon: 'create', subject: new Subject<any>(), title: 'Edit', classes: 'icon-edit' },
           { icon: 'delete_outline', url: '/product-archive/:id', title: 'Archive', classes: 'icon-delete' },
         ]
       },
@@ -63,7 +80,7 @@ export const dashboardColumns: CodaColumnConfig[] = [
         title: 'Acciones',
         fields_url: ['id'],
         options: [
-          { url: '/product-edit/:id', title: 'Edit' },
+          { subject: new Subject<any>(), title: 'Edit' },
           { icon: 'home', url: '/product-archive/:id', title: 'Archive' },
           { icon: 'remove', type: 'delete', title: 'Delete' },
         ]

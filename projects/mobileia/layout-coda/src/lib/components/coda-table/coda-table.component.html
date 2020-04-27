@@ -1,4 +1,4 @@
-<div *ngIf="tableConfig" class="coda-table">
+<div *ngIf="tableConfig" class="coda-table {{ tableConfig.clasess }}">
 
     <div class="scroll-x">
         <table mat-table [dataSource]="dataItems.data">
@@ -33,7 +33,7 @@
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'integer' || column.type == 'string'">
-                        <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
+                        <p class="{{ column.classes }}" [ngStyle]="getStyle(column, item)">{{ getFieldValue(column, item) }}</p>
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'date'">
@@ -44,24 +44,23 @@
                     <ng-container *ngIf="column.type == 'status'">
                         <div class="state new">
                             <div class="circle"></div>
-                            <p class="{{ column.classes }}">{{ item[column.field_key] }}</p>
+                            <p class="{{ column.classes }}">{{ getFieldValue(column, item) }}</p>
                         </div>
                         
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'photo'">
-                        <!-- <img *ngIf="item[column.field_key_photo] == '' || item[column.field_key_photo] == undefined" [src]="'https://i0.wp.com/avatar-management--avatars.us-west-2.prod.public.atl-paas.net/initials/MC-2.png?ssl=1'" /> -->
                         <img [src]="item[column.field_key_photo]" onerror="this.src='/assets/img/image-user-profile-not-found.png';" />
                         <a *ngIf="column.url == undefined && column.field_key" class="{{ column.classes }}"><p>{{ item[column.field_key] }}</p></a>
                         <a *ngIf="column.url != undefined && column.field_key" [routerLink]="getLinkUrl(column, item)" class="{{ column.classes }}"><p>{{ item[column.field_key] }}</p></a>
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'money'">
-                        <p class="{{ column.classes }}">{{ item[column.field_key] | currency }}</p>
+                        <p class="{{ column.classes }}">{{ getFieldValue(column, item) | currency }}</p>
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'link'">
-                        <a [routerLink]="getLinkUrl(column, item)" class="{{ column.classes }}">{{ item[column.field_key] }}</a>
+                        <a [routerLink]="getLinkUrl(column, item)" class="{{ column.classes }}">{{ getFieldValue(column, item) }}</a>
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'option'">
@@ -82,7 +81,7 @@
                     <ng-container *ngIf="column.type == 'actions'" class="actions">
                         <ng-container *ngFor="let act of column.options">
 
-                            <a *ngIf="act.type != 'delete'" [routerLink]="getLinkAction(column, act, item)" class="{{ column.classes }}">
+                            <a *ngIf="act.type != 'delete'" (click)="onClickAction($event, column, act, item)" class="{{ column.classes }}">
                                 <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
                                 {{ act.title }}
                             </a>
@@ -106,7 +105,7 @@
 
                             <ng-container *ngFor="let act of column.options">
 
-                                <button *ngIf="act.type != 'delete'" [routerLink]="getLinkAction(column, act, item)" class="{{ column.classes }}" mat-menu-item>
+                                <button *ngIf="act.type != 'delete'" (click)="onClickAction($event, column, act, item)" class="{{ column.classes }}" mat-menu-item>
                                     <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
                                     {{ act.title }}
                                 </button>
