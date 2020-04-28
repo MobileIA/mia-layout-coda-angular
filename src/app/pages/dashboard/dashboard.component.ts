@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
       textSaveButton: 'Save',
       textCancelButton: 'Cancel',
       classModal: 'modal-new-appointment'
-    });
+    }, '700px');
   }
 
   loadTableConfig() {

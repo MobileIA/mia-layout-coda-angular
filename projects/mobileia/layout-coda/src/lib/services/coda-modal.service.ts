@@ -12,10 +12,10 @@ export class CodaModalService {
     public dialog: MatDialog
   ) { }
 
-  openForm(config: CodaModalConfig) {
+  openForm(config: CodaModalConfig, width: string = '700px') {
     this.dialog.open(CodaFormModalComponent, {
       data: config,
-      width: '700px',
+      width: width,
       panelClass: config.classModal,
     });
   }
