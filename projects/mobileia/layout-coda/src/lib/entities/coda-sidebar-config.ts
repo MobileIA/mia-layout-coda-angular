@@ -10,4 +10,5 @@ export interface CodaSidebarItem {
     icon?: string;
     url?: string;
     isActive?: boolean;
+    childrens?: CodaSidebarItem[];
 }
