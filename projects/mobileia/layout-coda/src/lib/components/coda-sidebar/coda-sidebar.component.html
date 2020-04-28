@@ -23,7 +23,7 @@
             </mat-expansion-panel-header>
     
             <mat-action-list *ngFor="let subitem of item.childrens" [ngClass]="{'active': subitem.isActive}">
-                <button mat-list-item (click)="clickItem(subitem)"> {{ subitem.title }} </button>
+                <button mat-list-item [routerLink]="[item.url]" (click)="clickItem(subitem)"> {{ subitem.title }} </button>
             </mat-action-list>
         </mat-expansion-panel>
 
