@@ -48,6 +48,17 @@ export const dashboardColumns: CodaColumnConfig[] = [
         }
       },
       {
+        key: 'status_opt',
+        field_key: 'status',
+        type: 'option',
+        title: 'Default',
+        options: [
+          { title: 'Make default', type: 'button' },
+          { title: 'Yes' },
+          { title: 'No' }
+        ]
+      },
+      {
         key: 'price',
         field_key: 'price',
         type: 'money',
