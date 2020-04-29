@@ -27,7 +27,12 @@ export class CodaSidebarComponent implements OnInit {
   }
 
   cleanAllActive() {
-    this.config.items.forEach(item => item.isActive = false);
+    this.config.items.forEach(item => {
+      item.isActive = false;
+      if (item.childrens) {
+        item.childrens.forEach(subitem => subitem.isActive = false);
+      }
+    });
   }
 
   processConfig() {

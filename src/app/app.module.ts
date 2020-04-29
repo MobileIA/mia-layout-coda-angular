@@ -17,6 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { TestFieldComponent } from './components/test-field/test-field.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    AuthenticationModule.forRoot({apiKey: '', isInternal: true, baseUrlInternal: ''}),
+    AuthenticationModule.forRoot({apiKey: '', isInternal: true, baseUrlInternal: environment.baseUrl}),
     LayoutCodaModule,
     MatTableModule,
     SweetAlert2Module.forRoot({}),

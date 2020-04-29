@@ -64,7 +64,12 @@
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'option'">
-                        <p class="{{ column.classes }}">{{ column.options[item[column.field_key]].title }}</p>
+
+                        <button *ngIf="column.options[item[column.field_key]].type == 'button'">{{ column.options[item[column.field_key]].title }}</button>
+
+                        <p *ngIf="column.options[item[column.field_key]].type != 'button'" class="{{ column.classes }}">
+                            {{ column.options[item[column.field_key]].title }}
+                        </p>
                     </ng-container>
 
                     <ng-container *ngIf="column.type == 'select'">

@@ -91,6 +91,63 @@ export class AppComponent implements OnInit {
           type: 'header',
           title: 'SETTINGS'
         },
+        {
+          type: 'child',
+          title: 'Settings',
+          icon: 'settings',
+          childrens: [
+            {
+              type: 'item',
+              title: 'Account info',
+              url: '/'
+            },
+            {
+              type: 'item',
+              title: 'Company Profile',
+              url: '/'
+            },
+            {
+              type: 'item',
+              title: 'Offers',
+              url: '/'
+            },
+            {
+              type: 'item',
+              title: 'Materials',
+              url: '/'
+            },
+            {
+              type: 'item',
+              title: 'Job Types',
+              url: '/'
+            },
+            {
+              type: 'item',
+              title: 'Job Status',
+              url: '/'
+            },
+            {
+              type: 'item',
+              title: 'Lead Sources',
+              url: '/'
+            },
+            {
+              type: 'item',
+              title: 'Email Templates',
+              url: '/'
+            },
+            {
+              type: 'item',
+              title: 'User Managements',
+              url: '/'
+            },
+            {
+              type: 'item',
+              title: 'Units (Vehicles)',
+              url: '/'
+            },
+          ]
+        },
       ]
     });
 
