@@ -4,6 +4,7 @@
 
 // Colors
 $colorBlue: rgb(51, 151, 255);
+$colorBlueHover: rgb(34, 125, 221);
 $colorGreen: rgb(140, 216, 103);
 $colorViolet: rgb(127, 63, 255);
 $colorYellow: rgb(248, 179, 29);
@@ -59,6 +60,7 @@ button{
     font-family: $fontText;
     font-weight: 600;
     padding: 6px 24px;
+    transition: $animation;
 }
 
 a{

@@ -12,6 +12,7 @@
     button { &:hover { color: $colorBlue !important; } }
 
     .menu{
+        margin-right: auto;
         @include xs { width: 20%; transition: all 0s !important; }
 
         button{
@@ -29,15 +30,42 @@
         }
     }
 
+    .add-new{
+        @include xs { width: 20%; order: 3; }
+
+        button{
+            height: 64px;
+            padding: 0 20px;
+            border-radius: 0px;
+            border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
+            transition: $animation;
+            color: white;
+            background-color: $colorBlue;
+            
+            @include xs { width: 100%; padding: 0; min-width: initial; }
+
+            &:hover { background-color: rgb(31, 120, 214); color: white !important; }
+
+            &[aria-expanded="true"] { background-color: rgb(31, 120, 214); }
+
+            mat-icon { margin-right: 8px; @include xs { margin: 0; } }
+        }
+    }
+
     .search{
         display: flex;
         align-items: center;
         position: relative;
-        width: calc(100% - 120px);
+        width: 100%;
+        max-width: 300px;
+        min-width: 200px;
         transition: $animation;
 
         @include xs{
             width: 20%;
+            min-width: initial;
+            max-width: initial;
+            order: 2;
 
             &:hover{
                 width: 100%;
@@ -87,29 +115,8 @@
         }
     }
 
-    .add-new{
-        @include xs { width: 20%; }
-
-        button{
-            height: 64px;
-            padding: 0 20px;
-            border-radius: 0px;
-            border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
-            transition: $animation;
-            color: $colorTitle;
-            
-            @include xs { width: 100%; padding: 0; min-width: initial; }
-
-            &:hover { color: $colorBlue; }
-
-            &[aria-expanded="true"] { color: $colorBlue; }
-
-            mat-icon { margin-right: 8px; @include xs { margin: 0; } }
-        }
-    }
-
     .notifications{
-        @include xs { width: 20%; }
+        @include xs { width: 20%; order: 4; }
 
         button{
             height: 64px;
@@ -128,7 +135,7 @@
     }
 
     .user-account{
-        @include xs { width: 20%; }
+        @include xs { width: 20%; order: 5; }
 
         button{
             height: 64px;
@@ -150,6 +157,7 @@
                     overflow: hidden;
                     margin-right: 16px;
                     @include xs { margin: auto; }
+                    @include sm { margin-right: 0; }
 
                     img { width: 100%; height: 100%; }
                 }

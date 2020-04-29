@@ -52,7 +52,7 @@
             color: white;
             padding: 0;
 
-            mat-icon { width: 44px; transition: $animation; }
+            mat-icon { width: 48px; min-width: 48px; transition: $animation; }
         }
     }
 
@@ -73,13 +73,16 @@
         padding-left: 26px;
         padding-right: 0px;
         font-weight: 600;
+        transition: $animation;
 
         mat-expansion-panel-header{
+            transition: $animation;
             mat-panel-title { color: white; font-weight: 600; font-size: 16px; }
             mat-icon { width: 44px; }
         }
 
         &::ng-deep .mat-expansion-panel-body { padding-right: 0; }
+        &::ng-deep .mat-expansion-indicator { &::after { color: white; } }
     }
 
     hr{
@@ -116,13 +119,24 @@
     mat-action-list{
 
         button{
-            span { display: none; }
+            &:hover { background-color: $colorBlueHover; }
         }
 
         &::ng-deep .mat-list-item-content{
             border-radius: 0px !important;
             text-align: left;
             padding-left: 19px;
+        }
+    }
+
+    mat-expansion-panel{
+        padding: 0;
+        cursor: pointer;
+        transition: $animation;
+        &:hover { background-color: $colorBlueHover; }
+        &::ng-deep .mat-expansion-panel-header{
+            padding-left: 19px;
+            padding-right: 8px;
         }
     }
 }
