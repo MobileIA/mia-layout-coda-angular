@@ -1,5 +1,5 @@
 <div class="form-field-container">
-    <mat-icon class="icon-section"> {{ field.icon }}</mat-icon>
+    <mat-icon *ngIf="field.icon" class="icon-section"> {{ field.icon }}</mat-icon>
     <mat-form-field>
         <mat-label>{{ field.title }}</mat-label>
         <mat-select [(ngModel)]="internalValue" (selectionChange)="onChangeValue()">

@@ -1,5 +1,5 @@
 <div class="form-field-container {{ field.classes }}">
-    <mat-icon class="icon-section"> {{ field.icon }}</mat-icon>
+    <mat-icon *ngIf="field.icon" class="icon-section"> {{ field.icon }}</mat-icon>
     <mat-form-field>
         <mat-label>{{ field.title }}</mat-label>
         <input matInput ngx-google-places-autocomplete (onAddressChange)="onChangeAddress($event)" />
