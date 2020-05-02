@@ -11,9 +11,9 @@
                         <mat-checkbox></mat-checkbox>
                     </ng-container>
                     <ng-template #defaultTh>
-                        <button (click)="onClickOrder(column)">
+                        <button (click)="onClickOrder(column)" [ngClass]="{'cursor-none': !column.is_order }">
                             {{ column.title }}
-                            <div class="sort-icon">
+                            <div *ngIf="column.is_order" class="sort-icon">
                                 <mat-icon [ngClass]="{'active': column.is_order && column.order_type == 1}">arrow_drop_up</mat-icon>
                                 <mat-icon [ngClass]="{'active': column.is_order && column.order_type == 2}">arrow_drop_down</mat-icon>
                             </div>
