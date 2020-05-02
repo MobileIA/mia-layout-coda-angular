@@ -17,6 +17,8 @@ export class DashboardComponent implements OnInit {
   tableConfig = new CodaTableConfig();
   formConfig = new CodaFormConfig();
 
+  querySearch = '';
+
   constructor(
     protected testService: TestService,
     protected modalService: CodaModalService
@@ -79,5 +81,9 @@ export class DashboardComponent implements OnInit {
     this.formConfig.onResponse.subscribe(data => {
       this.tableHtml.loadItems();
     });
+  }
+
+  applySearch() {
+    this.tableHtml.applySearch(this.querySearch);
   }
 }

@@ -36,6 +36,11 @@ export class CodaTableComponent implements OnInit {
     });
   }
 
+  applySearch(query: string) {
+    this.tableConfig.params.search = query;
+    this.loadItems();
+  }
+
   loadItems() {
     this.isLoading = true;
     this.tableConfig.service.fetchList(this.tableConfig.params).toPromise().then(data => {
