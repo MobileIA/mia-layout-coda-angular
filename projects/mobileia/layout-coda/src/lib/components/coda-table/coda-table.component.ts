@@ -163,6 +163,10 @@ export class CodaTableComponent implements OnInit {
   getMultiOption(column, item) {
     let value = '';
 
+    if (item[column.field_key] == undefined || !Array.isArray(item[column.field_key])) {
+      return value;
+    }
+
     for (const option of item[column.field_key]) {
       if (value != '') {
         value += ' - ';
