@@ -154,4 +154,17 @@ export class CodaTableComponent implements OnInit {
       }
     }
   }
+
+  getMultiOption(column, item) {
+    let value = '';
+
+    for (const option of item[column.field_key]) {
+      if (value != '') {
+        value += ' - ';
+      }
+      value += column.options[option].title;
+    }
+
+    return value;
+  }
 }

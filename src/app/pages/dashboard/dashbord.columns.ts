@@ -59,6 +59,17 @@ export const dashboardColumns: CodaColumnConfig[] = [
         ]
       },
       {
+        key: 'roles',
+        field_key: 'roles',
+        type: 'multi-option',
+        title: 'Roles',
+        options: {
+          0: { title: 'Admin' },
+          1: { title: 'Crew' },
+          2: { title: 'Sales' }
+        }
+      },
+      {
         key: 'price',
         field_key: 'price',
         type: 'money',

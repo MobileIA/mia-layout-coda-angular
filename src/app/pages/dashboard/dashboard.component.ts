@@ -58,6 +58,7 @@ export class DashboardComponent implements OnInit {
     this.tableConfig.onAfterLoad = (items) => {
       items.forEach(element => {
         element.fullname = element.firstname + ' ' + element.lastname;
+        element.roles = [1,2];
       });
       return items;
     };

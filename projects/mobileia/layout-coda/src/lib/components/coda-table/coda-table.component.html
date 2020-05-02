@@ -72,6 +72,12 @@
                         </p>
                     </ng-container>
 
+                    <ng-container *ngIf="column.type == 'multi-option'">
+                        <p class="{{ column.classes }}">
+                            {{ getMultiOption(column, item) }}
+                        </p>
+                    </ng-container>
+
                     <ng-container *ngIf="column.type == 'select'">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ column.title }}</mat-label>

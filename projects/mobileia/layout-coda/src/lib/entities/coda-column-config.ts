@@ -6,7 +6,7 @@ export interface CodaColumnConfig {
     title?: string;
     classes?: string;
     is_order?: boolean;
-    options?: any[];
+    options?: any;
     url?: string;
     fields_url?: string[];
     order_type?: number;
