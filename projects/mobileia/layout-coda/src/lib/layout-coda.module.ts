@@ -41,10 +41,11 @@ import { AddressFieldComponent } from './fields/address-field/address-field.comp
 import { CustomFieldComponent } from './fields/custom-field/custom-field.component';
 import { TextFieldComponent } from './fields/text-field/text-field.component';
 import { RecoveryPageComponent } from './pages/recovery-page/recovery-page.component';
+import { MultiCheckboxFieldComponent } from './fields/multi-checkbox-field/multi-checkbox-field.component';
 
 
 @NgModule({
-  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent, TextFieldComponent, RecoveryPageComponent],
+  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent, TextFieldComponent, RecoveryPageComponent, MultiCheckboxFieldComponent],
   imports: [
     CommonModule,
     RouterModule,

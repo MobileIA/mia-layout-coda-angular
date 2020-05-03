@@ -1,6 +1,6 @@
 {
   "name": "@mobileia/layout-coda",
-  "version": "9.0.33",
+  "version": "9.0.34",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",

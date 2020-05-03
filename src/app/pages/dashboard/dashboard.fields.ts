@@ -55,6 +55,16 @@ export const dashboardFields: CodaFieldConfig[] = [
     title: 'Dirección'
   },
   {
+    type: 'multi-checkbox',
+    key: 'roles',
+    title: 'Roles',
+    options: [
+      { value: 1, title: 'Admin', checked: false },
+      { value: 2, title: 'Manager', checked: false },
+      { value: 3, title: 'Crew', checked: false },
+    ]
+  },
+  {
     type: 'text',
     key: 'Notes',
     title: 'Note',

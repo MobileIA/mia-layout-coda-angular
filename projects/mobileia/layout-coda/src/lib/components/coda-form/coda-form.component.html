@@ -5,6 +5,7 @@
         <coda-row-field *ngIf="field.type == 'row'" [field]="field" [item]="formConfig.item" (selectedPlace)="onSelectedPlace($event)"></coda-row-field>
 
         <coda-string-field *ngIf="field.type == 'string'" [field]="field" [item]="formConfig.item"></coda-string-field>
+        <coda-multi-checkbox-field *ngIf="field.type == 'multi-checkbox'" [field]="field" [item]="formConfig.item"></coda-multi-checkbox-field>
         <coda-text-field *ngIf="field.type == 'text'" [field]="field" [item]="formConfig.item"></coda-text-field>
         <coda-address-field *ngIf="field.type == 'address'" [field]="field" [item]="formConfig.item" (selectedPlace)="onSelectedPlace($event)"></coda-address-field>
         <coda-select-field *ngIf="field.type == 'select'" [field]="field" [item]="formConfig.item"></coda-select-field>

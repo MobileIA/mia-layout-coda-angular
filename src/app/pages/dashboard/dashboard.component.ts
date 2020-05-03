@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
 
   configSelectors() {
     this.tableConfig.onChangeField.subscribe(data => {
-      console.log(data);
+      //console.log(data);
     });
   }
 
@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit {
       { url: '/product-edit/:id', title: 'Go to Jobs' },
     ];
     this.tableConfig.onClickRow.subscribe(item => {
-      console.log(item);
+      //console.log(item);
     });
     this.tableConfig.onAfterLoad = (items) => {
       items.forEach(element => {

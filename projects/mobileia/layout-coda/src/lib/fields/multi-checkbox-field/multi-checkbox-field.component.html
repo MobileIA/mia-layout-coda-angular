@@ -1,0 +1,6 @@
+<div class="form-field-container {{ field.classes }}">
+    <mat-icon *ngIf="field.icon" class="icon-section"> {{ field.icon }}</mat-icon>
+    <mat-label>{{ field.title }}</mat-label>
+
+    <mat-checkbox *ngFor="let option of field.options" [(ngModel)]="option.checked" (change)="onChangeValue()">{{ option.title }}</mat-checkbox>
+</div>
