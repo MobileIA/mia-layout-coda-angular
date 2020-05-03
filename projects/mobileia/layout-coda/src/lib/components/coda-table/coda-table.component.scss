@@ -110,6 +110,9 @@
             }
 
             .mat-column-actions{
+
+                white-space: nowrap;
+
                 a {
                     display: flex;
                     margin-right: 16px;
