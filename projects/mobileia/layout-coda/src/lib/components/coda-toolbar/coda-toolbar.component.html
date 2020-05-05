@@ -4,11 +4,6 @@
         <button mat-flat-button><mat-icon>menu_open</mat-icon></button>
     </div>
 
-    <div class="search">
-        <mat-icon>search</mat-icon>
-        <input type="text" placeholder="Click and type to search anywhere..." name="search_input" id="search_input" />
-    </div>
-
     <div *ngFor="let emenu of config.extraMenus" class="add-new">
         <button mat-flat-button [matMenuTriggerFor]="addNew">
             <mat-icon *ngIf="emenu.icon">{{ emenu.icon }}</mat-icon>
@@ -18,6 +13,11 @@
         <mat-menu #addNew="matMenu">
             <button *ngFor="let ei of emenu.items" mat-menu-item style="padding: 0 24px;" (click)="onClickItemExtraMenu(ei)"> <mat-icon *ngIf="ei.icon" [ngStyle]="{'color': (ei.color != undefined ? ei.color : '' )}" >{{ ei.icon }}</mat-icon> {{ ei.title }}</button>
         </mat-menu>
+    </div>
+
+    <div class="search">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Search anywhere..." name="search_input" id="search_input" />
     </div>
 
     <div *ngIf="config.isShowNotifications" class="notifications">
@@ -36,7 +36,7 @@
                 <div class="user-image" matTooltip="Axel Camiletti">
                     <img [src]="currentUser.photo" onerror="this.src='/assets/img/image-user-profile-not-found.png';" />
                 </div>
-                <span fxHide.xs>{{ currentUser.firstname }} {{ currentUser.lastname }}</span>
+                <span fxHide.lt-md>{{ currentUser.firstname }} {{ currentUser.lastname }}</span>
             </div>
         </button>
 

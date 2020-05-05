@@ -1,21 +1,32 @@
-<div *ngIf="config" class="sidebar">
+<div *ngIf="config" class="sidebar" [ngClass]="{'sidebar-close': sidebarClose}">
     <div class="logo">
         <a [routerLink]="['/dashboard']">
             <h1>{{ config.title }}</h1>
         </a>
+
+        <!-- Only collapse Sidebar -->
+        <a [routerLink]="['/dashboard']">
+            <div class="icon-logo">
+                <img src="/assets/img/icons/icon-google.png" [alt]="config.title" />
+            </div>
+        </a>
+        <!-- Only collapse Sidebar -->
     </div>
+
+    <button mat-flat-button (click)="sidebarClose = !sidebarClose">Open</button>
 
     <ng-container *ngFor="let item of config.items">
 
-        <p *ngIf="item.type == 'header'" class="section-text">{{ item.title }}</p>
+        <!-- <p *ngIf="item.type == 'header'" class="section-text">{{ item.title }}</p> -->
 
         <mat-action-list *ngIf="item.type == 'item'" [ngClass]="{'active': item.isActive}">
-            <button mat-list-item [routerLink]="[item.url]" (click)="clickItem(item)"> <mat-icon>{{ item.icon }}</mat-icon> {{ item.title}} </button>
+            <button mat-list-item [routerLink]="[item.url]" (click)="clickItem(item)"> <mat-icon>{{ item.icon }}</mat-icon> <span>{{ item.title}}</span> </button>
         </mat-action-list>
 
         <hr *ngIf="item.type == 'divider'" />
 
-        <mat-expansion-panel *ngIf="item.type == 'child'">
+        <!-- Add disabled only no-collapse sidebar -->
+        <mat-expansion-panel *ngIf="item.type == 'child'" [matMenuTriggerFor]="menu" disabled>
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     <mat-icon>{{ item.icon }}</mat-icon> {{ item.title}}
@@ -25,6 +36,14 @@
             <mat-action-list *ngFor="let subitem of item.childrens" [ngClass]="{'active': subitem.isActive}">
                 <button mat-list-item [routerLink]="[subitem.url]" (click)="clickItem(subitem)"> {{ subitem.title }} </button>
             </mat-action-list>
+
+            <!-- Destroy this element only collapse -->
+            <mat-menu #menu="matMenu">
+                <div *ngFor="let subitem of item.childrens" [ngClass]="{'active': subitem.isActive}">
+                    <button mat-menu-item [routerLink]="[subitem.url]" (click)="clickItem(subitem)"> {{ subitem.title }} </button>
+                </div>
+            </mat-menu>
+            <!-- Destroy this element only collapse -->
         </mat-expansion-panel>
 
     </ng-container>

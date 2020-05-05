@@ -50,8 +50,8 @@
 
     <p class="title-chart">Where are your users?</p>
 
-
     <input type="text" [(ngModel)]="querySearch" (keyup.enter)="applySearch()" />
+
     <button (click)="onClickAdd()">Agregar nuevo</button>
     <coda-table #tableHtml [tableConfig]="tableConfig"></coda-table>
 
