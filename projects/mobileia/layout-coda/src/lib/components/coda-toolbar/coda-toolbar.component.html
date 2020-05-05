@@ -1,7 +1,7 @@
 <div class="toolbar">
 
     <div class="menu" matTooltip="Ocultar Menu">
-        <button mat-flat-button><mat-icon>menu_open</mat-icon></button>
+        <button mat-flat-button (click)="onClickSidebarClose()"><mat-icon>menu_open</mat-icon></button>
     </div>
 
     <div *ngFor="let emenu of config.extraMenus" class="add-new">

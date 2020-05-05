@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
 
     this.configService.sidebar.next({
       title: 'GetterIQ',
+      iconLogo: '/assets/img/icons/icon-google.png',
       backgroundColor: '',
       items: [
         {

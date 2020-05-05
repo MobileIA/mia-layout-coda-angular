@@ -1,6 +1,7 @@
 export interface CodaSidebarConfig {
     backgroundColor: string;
     title: string;
+    iconLogo?: string;
     items: CodaSidebarItem[];
 }
 

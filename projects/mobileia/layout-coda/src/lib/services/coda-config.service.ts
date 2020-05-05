@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { CodaLoginConfig } from '../entities/coda-login-config';
 import { CodaSidebarConfig } from '../entities/coda-sidebar-config';
 import * as _ from 'lodash';
@@ -12,6 +12,7 @@ export class CodaConfigService {
 
   login: BehaviorSubject<CodaLoginConfig>;
   sidebar: BehaviorSubject<CodaSidebarConfig>;
+  sidebarOpen = new BehaviorSubject<boolean>(true);
   toolbar: BehaviorSubject<CodaToolbarConfig>;
 
   constructor() {

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CodaToolbarComponent implements OnInit {
 
+  isSidebarOpen = true;
   config: CodaToolbarConfig;
   currentUser: MIAUser;
 
@@ -28,6 +29,11 @@ export class CodaToolbarComponent implements OnInit {
   onClickLogout() {
     this.authService.signOut();
     this.navigator.navigateByUrl('/');
+  }
+
+  onClickSidebarClose() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+    this.configService.sidebarOpen.next(this.isSidebarOpen);
   }
 
   onClickItemExtraMenu(item) {

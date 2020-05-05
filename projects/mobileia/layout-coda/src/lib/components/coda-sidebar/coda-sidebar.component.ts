@@ -9,7 +9,7 @@ import { CodaSidebarConfig, CodaSidebarItem } from '../../entities/coda-sidebar-
 })
 export class CodaSidebarComponent implements OnInit {
 
-  sidebarClose: boolean = true;
+  isSidebarOpen = true;
 
   config: CodaSidebarConfig;
 
@@ -19,6 +19,7 @@ export class CodaSidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.processConfig();
+    this.observableOpen();
   }
 
   clickItem(item: CodaSidebarItem) {
@@ -37,5 +38,9 @@ export class CodaSidebarComponent implements OnInit {
 
   processConfig() {
     this.configService.sidebar.subscribe(data => this.config = data);
+  }
+
+  observableOpen() {
+    this.configService.sidebarOpen.subscribe(isOpen => this.isSidebarOpen = isOpen);
   }
 }

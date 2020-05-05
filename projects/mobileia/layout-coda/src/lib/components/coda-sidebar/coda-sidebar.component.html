@@ -1,4 +1,4 @@
-<div *ngIf="config" class="sidebar" [ngClass]="{'sidebar-close': sidebarClose}">
+<div *ngIf="config" class="sidebar" [ngClass]="{'sidebar-close': !isSidebarOpen}">
     <div class="logo">
         <a [routerLink]="['/dashboard']">
             <h1>{{ config.title }}</h1>
@@ -7,13 +7,11 @@
         <!-- Only collapse Sidebar -->
         <a [routerLink]="['/dashboard']">
             <div class="icon-logo">
-                <img src="/assets/img/icons/icon-google.png" [alt]="config.title" />
+                <img *ngIf="config.iconLogo" [src]="config.iconLogo" [alt]="config.title" />
             </div>
         </a>
         <!-- Only collapse Sidebar -->
     </div>
-
-    <button mat-flat-button (click)="sidebarClose = !sidebarClose">Open</button>
 
     <ng-container *ngFor="let item of config.items">
 
