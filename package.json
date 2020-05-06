@@ -28,6 +28,7 @@
     "@mobileia/core": "^9.0.2",
     "@ngx-pwa/local-storage": "^9.0.3",
     "@sweetalert2/ngx-sweetalert2": "^8.1.0",
+    "moment": "^2.25.3",
     "ngx-google-places-autocomplete": "^2.0.4",
     "rxjs": "^6.5.5",
     "sweetalert2": "^9.10.12",

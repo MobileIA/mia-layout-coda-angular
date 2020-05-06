@@ -81,7 +81,8 @@
             }
 
             .mat-column-date{
-                p { margin: 0; }
+                display: block;
+                p { margin: 0; display: block; }
             }
 
             .mat-column-status{

@@ -4,6 +4,7 @@ import { ApiPagination, MIATableModel } from '@mobileia/core';
 import { CodaColumnConfig } from '../../entities/coda-column-config';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'coda-table',
@@ -52,6 +53,14 @@ export class CodaTableComponent implements OnInit {
       // Procesar si se necesita
       this.dataItems.data = this.tableConfig.onAfterLoad(this.dataItems.data);
     });
+  }
+
+  getDateValue(column, item): string {
+    return moment(this.getFieldValue(column, item)).format('DD - MM - YYYY');
+  }
+
+  getTimeValue(column, item): string {
+    return moment(this.getFieldValue(column, item)).format('HH A');
   }
 
   getFieldValue(column, item): any {

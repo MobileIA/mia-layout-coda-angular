@@ -9,6 +9,12 @@ export const dashboardColumns: CodaColumnConfig[] = [
         title: ''
       },
       {
+        key: 'date',
+        field_key: 'created_at',
+        type: 'date',
+        title: 'Date'
+      },
+      {
         key: 'photo',
         field_key: 'firstname',
         field_key_photo: 'photo',
@@ -47,7 +53,7 @@ export const dashboardColumns: CodaColumnConfig[] = [
           2: 'green'
         }
       },
-      {
+      /*{
         key: 'status_opt',
         field_key: 'status',
         type: 'option',
@@ -68,7 +74,7 @@ export const dashboardColumns: CodaColumnConfig[] = [
           1: { title: 'Crew' },
           2: { title: 'Sales' }
         }
-      },
+      },*/
       {
         key: 'price',
         field_key: 'price',
