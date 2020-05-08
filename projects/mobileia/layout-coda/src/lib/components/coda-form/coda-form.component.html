@@ -13,4 +13,7 @@
         <coda-custom-field *ngIf="field.type == 'custom'" [field]="field" [item]="formConfig.item"></coda-custom-field>
     </ng-container>
 
+    <swal #messageError title="Error!" text="En breve nos pondremos en contacto, muchas gracias!" type="error" icon="warning">
+    </swal>
 </div>
+

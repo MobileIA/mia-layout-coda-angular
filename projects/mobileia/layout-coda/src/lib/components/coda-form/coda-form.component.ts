@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { CodaFormConfig } from '../../entities/coda-form-config';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
   selector: 'coda-form',
@@ -7,6 +8,8 @@ import { CodaFormConfig } from '../../entities/coda-form-config';
   styleUrls: ['./coda-form.component.scss']
 })
 export class CodaFormComponent implements OnInit {
+
+  @ViewChild('messageError') private messageError: SwalComponent;
 
   @Input() formConfig: CodaFormConfig;
   isSending = false;
@@ -29,7 +32,9 @@ export class CodaFormComponent implements OnInit {
     this.formConfig.service.save(this.formConfig.item).toPromise().then(data => {
       this.isSending = false;
       if (!data.success) {
-        alert('No se pudo guardar, volver a intentar');
+        this.messageError.title = 'Error!';
+        this.messageError.text = data.error.message;
+        this.messageError.fire();
         return;
       }
       // Comunicar que se termino de enviar
@@ -37,7 +42,9 @@ export class CodaFormComponent implements OnInit {
     })
     .catch(error => {
       this.isSending = false;
-      alert('Se ha producido un error');
+      this.messageError.title = 'Error!';
+      this.messageError.text = error.message;
+      this.messageError.fire();
     });
   }
 }
