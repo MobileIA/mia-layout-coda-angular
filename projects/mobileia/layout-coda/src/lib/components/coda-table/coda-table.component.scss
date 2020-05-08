@@ -1,9 +1,7 @@
 @import "../../scss/coda.scss";
 
 .coda-table{
-    overflow-x: auto;
-    
-    
+    /* overflow-x: auto; */
 
     .scroll-x{
         overflow-x: auto;
@@ -14,7 +12,7 @@
 
         table {
             width: 100%;
-            min-width: 1200px;
+            /* min-width: 1200px; */
 
             mat-header-row{
                 min-height: 56px !important;
@@ -105,7 +103,7 @@
                 }
             }
 
-            .mat-column-select{
+            .mat-column-assign{
                 min-width: 160px;
                 max-width: 220px;
 
