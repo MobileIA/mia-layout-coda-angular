@@ -1,20 +1,21 @@
 @import "../../scss/coda.scss";
 
 .layout-coda{
-    height: 100vh;
 
     .main-container{
         height: 100vh;
         width: 100%;
         overflow: hidden;
         display: flex;
+        background-color: $colorBackground;
 
         coda-sidebar{
             @include xs { display: none; }
         }
 
         .page-container{
-            width: calc(100%);
+            /* width: calc(100% - 300px); */
+            width: 100%;
 
             @include xs { width: 100%; }
         }
