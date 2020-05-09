@@ -26,6 +26,8 @@ export * from './lib/services/coda-modal.service';
  * Components
  */
 export * from './lib/fields/base-field/base-field.component';
+export * from './lib/columns/base-column/base-column.component';
+export * from './lib/columns/actions-column/actions-column.component';
 
 /**
  * Pages
