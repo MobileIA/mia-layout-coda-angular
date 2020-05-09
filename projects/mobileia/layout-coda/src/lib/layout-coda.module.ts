@@ -42,10 +42,13 @@ import { CustomFieldComponent } from './fields/custom-field/custom-field.compone
 import { TextFieldComponent } from './fields/text-field/text-field.component';
 import { RecoveryPageComponent } from './pages/recovery-page/recovery-page.component';
 import { MultiCheckboxFieldComponent } from './fields/multi-checkbox-field/multi-checkbox-field.component';
+import { ActionsColumnComponent } from './columns/actions-column/actions-column.component';
+import { BaseColumnComponent } from './columns/base-column/base-column.component';
+import { CustomColumnComponent } from './columns/custom-column/custom-column.component';
 
 
 @NgModule({
-  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent, TextFieldComponent, RecoveryPageComponent, MultiCheckboxFieldComponent],
+  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent, TextFieldComponent, RecoveryPageComponent, MultiCheckboxFieldComponent, ActionsColumnComponent, BaseColumnComponent, CustomColumnComponent],
   imports: [
     CommonModule,
     RouterModule,

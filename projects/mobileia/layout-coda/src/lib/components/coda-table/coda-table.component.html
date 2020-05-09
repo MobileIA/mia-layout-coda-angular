@@ -93,23 +93,8 @@
                         </select>
                     </ng-container>
 
-                    <ng-container *ngIf="column.type == 'actions'" class="actions">
-                        <ng-container *ngFor="let act of column.options">
-
-                            <a *ngIf="act.type != 'delete'" (click)="onClickAction($event, column, act, item)" class="{{ column.classes }}">
-                                <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
-                                {{ act.title }}
-                            </a>
-
-                            <a *ngIf="act.type == 'delete'" class="{{ column.classes }}" [swal]="{ title: 'Eliminar ', text: '¿Se encuentra seguro de eliminar?', type: 'warning', focusCancel: true, showCancelButton: true, confirmButtonText: 'Eliminar', cancelButtonText: 'Cancelar' }" icon="question"
-                            (confirm)="onRemoveItem(item)">
-                                <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
-                                {{ act.title }}
-                            </a>
-
-                        </ng-container>
-                        
-                    </ng-container>
+                    <coda-actions-column *ngIf="column.type == 'actions'" [column]="column" [item]="item" (removeItem)="onRemoveItem(item)"></coda-actions-column>
+                    <coda-custom-column *ngIf="column.type == 'custom'" [column]="column" [item]="item" (removeItem)="onRemoveItem(item)"></coda-custom-column>
 
                     <ng-container *ngIf="column.type == 'actions-list'">
                         <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="Actions" (click)="$event.stopPropagation();">

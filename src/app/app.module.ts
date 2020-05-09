@@ -18,6 +18,7 @@ import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { TestFieldComponent } from './components/test-field/test-field.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { environment } from 'src/environments/environment';
+import { TestColumnComponent } from './columns/test-column/test-column.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { environment } from 'src/environments/environment';
     SystemComponent,
     DashboardComponent,
     ProductAddComponent,
-    TestFieldComponent
+    TestFieldComponent,
+    TestColumnComponent
   ],
   imports: [
     BrowserModule,

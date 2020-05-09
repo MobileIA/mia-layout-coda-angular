@@ -1,5 +1,6 @@
 import { CodaColumnConfig } from 'projects/mobileia/layout-coda/src/lib/entities/coda-column-config';
 import { Subject } from 'rxjs';
+import { TestColumnComponent } from 'src/app/columns/test-column/test-column.component';
 
 export const dashboardColumns: CodaColumnConfig[] = [
     {
@@ -82,6 +83,13 @@ export const dashboardColumns: CodaColumnConfig[] = [
         title: 'Total'
       },
       {
+        key: 'custom',
+        field_key: 'custom',
+        type: 'custom',
+        title: 'Test',
+        component: TestColumnComponent
+      },
+      {
         key: 'status',
         field_key: 'status',
         type: 'select',
@@ -99,10 +107,11 @@ export const dashboardColumns: CodaColumnConfig[] = [
         fields_url: ['id'],
         options: [
           { icon: 'create', subject: new Subject<any>(), title: 'Edit', classes: 'icon-edit' },
-          { icon: 'delete_outline', url: '/product-archive/:id', title: 'Archive', classes: 'icon-delete' },
+          //{ icon: 'delete_outline', url: '/product-archive/:id', title: 'Archive', classes: 'icon-delete', if_key: 'has_delete' },
+          { type: 'delete', title: 'Delete' }
         ]
       },
-      {
+      /*{
         key: 'actions',
         type: 'actions-list',
         title: 'Acciones',
@@ -112,5 +121,5 @@ export const dashboardColumns: CodaColumnConfig[] = [
           { icon: 'home', url: '/product-archive/:id', title: 'Archive' },
           { icon: 'remove', type: 'delete', title: 'Delete' },
         ]
-      }
+      }*/
 ];
