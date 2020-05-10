@@ -59,6 +59,10 @@ export class LoginPageComponent implements OnInit {
       alert('Se ha enviado un email con los pasos a seguir.');
     });
   }
+  
+  onClickGoogle() {
+    this.configService.loginClick.next('google');
+  }
 
   requestInternal() {
     this.authService.signInWithEmailAndPasswordInternal(this.emailInput, this.passInput).toPromise().then(data => {

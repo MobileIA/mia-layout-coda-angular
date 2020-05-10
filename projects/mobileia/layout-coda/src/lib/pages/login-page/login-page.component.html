@@ -14,7 +14,7 @@
 
                 <h1>{{ config.titleTwo }}</h1>
 
-                <button *ngIf="config.isLoginWithGoogle" mat-button class="button-google"><div class="icon-google"></div> Log in with Google</button>
+                <button *ngIf="config.isLoginWithGoogle" mat-button class="button-google" (click)="onClickGoogle()"><div class="icon-google"></div> Log in with Google</button>
 
                 <div *ngIf="config.isLoginWithGoogle" class="separate-line">­­­­­<span>_­­­­­_­­­­­_­­­­­_</span> OR ­­­­­<span>­­­­­_­­­­­_­­­­­_­­­­­_</span></div>
 

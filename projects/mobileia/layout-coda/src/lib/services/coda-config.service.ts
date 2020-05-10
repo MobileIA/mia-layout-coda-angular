@@ -11,12 +11,14 @@ import { CodaToolbarConfig } from '../entities/coda-toolbar-config';
 export class CodaConfigService {
 
   login: BehaviorSubject<CodaLoginConfig>;
+  loginClick: Subject<string>;
   sidebar: BehaviorSubject<CodaSidebarConfig>;
   sidebarOpen = new BehaviorSubject<boolean>(true);
   toolbar: BehaviorSubject<CodaToolbarConfig>;
 
   constructor() {
     this.login = new BehaviorSubject<CodaLoginConfig>({} as CodaLoginConfig);
+    this.loginClick = new Subject<string>();
     this.sidebar = new BehaviorSubject<CodaSidebarConfig>({} as CodaSidebarConfig);
     this.toolbar = new BehaviorSubject<CodaToolbarConfig>({} as CodaToolbarConfig);
   }
