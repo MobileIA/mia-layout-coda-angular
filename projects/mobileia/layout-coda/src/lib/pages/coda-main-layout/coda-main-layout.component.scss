@@ -15,7 +15,7 @@
 
         .page-container{
             /* width: calc(100% - 300px); */
-            width: 100%;
+            width: calc(100% - 64px);
 
             @include xs { width: 100%; }
         }
