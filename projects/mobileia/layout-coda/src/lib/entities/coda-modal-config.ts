@@ -6,5 +6,5 @@ export class CodaModalConfig {
     textSaveButton? = 'Save';
     textCancelButton? = 'Cancel';
     primaryColor?: string;
-    classModal?: string;
+    classModal?: any;
 }
