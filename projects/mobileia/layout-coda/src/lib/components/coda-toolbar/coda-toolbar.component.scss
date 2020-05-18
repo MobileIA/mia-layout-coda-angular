@@ -8,6 +8,7 @@
     height: 62px;
     position: relative;
     z-index: 130;
+    background: white;
 
     button { &:hover { color: $colorBlue !important; } }
 
@@ -107,7 +108,7 @@
             color: $colorTitle;
             font-size: 14px;
             width: 100%;
-            border-radius: 100px;
+            border-radius: 0px;
             font-weight: 600;
             &::placeholder { font-weight: 400; }
 
