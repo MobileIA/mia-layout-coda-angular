@@ -101,14 +101,14 @@ export const dashboardColumns: CodaColumnConfig[] = [
         ]
       },
       {
-        key: 'actions2',
+        key: 'actions',
         type: 'actions',
         title: 'Acciones',
         fields_url: ['id'],
         options: [
           { icon: 'create', subject: new Subject<any>(), title: 'Edit', classes: 'icon-edit' },
           //{ icon: 'delete_outline', url: '/product-archive/:id', title: 'Archive', classes: 'icon-delete', if_key: 'has_delete' },
-          { type: 'delete', title: 'Delete' }
+          { type: 'delete', title: 'Delete', classes: 'icon-delete' }
         ]
       },
       /*{

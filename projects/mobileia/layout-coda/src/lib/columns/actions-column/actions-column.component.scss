@@ -1,0 +1,15 @@
+@import "../../scss/coda.scss";
+
+a {
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.icon-edit{ color: $colorBlue; }
+.icon-delete { color: $colorRed; }
+.icon-view { color: $colorTitle; }
+
+mat-icon {
+    font-size: small;
+    width: min-content;
+}

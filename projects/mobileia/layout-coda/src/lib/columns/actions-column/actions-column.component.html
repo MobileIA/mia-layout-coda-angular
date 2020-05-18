@@ -1,11 +1,11 @@
 <ng-container *ngFor="let act of column.options">
 
-    <a *ngIf="act.type != 'delete'" (click)="onClickAction($event, column, act, item)" class="{{ column.classes }}">
+    <a *ngIf="act.type != 'delete'" (click)="onClickAction($event, column, act, item)" class="{{ act.classes }}">
         <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
         {{ act.title }}
     </a>
 
-    <a *ngIf="act.type == 'delete'" class="{{ column.classes }}" [swal]="{ title: 'Eliminar ', text: '¿Se encuentra seguro de eliminar?', type: 'warning', focusCancel: true, showCancelButton: true, confirmButtonText: 'Eliminar', cancelButtonText: 'Cancelar' }" icon="question"
+    <a *ngIf="act.type == 'delete'" class="{{ act.classes }}" [swal]="{ title: 'Eliminar ', text: '¿Se encuentra seguro de eliminar?', type: 'warning', focusCancel: true, showCancelButton: true, confirmButtonText: 'Eliminar', cancelButtonText: 'Cancelar' }" icon="question"
     (confirm)="onRemoveItem(item)">
         <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
         {{ act.title }}
