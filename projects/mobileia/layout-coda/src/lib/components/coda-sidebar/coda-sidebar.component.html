@@ -13,37 +13,49 @@
         <!-- Only collapse Sidebar -->
     </div>
 
-    <ng-container *ngFor="let item of config.items">
-
-        <!-- <p *ngIf="item.type == 'header'" class="section-text">{{ item.title }}</p> -->
-
-        <mat-action-list *ngIf="item.type == 'item'" [ngClass]="{'active': item.isActive}">
-            <button mat-list-item [routerLink]="[item.url]" (click)="clickItem(item)"> <mat-icon>{{ item.icon }}</mat-icon> <span>{{ item.title}}</span> </button>
-        </mat-action-list>
-
-        <hr *ngIf="item.type == 'divider'" />
-
-        <!-- Add disabled only no-collapse sidebar -->
-        <mat-expansion-panel *ngIf="item.type == 'child'" [matMenuTriggerFor]="menu" disabled>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <mat-icon>{{ item.icon }}</mat-icon> {{ item.title}}
-                </mat-panel-title>
-            </mat-expansion-panel-header>
+    <div class="container-link">
+        <ng-container *ngFor="let item of config.items">
     
-            <mat-action-list *ngFor="let subitem of item.childrens" [ngClass]="{'active': subitem.isActive}">
-                <button mat-list-item [routerLink]="[subitem.url]" (click)="clickItem(subitem)"> {{ subitem.title }} </button>
+            <!-- <p *ngIf="item.type == 'header'" class="section-text">{{ item.title }}</p> -->
+    
+            <mat-action-list *ngIf="item.type == 'item'" [ngClass]="{'active': item.isActive}">
+                <button mat-list-item [routerLink]="[item.url]" (click)="clickItem(item)"> <mat-icon>{{ item.icon }}</mat-icon> <span>{{ item.title}}</span> </button>
             </mat-action-list>
-
-            <!-- Destroy this element only collapse -->
-            <mat-menu #menu="matMenu">
+    
+            <hr *ngIf="item.type == 'divider'" />
+    
+            
+            <!-- Only collapse Sidebar -->
+            <div class="collapse">
+                <mat-expansion-panel *ngIf="item.type == 'child'" >
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>{{ item.icon }}</mat-icon> {{ item.title}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+            
+                    <mat-action-list *ngFor="let subitem of item.childrens" [ngClass]="{'active': subitem.isActive}">
+                        <button mat-list-item [routerLink]="[subitem.url]" (click)="clickItem(subitem)"> {{ subitem.title }} </button>
+                    </mat-action-list>
+        
+                </mat-expansion-panel>
+            </div>
+            <!-- Only collapse Sidebar -->
+    
+            
+            <div class="mat-menu">
+                <mat-action-list *ngIf="item.type == 'child'" [ngClass]="{'active': item.isActive}" [matMenuTriggerFor]="menu">
+                    <button mat-list-item [routerLink]="[item.url]" (click)="clickItem(item)"> <mat-icon>{{ item.icon }}</mat-icon> <span>{{ item.title}}</span> </button>
+                </mat-action-list>
+            </div>
+    
+            <mat-menu #menu="matMenu" >
                 <div *ngFor="let subitem of item.childrens" [ngClass]="{'active': subitem.isActive}">
                     <button mat-menu-item [routerLink]="[subitem.url]" (click)="clickItem(subitem)"> {{ subitem.title }} </button>
                 </div>
             </mat-menu>
-            <!-- Destroy this element only collapse -->
-        </mat-expansion-panel>
-
-    </ng-container>
+            
+        </ng-container>
+    </div>
 
 </div>

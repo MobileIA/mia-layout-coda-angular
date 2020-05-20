@@ -9,6 +9,13 @@
     position: relative;
     z-index: 130;
     background: white;
+    
+    @include xs{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
 
     button { &:hover { color: $colorBlue !important; } }
 
@@ -32,6 +39,11 @@
     }
 
     .add-new{
+        margin-right: 132px;
+        @include lt-md{
+            margin-right: 0;
+        }
+
         @include xs { width: 20%; order: 3; }
 
         button{
@@ -61,6 +73,7 @@
         max-width: 300px;
         min-width: 200px;
         transition: $animation;
+        border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
 
         @include xs{
             width: 20%;

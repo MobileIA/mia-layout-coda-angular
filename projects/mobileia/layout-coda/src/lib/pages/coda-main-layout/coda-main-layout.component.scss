@@ -9,10 +9,6 @@
         display: flex;
         background-color: $colorBackground;
 
-        coda-sidebar{
-            @include xs { display: none; }
-        }
-
         .page-container{
             /* width: calc(100% - 300px); */
             width: calc(100% - 64px);
