@@ -47,6 +47,11 @@ export class LoginPageComponent implements OnInit {
   }
 
   onClickRecovery() {
+    if (this.config.onRecovery != null && this.config.onRecovery != undefined) {
+      this.config.onRecovery.next(true);
+      return;
+    }
+
     // Limpiar mensaje de error
     this.messageError = '';
     // Verificar si ingreso el email

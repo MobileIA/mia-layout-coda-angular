@@ -28,7 +28,9 @@ export class CodaToolbarComponent implements OnInit {
 
   onClickLogout() {
     this.authService.signOut();
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   }
 
   onClickSidebarClose() {

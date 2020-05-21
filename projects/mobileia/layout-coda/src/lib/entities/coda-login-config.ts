@@ -1,3 +1,5 @@
+import { Subject } from 'rxjs';
+
 export interface CodaLoginConfig {
     title: string;
     titleTwo?: string;
@@ -9,4 +11,5 @@ export interface CodaLoginConfig {
     isInternal: boolean;
     isLoginWithGoogle?: boolean;
     backgroundImage?: string;
+    onRecovery: Subject<any>;
 }
