@@ -24,7 +24,8 @@ export class AppComponent implements OnInit {
       withRole: 0,
       isInternal: true,
       isLoginWithGoogle: true,
-      backgroundImage: '/assets/img/illustration-login.png'
+      backgroundImage: '/assets/img/illustration-login.png',
+      onRecovery: null
     });
 
     this.configService.sidebar.next({

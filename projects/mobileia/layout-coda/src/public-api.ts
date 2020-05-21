@@ -34,6 +34,7 @@ export * from './lib/columns/actions-column/actions-column.component';
  */
 export * from './lib/pages/coda-main-layout/coda-main-layout.component';
 export * from './lib/pages/login-page/login-page.component';
+export * from './lib/pages/recovery-page/recovery-page.component';
 
 /**
  * Others

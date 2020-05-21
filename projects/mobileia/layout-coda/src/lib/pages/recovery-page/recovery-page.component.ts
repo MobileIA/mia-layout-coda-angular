@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '@mobileia/authentication';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'coda-recovery-page',
@@ -17,10 +17,12 @@ export class RecoveryPageComponent implements OnInit {
 
   constructor(
     protected authService: AuthenticationService,
+    protected route: ActivatedRoute,
     protected navigator: Router
   ) { }
 
   ngOnInit(): void {
+    this.loadParams();
   }
 
   onSubmit() {
@@ -30,7 +32,18 @@ export class RecoveryPageComponent implements OnInit {
         return;
       }
       alert('Ha actualizado su contrasea, ingrese ahora.');
-      this.navigator.navigateByUrl('/' + this.authService.pathLogin);
+      this.navigator.navigateByUrl('/auth/login');
+    });
+  }
+
+  loadParams() {
+    this.route.queryParams.subscribe(params => {
+      if (params.token) {
+        this.tokenInput = params.token;
+      }
+      if (params.email) {
+        this.emailInput = params.email;
+      }
     });
   }
 }

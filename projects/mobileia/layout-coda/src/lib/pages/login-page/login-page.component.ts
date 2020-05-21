@@ -49,7 +49,7 @@ export class LoginPageComponent implements OnInit {
   onClickRecovery() {
     if (this.config.onRecovery != null && this.config.onRecovery != undefined) {
       this.config.onRecovery.next(true);
-      return;
+      return false;
     }
 
     // Limpiar mensaje de error
@@ -57,12 +57,14 @@ export class LoginPageComponent implements OnInit {
     // Verificar si ingreso el email
     if (this.emailInput == '') {
       this.messageError = 'Debe ingresar el email';
-      return;
+      return false;
     }
 
     this.authService.recoveryPassInternal(this.emailInput).toPromise().then(data => {
       alert('Se ha enviado un email con los pasos a seguir.');
     });
+
+    return false;
   }
   
   onClickGoogle() {

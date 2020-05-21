@@ -11,5 +11,5 @@ export interface CodaLoginConfig {
     isInternal: boolean;
     isLoginWithGoogle?: boolean;
     backgroundImage?: string;
-    onRecovery: Subject<any>;
+    onRecovery?: Subject<any>;
 }
