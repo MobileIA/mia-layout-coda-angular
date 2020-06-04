@@ -8,6 +8,10 @@
     overflow-y: auto;
     overflow-x: hidden;
     transition: $animation;
+    -moz-transition: $animation;
+    -o-transition: $animation;
+    -webkit-transition: $animation;
+    @include xs { height: calc(100vh - 62px); }
 
     &::-webkit-scrollbar {display: none;}
 
@@ -38,105 +42,120 @@
     }
 
     
+    .container-link{
+        padding-bottom: 24px;
+
+        mat-action-list{
+            padding-top: 4px;
+
+            &::ng-deep .mat-list-item-content{
+                padding-left: 48px;
+                padding-right: 8px;
+                font-size: 16px;
+                font-weight: 600;
+                transition: $animation;
+                -moz-transition: $animation;
+                -o-transition: $animation;
+                -webkit-transition: $animation;
+            }
     
-    mat-action-list{
-        &::ng-deep .mat-list-item-content{
-            padding-left: 48px;
-            padding-right: 8px;
-            font-size: 16px;
+            button{
+                color: white;
+                padding: 0;
+    
+                mat-icon { width: 48px; min-width: 48px; transition: $animation; -moz-transition: $animation; -o-transition: $animation; -webkit-transition: $animation; }
+            }
+        }
+    
+        .active{
+            &::ng-deep .mat-list-item-content{
+                background-color: $colorBackground;
+                border-top-left-radius: 100px;
+                border-bottom-left-radius: 100px;
+                color: $colorTitle;
+    
+                mat-icon { color: $colorBlue; }
+            }
+        }
+    
+        mat-expansion-panel{
+            box-shadow: none;
+            background-color: transparent;
+            padding-left: 26px;
+            padding-right: 0px;
             font-weight: 600;
             transition: $animation;
+            -moz-transition: $animation;
+            -o-transition: $animation;
+            -webkit-transition: $animation;
+    
+            mat-expansion-panel-header{
+                transition: $animation;
+                -moz-transition: $animation;
+                -o-transition: $animation;
+                -webkit-transition: $animation;
+                mat-panel-title { color: white; font-weight: 600; font-size: 16px; }
+                mat-icon { width: 44px; }
+            }
+    
+            &::ng-deep .mat-expansion-panel-body { padding-right: 0; }
+            &::ng-deep .mat-expansion-indicator { &::after { color: white; } }
+
+            .mat-action-list{
+                padding-top: 0px;
+            }
         }
 
-        button{
+        .mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover{
+            background: transparent;
+        }
+    
+        hr{
+            border-color: white;
+            opacity: 0.15;
+        }
+    
+        .section-text{
             color: white;
-            padding: 0;
-
-            mat-icon { width: 48px; min-width: 48px; transition: $animation; }
+            opacity: 0.5;
+            padding-left: 48px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: $fontTitle;
+            margin-top: 20px;
         }
     }
+    
 
-    .active{
-        &::ng-deep .mat-list-item-content{
-            background-color: $colorBackground;
-            border-top-left-radius: 100px;
-            border-bottom-left-radius: 100px;
-            color: $colorTitle;
-
-            mat-icon { color: $colorBlue; }
-        }
-    }
-
-    mat-expansion-panel{
-        box-shadow: none;
-        background-color: transparent;
-        padding-left: 26px;
-        padding-right: 0px;
-        font-weight: 600;
-        transition: $animation;
-
-        mat-expansion-panel-header{
-            transition: $animation;
-            mat-panel-title { color: white; font-weight: 600; font-size: 16px; }
-            mat-icon { width: 44px; }
-        }
-
-        &::ng-deep .mat-expansion-panel-body { padding-right: 0; }
-        &::ng-deep .mat-expansion-indicator { &::after { color: white; } }
-    }
-
-    hr{
-        border-color: white;
-        opacity: 0.15;
-    }
-
-    .section-text{
-        color: white;
-        opacity: 0.5;
-        padding-left: 48px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-family: $fontTitle;
-        margin-top: 20px;
-    }
+    .mat-menu { display: none; }
 }
 
 .sidebar-close{
     width: 64px;
+    @include xs { width: 0; }
 
     .logo{
-        h1{
-            display: none;
-        }
-
-        .icon-logo{
-            display: block;
-        }
+        h1{ display: none; }
+        .icon-logo{ display: block; }
     }
 
     .section-text { display: none; }
 
-    mat-action-list{
-
-        button{
-            &:hover { background-color: $colorBlueHover; }
+    .container-link{
+        mat-action-list{
+            button{
+                &:hover { background-color: $colorBlueHover; }
+            }
+    
+            &::ng-deep .mat-list-item-content{
+                border-radius: 0px !important;
+                text-align: left;
+                padding-left: 19px;
+            }
         }
-
-        &::ng-deep .mat-list-item-content{
-            border-radius: 0px !important;
-            text-align: left;
-            padding-left: 19px;
-        }
-    }
-
-    mat-expansion-panel{
-        padding: 0;
-        cursor: pointer;
-        transition: $animation;
-        &:hover { background-color: $colorBlueHover; }
-        &::ng-deep .mat-expansion-panel-header{
-            padding-left: 19px;
-            padding-right: 8px;
-        }
+    
+        .collapse{ display: none; }
+    
+        .mat-menu{ display: block; }
     }
 }
