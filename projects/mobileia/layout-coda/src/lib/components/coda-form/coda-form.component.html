@@ -3,6 +3,7 @@
     <!-- Recorremos campos --->
     <ng-container *ngFor="let field of formConfig.fields">
         <coda-row-field *ngIf="field.type == 'row'" [field]="field" [item]="formConfig.item" (selectedPlace)="onSelectedPlace($event)"></coda-row-field>
+        <coda-column-field *ngIf="field.type == 'column'" [field]="field" [item]="formConfig.item" (selectedPlace)="onSelectedPlace($event)"></coda-column-field>
 
         <coda-string-field *ngIf="field.type == 'string'" [field]="field" [item]="formConfig.item"></coda-string-field>
         <coda-multi-checkbox-field *ngIf="field.type == 'multi-checkbox'" [field]="field" [item]="formConfig.item"></coda-multi-checkbox-field>

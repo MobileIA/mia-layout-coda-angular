@@ -16,11 +16,26 @@ export const dashboardFields: CodaFieldConfig[] = [
         classes: 'asd'
       },
       {
-        type: 'string',
-        key: 'lastname',
-        title: 'Last Name',
-        placeholder: 'Camiletti',
-      }
+        type: 'column',
+        key: 'column_3',
+        title: '',
+        children: [
+          {
+            type: 'string',
+            key: 'firstname3',
+            title: 'First Name',
+            placeholder: 'Axel',
+            icon: 'person_outline',
+            classes: 'asd'
+          },
+          {
+            type: 'string',
+            key: 'lastname3',
+            title: 'Last Name',
+            placeholder: 'Camiletti',
+          }
+        ]
+      },
     ]
   },
   {
