@@ -1,12 +1,12 @@
 {
   "name": "@mobileia/layout-coda",
-  "version": "9.0.50",
+  "version": "9.0.51",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",
     "@angular/material": "^9.2.0",
     "@angular/cdk": "^9.2.0",
-    "@mobileia/authentication": "^9.0.8",
+    "@mobileia/authentication": "^9.0.10",
     "@mobileia/core": "^9.0.3",
     "@ngx-pwa/local-storage": "^9.0.3",
     "@sweetalert2/ngx-sweetalert2": "^8.1.0",

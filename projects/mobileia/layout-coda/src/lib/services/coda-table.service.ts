@@ -35,4 +35,20 @@ export class CodaTableService<T> extends MiaAuthHttpService {
   remove(itemId: number): Observable<ApiResponse<boolean>> {
     return this.postAuthObject(this.basePathUrl + '/remove', { id: itemId });
   }
+
+  fetchPro(itemId: number): Promise<T> {
+    return this.postAuthObjectPro(this.basePathUrl + '/fetch', { id: itemId });
+  }
+
+  savePro(item: T): Promise<boolean> {
+    return this.postAuthObjectPro(this.basePathUrl + '/save', item);
+  }
+
+  fetchListPro(params: MIATableModel): Promise<ApiPagination<T>> {
+    return this.postAuthObjectPro(this.basePathUrl + '/list', params.toParams());
+  }
+
+  removePro(itemId: number): Promise<boolean> {
+    return this.postAuthObjectPro(this.basePathUrl + '/remove', { id: itemId });
+  }
 }
