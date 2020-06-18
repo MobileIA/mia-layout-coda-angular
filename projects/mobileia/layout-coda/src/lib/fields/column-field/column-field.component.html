@@ -1,12 +1,12 @@
 <!-- Recorremos campos --->
-<div *ngFor="let child of field.children" fxLayout="column">
+<div *ngFor="let child of field.children" fxLayout="column" class="{{ field.classes }}">
     <coda-string-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'string'" [field]="child" [item]="item"></coda-string-field>
     <coda-multi-checkbox-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'multi-checkbox'" [field]="child" [item]="item"></coda-multi-checkbox-field>
     <coda-text-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'text'" [field]="child" [item]="item"></coda-text-field>
     <coda-address-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'address'" [field]="child" [item]="item" (selectedPlace)="onSelectedPlace($event)"></coda-address-field>
     <coda-select-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'select'" [field]="child" [item]="item"></coda-select-field>
     <coda-file-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'file'" [field]="child" [item]="item"></coda-file-field>
-    <coda-custom-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'file'" [field]="child" [item]="item"></coda-custom-field>
+    <coda-custom-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'custom'" [field]="child" [item]="item"></coda-custom-field>
 
     <coda-row-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'row'" [field]="child" [item]="item" (selectedPlace)="onSelectedPlace($event)"></coda-row-field>
     <coda-column-field fxFlex="100%" fxFlexFill *ngIf="child.type == 'column'" [field]="child" [item]="item" (selectedPlace)="onSelectedPlace($event)"></coda-column-field>
