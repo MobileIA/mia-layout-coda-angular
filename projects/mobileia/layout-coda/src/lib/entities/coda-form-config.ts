@@ -7,6 +7,7 @@ export class CodaFormConfig {
     fields: CodaFieldConfig[];
     service: CodaTableService<any>;
     item?: any;
+    isValidationRequired = false;
 
     onSelectPlace = new Subject<{ field: CodaFieldConfig, place: Address }>();
     onResponse = new Subject<{ item: any, response: any }>();

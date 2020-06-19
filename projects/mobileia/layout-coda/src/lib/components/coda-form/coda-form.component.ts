@@ -23,7 +23,24 @@ export class CodaFormComponent implements OnInit {
     this.formConfig.onSelectPlace.next(event);
   }
 
+  isAllRequired() {
+    for (const field of this.formConfig.fields) {
+      if(field.required && (this.formConfig.item[field.key] == '' || this.formConfig.item[field.key] == null || this.formConfig.item[field.key] == undefined)){
+        this.messageError.title = 'Error!';
+        this.messageError.text = 'The field: ' + field.title + ' is required.';
+        this.messageError.fire();
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   onSubmit() {
+    if(this.formConfig.isValidationRequired && !this.isAllRequired()){
+      return;
+    }
+
     if (this.isSending) {
       return;
     }
