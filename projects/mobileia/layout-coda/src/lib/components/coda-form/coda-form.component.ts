@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { CodaFormConfig } from '../../entities/coda-form-config';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import { CodaFieldConfig } from '../../entities/coda-field-config';
 
 @Component({
   selector: 'coda-form',
@@ -23,12 +24,28 @@ export class CodaFormComponent implements OnInit {
     this.formConfig.onSelectPlace.next(event);
   }
 
+  isValidFieldRequired(field: CodaFieldConfig) {
+    if(field.type == 'row' || field.type == 'column'){
+      for (const sub of field.children) {
+        if (!this.isValidFieldRequired(sub)) {
+          return false;
+        }
+      }
+    }
+
+    if(field.required && (this.formConfig.item[field.key] == '' || this.formConfig.item[field.key] == null || this.formConfig.item[field.key] == undefined)){
+      this.messageError.title = 'Error!';
+      this.messageError.text = 'The field: ' + field.title + ' is required.';
+      this.messageError.fire();
+      return false;
+    }
+
+    return true;
+  }
+
   isAllRequired() {
     for (const field of this.formConfig.fields) {
-      if(field.required && (this.formConfig.item[field.key] == '' || this.formConfig.item[field.key] == null || this.formConfig.item[field.key] == undefined)){
-        this.messageError.title = 'Error!';
-        this.messageError.text = 'The field: ' + field.title + ' is required.';
-        this.messageError.fire();
+      if (!this.isValidFieldRequired(field)) {
         return false;
       }
     }
