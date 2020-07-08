@@ -11,9 +11,10 @@
 
         .page-container{
             /* width: calc(100% - 300px); */
-            width: calc(100% - 64px);
+            /* width: calc(100% - 64px); */
+            width: initial;
 
-            @include xs { width: 100%; }
+            /* @include xs { width: 100%; } */
         }
 
         .scroll-bar-content{
