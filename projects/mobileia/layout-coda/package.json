@@ -1,6 +1,6 @@
 {
   "name": "@mobileia/layout-coda",
-  "version": "9.0.55",
+  "version": "9.0.56",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",
@@ -10,6 +10,7 @@
     "@mobileia/core": "^9.0.3",
     "@ngx-pwa/local-storage": "^9.0.3",
     "@sweetalert2/ngx-sweetalert2": "^8.1.0",
+    "@kolkov/angular-editor": "^1.1.2",
     "sweetalert2": "^9.10.12",
     "tslib": "^1.10.0",
     "moment": "^2.25.3"

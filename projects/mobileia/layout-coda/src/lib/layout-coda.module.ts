@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 /* Material Design */
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -46,10 +47,11 @@ import { ActionsColumnComponent } from './columns/actions-column/actions-column.
 import { BaseColumnComponent } from './columns/base-column/base-column.component';
 import { CustomColumnComponent } from './columns/custom-column/custom-column.component';
 import { ColumnFieldComponent } from './fields/column-field/column-field.component';
+import { HtmlFieldComponent } from './fields/html-field/html-field.component';
 
 
 @NgModule({
-  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent, TextFieldComponent, RecoveryPageComponent, MultiCheckboxFieldComponent, ActionsColumnComponent, BaseColumnComponent, CustomColumnComponent, ColumnFieldComponent],
+  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent, TextFieldComponent, RecoveryPageComponent, MultiCheckboxFieldComponent, ActionsColumnComponent, BaseColumnComponent, CustomColumnComponent, ColumnFieldComponent, HtmlFieldComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -58,6 +60,7 @@ import { ColumnFieldComponent } from './fields/column-field/column-field.compone
     GooglePlaceModule,
     FlexLayoutModule,
     SweetAlert2Module,
+    AngularEditorModule,
 
     MatTableModule,
     MatPaginatorModule,
@@ -78,6 +81,7 @@ import { ColumnFieldComponent } from './fields/column-field/column-field.compone
   exports: [
     FormsModule,
     GooglePlaceModule,
+    AngularEditorModule,
 
     MatPaginatorModule,
     MatInputModule,
