@@ -7,4 +7,5 @@ export class CodaModalConfig {
     textCancelButton? = 'Cancel';
     primaryColor?: string;
     classModal?: any;
+    disableClose?: boolean = false;
 }

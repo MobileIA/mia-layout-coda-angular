@@ -17,6 +17,7 @@ export class CodaModalService {
       data: config,
       width: width,
       panelClass: config.classModal,
+      disableClose: config.disableClose
     });
   }
 }
