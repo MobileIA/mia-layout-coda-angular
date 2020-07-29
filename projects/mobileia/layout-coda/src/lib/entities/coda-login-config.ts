@@ -12,4 +12,5 @@ export interface CodaLoginConfig {
     isLoginWithGoogle?: boolean;
     backgroundImage?: string;
     onRecovery?: Subject<any>;
+    placeholderEmail?: string;
 }

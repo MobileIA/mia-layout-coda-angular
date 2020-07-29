@@ -11,7 +11,7 @@
                 <div class="form">
                     <mat-form-field appearance="fill">
                         <mat-label>Email Address</mat-label>
-                        <input matInput type="text" placeholder="mail@getteriq.com" name="email_login" [(ngModel)]="emailInput" disabled />
+                        <input matInput type="text" placeholder="{{ getPlaceholderEmail() }}" name="email_login" [(ngModel)]="emailInput" disabled />
                         <i matSuffix class="material-icons">alternate_email</i>
                     </mat-form-field>
 

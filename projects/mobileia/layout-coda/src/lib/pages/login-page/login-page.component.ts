@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '@mobileia/authentication';
 import { CodaLoginConfig } from '../../entities/coda-login-config';
 import { switchMap } from 'rxjs/operators';
+import { config } from 'rxjs';
 
 @Component({
   selector: 'coda-login-page',
@@ -130,5 +131,12 @@ export class LoginPageComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  getPlaceholderEmail() {
+    if(this.config != undefined && this.config.placeholderEmail != undefined){
+      return this.config.placeholderEmail;
+    }
+    return '';
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '@mobileia/authentication';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CodaLoginConfig } from '../../entities/coda-login-config';
+import { CodaConfigService } from '../../services/coda-config.service';
 
 @Component({
   selector: 'coda-recovery-page',
@@ -9,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RecoveryPageComponent implements OnInit {
 
+  config: CodaLoginConfig;
   emailInput = '';
   passInput = '';
   tokenInput = '';
@@ -16,12 +19,14 @@ export class RecoveryPageComponent implements OnInit {
   hide = true;
 
   constructor(
+    protected configService: CodaConfigService,
     protected authService: AuthenticationService,
     protected route: ActivatedRoute,
     protected navigator: Router
   ) { }
 
   ngOnInit(): void {
+    this.processConfig();
     this.loadParams();
   }
 
@@ -45,5 +50,18 @@ export class RecoveryPageComponent implements OnInit {
         this.emailInput = params.email;
       }
     });
+  }
+
+  processConfig() {
+    this.configService.login.subscribe(data => {
+      this.config = data;
+    });
+  }
+
+  getPlaceholderEmail() {
+    if(this.config != undefined && this.config.placeholderEmail != undefined){
+      return this.config.placeholderEmail;
+    }
+    return '';
   }
 }

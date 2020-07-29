@@ -6,7 +6,7 @@
         <div *ngIf="!isUploading">
             <input #inputFile type="file" (change)="onUploadFiles($event.target.files)" style="display: none;" />
             <button (click)="inputFile.click()">Subir archivo <i class="fa fa-upload"></i></button><br/>
-            <button *ngIf="internalValue && internalValue.length > 0" (click)="removeFile()">Eliminar <i class="fa fa-trash"></i></button>
+            <button *ngIf="internalValue && internalValue.length > 0" (click)="removeFile()">Remove <i class="fa fa-trash"></i></button>
         </div>
     </div>
 </div>
