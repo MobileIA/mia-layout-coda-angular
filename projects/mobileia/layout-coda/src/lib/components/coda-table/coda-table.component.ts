@@ -17,6 +17,7 @@ export class CodaTableComponent implements OnInit {
   dataItems = new ApiPagination<any>();
 
   isLoading = true;
+  isEmpty = false;
 
   constructor(
     protected navigator: Router
@@ -50,6 +51,9 @@ export class CodaTableComponent implements OnInit {
         return;
       }
       this.dataItems = data.response;
+      if (this.dataItems.data.length == 0 && (this.tableConfig.params.search == '' || this.tableConfig.params.search == undefined)) {
+        this.isEmpty = true;
+      }
       // Procesar si se necesita
       this.dataItems.data = this.tableConfig.onAfterLoad(this.dataItems.data);
     });

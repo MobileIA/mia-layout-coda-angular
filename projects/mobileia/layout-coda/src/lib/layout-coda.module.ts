@@ -48,10 +48,11 @@ import { BaseColumnComponent } from './columns/base-column/base-column.component
 import { CustomColumnComponent } from './columns/custom-column/custom-column.component';
 import { ColumnFieldComponent } from './fields/column-field/column-field.component';
 import { HtmlFieldComponent } from './fields/html-field/html-field.component';
+import { PhotoFieldComponent } from './fields/photo-field/photo-field.component';
 
 
 @NgModule({
-  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent, TextFieldComponent, RecoveryPageComponent, MultiCheckboxFieldComponent, ActionsColumnComponent, BaseColumnComponent, CustomColumnComponent, ColumnFieldComponent, HtmlFieldComponent],
+  declarations: [LayoutCodaComponent, LoginPageComponent, CodaToolbarComponent, CodaSidebarComponent, CodaTableComponent, CodaMainLayoutComponent, CodaFormComponent, StringFieldComponent, BaseFieldComponent, RowFieldComponent, SelectFieldComponent, FileFieldComponent, CodaFormModalComponent, AddressFieldComponent, CustomFieldComponent, TextFieldComponent, RecoveryPageComponent, MultiCheckboxFieldComponent, ActionsColumnComponent, BaseColumnComponent, CustomColumnComponent, ColumnFieldComponent, HtmlFieldComponent, PhotoFieldComponent],
   imports: [
     CommonModule,
     RouterModule,
