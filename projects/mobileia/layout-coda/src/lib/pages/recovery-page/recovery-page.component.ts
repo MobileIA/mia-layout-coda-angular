@@ -14,6 +14,7 @@ export class RecoveryPageComponent implements OnInit {
   config: CodaLoginConfig;
   emailInput = '';
   passInput = '';
+  repassInput = '';
   tokenInput = '';
   messageError = '';
   hide = true;
@@ -31,13 +32,23 @@ export class RecoveryPageComponent implements OnInit {
   }
 
   onSubmit() {
+    if(this.passInput == ''){
+      alert('Your password is empty');
+      return;
+    }
+
+    if(this.repassInput != this.passInput){
+      alert('The password not same');
+      return;
+    }
+
     this.authService.changePasswordRecovery(this.tokenInput, this.emailInput, this.passInput).toPromise().then(data => {
       if (!data.success) {
-        alert('No hemos podido cambiar su contraseña');
+        alert('Problem');
         return;
       }
-      alert('Ha actualizado su contrasea, ingrese ahora.');
-      this.navigator.navigateByUrl('/auth/login');
+      alert('Great! Your new password is ready.');
+      this.navigator.navigateByUrl(this.config.recoverySuccessRoute);
     });
   }
 

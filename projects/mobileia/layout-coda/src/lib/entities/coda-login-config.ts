@@ -13,4 +13,5 @@ export interface CodaLoginConfig {
     backgroundImage?: string;
     onRecovery?: Subject<any>;
     placeholderEmail?: string;
+    recoverySuccessRoute: string;
 }
