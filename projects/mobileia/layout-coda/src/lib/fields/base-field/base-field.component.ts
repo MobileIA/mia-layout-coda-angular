@@ -19,9 +19,17 @@ export class BaseFieldComponent implements OnInit {
     this.loadValue();
   }
 
+  sendChange() {
+    if(this.field.changeValue == undefined || this.field.changeValue == null){
+      return;
+    }
+    this.field.changeValue.next(this.internalValue);
+  }
+
   onChangeValue() {
     if (typeof this.field.key == 'string') {
       this.item[this.field.key] = this.internalValue;
+      this.sendChange();
       return;
     }
 
@@ -34,6 +42,8 @@ export class BaseFieldComponent implements OnInit {
       }
       itemFinal = itemFinal[key];
     }
+
+    this.sendChange();
   }
 
   loadValue() {
@@ -54,5 +64,7 @@ export class BaseFieldComponent implements OnInit {
       valueFinal = valueFinal[key];
     }
     this.internalValue = valueFinal;
+
+    this.sendChange();
   }
 }

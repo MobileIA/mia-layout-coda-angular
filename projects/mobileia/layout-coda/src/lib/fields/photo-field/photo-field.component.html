@@ -3,6 +3,7 @@
     <div fxLayout="row">
         <!--<mat-spinner *ngIf="isUploading" [diameter]="50"></mat-spinner>-->
         <img *ngIf="internalValue && internalValue.length > 0" [src]="internalValue" onerror="this.src='/assets/img/image-user-profile-not-found.png';" style="width: 100px; height: 100px;" />
+        <br/>
         <div *ngIf="!isUploading">
             <input #inputFile type="file" (change)="onUploadFiles($event.target.files)" style="display: none;" />
             <button (click)="inputFile.click()">Subir archivo <i class="fa fa-upload"></i></button><br/>

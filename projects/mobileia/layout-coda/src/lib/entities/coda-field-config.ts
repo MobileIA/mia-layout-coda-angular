@@ -1,4 +1,5 @@
 import { CodaFileService } from '../services/coda-file.service';
+import { Subject } from 'rxjs';
 
 export interface CodaFieldConfig {
     type: string;
@@ -13,4 +14,5 @@ export interface CodaFieldConfig {
     required?: boolean;
     serviceFile?: CodaFileService;
     component?: any;
+    changeValue?: Subject<any>;
 }
