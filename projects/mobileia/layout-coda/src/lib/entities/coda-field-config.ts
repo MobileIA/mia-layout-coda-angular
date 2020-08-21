@@ -15,4 +15,6 @@ export interface CodaFieldConfig {
     serviceFile?: CodaFileService;
     component?: any;
     changeValue?: Subject<any>;
+    hasSet?: boolean;
+    receiveValue?: Subject<any>;
 }

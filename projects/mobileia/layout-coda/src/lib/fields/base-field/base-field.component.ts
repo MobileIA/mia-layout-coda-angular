@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CodaFieldConfig } from '../../entities/coda-field-config';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'coda-base-field',
@@ -17,6 +18,36 @@ export class BaseFieldComponent implements OnInit {
   ngOnInit(): void {
     // Asignar valor actual
     this.loadValue();
+    this.configSet();
+  }
+
+  configSet() {
+    if(this.field.hasSet && this.field.receiveValue == undefined){
+      this.field.receiveValue = new Subject<any>();
+      this.field.receiveValue.subscribe(data => {
+        this.receiveChangeValue(data);
+      });
+    }
+  }
+
+  receiveChangeValue(itemReceive: any) {
+    if (itemReceive == undefined) {
+      return;
+    }
+
+    if (typeof this.field.key == 'string' && itemReceive[this.field.key] != undefined) {
+      this.internalValue = itemReceive[this.field.key];
+      return;
+    }
+
+    let valueFinal = itemReceive;
+    for (const key of this.field.key) {
+      if(valueFinal[key] == undefined){
+        return;
+      }
+      valueFinal = valueFinal[key];
+    }
+    this.internalValue = valueFinal;
   }
 
   sendChange() {
