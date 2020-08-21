@@ -1,12 +1,12 @@
 <h2 mat-dialog-title>{{ data.title }}</h2>
-<button mat-dialog-close mat-flat-button class="close" matTooltip="Close" aria-label="Boton que cierra el Modal de los New Add"><mat-icon>close</mat-icon></button>
+<button (click)="onClickCancel()" mat-flat-button class="close" matTooltip="Close" aria-label="Boton que cierra el Modal de los New Add"><mat-icon>close</mat-icon></button>
 
 <mat-dialog-content>
     <coda-form #formHtml [formConfig]="data.form"></coda-form>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>{{ data.textCancelButton }} </button>
+  <button mat-button (click)="onClickCancel()">{{ data.textCancelButton }} </button>
   <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
   <button mat-button (click)="onSubmit()">{{ data.textSaveButton }}</button>
 </mat-dialog-actions>
