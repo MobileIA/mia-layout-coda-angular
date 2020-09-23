@@ -10,11 +10,13 @@
         background-color: $colorBackground;
 
         .page-container{
-            /* width: calc(100% - 300px); */
-            /* width: calc(100% - 64px); */
-            width: initial;
+            width: calc(100% - 280px);
+            @include xs { width: 100%; }
+        }
 
-            /* @include xs { width: 100%; } */
+        .sidebar-close{
+            width: calc(100% - 64px);
+            @include xs { width: 100%; }
         }
 
         .scroll-bar-content{

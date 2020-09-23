@@ -4,7 +4,7 @@
 
         <coda-sidebar></coda-sidebar>
 
-        <div class="page-container">
+        <div class="page-container" [ngClass]="{'sidebar-close': !isSidebarOpen}">
 
             <coda-toolbar></coda-toolbar>
 
