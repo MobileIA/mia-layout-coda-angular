@@ -12,6 +12,8 @@
         <coda-select-field *ngIf="field.type == 'select'" [field]="field" [item]="formConfig.item"></coda-select-field>
         <coda-file-field *ngIf="field.type == 'file'" [field]="field" [item]="formConfig.item"></coda-file-field>
         <coda-custom-field *ngIf="field.type == 'custom'" [field]="field" [item]="formConfig.item"></coda-custom-field>
+        <coda-html-field *ngIf="field.type == 'html'" [field]="field" [item]="formConfig.item"></coda-html-field>
+        <coda-photo-field *ngIf="field.type == 'photo'" [field]="field" [item]="formConfig.item"></coda-photo-field>
     </ng-container>
 
     <swal #messageError title="Error!" text="En breve nos pondremos en contacto, muchas gracias!" type="error" icon="warning">

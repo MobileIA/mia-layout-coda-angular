@@ -5,7 +5,7 @@
         {{ act.title }}
     </a>
 
-    <a *ngIf="act.type == 'delete'" class="{{ act.classes }}" [swal]="{ title: 'Eliminar ', text: 'Are you sure to delete?', type: 'warning', focusCancel: true, showCancelButton: true, confirmButtonText: 'Eliminar', cancelButtonText: 'Cancelar' }" icon="question"
+    <a *ngIf="act.type == 'delete'" class="{{ act.classes }}" [swal]="{ title: 'Remove ', text: 'Are you sure you want to delete?', type: 'warning', focusCancel: true, showCancelButton: true, confirmButtonText: 'Delete', cancelButtonText: 'Cancel' }" icon="question"
     (confirm)="onRemoveItem(item)">
         <mat-icon *ngIf="act.icon">{{act.icon}}</mat-icon>
         {{ act.title }}

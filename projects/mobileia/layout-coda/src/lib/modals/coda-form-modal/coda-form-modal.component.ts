@@ -23,6 +23,14 @@ export class CodaFormModalComponent implements OnInit {
     });
   }
 
+  onClickCancel() {
+    if(this.data.cancelSubject){
+      this.data.cancelSubject.next(this.dialogRef);
+    }else{
+      this.dialogRef.close();
+    }
+  }
+
   onSubmit() {
     this.formHtml.onSubmit();
   }
