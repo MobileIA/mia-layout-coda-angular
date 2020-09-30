@@ -22,7 +22,7 @@ export class AddressFieldComponent extends BaseFieldComponent implements OnInit 
 
   onChangeAddress(place: Address) {
     let data = place.formatted_address.split(',');
-    this.internalValue = data[0];
+    this.internalValue = place.formatted_address;
     this.onChangeValue();
     this.selectedPlace.emit({ field: this.field, place: place });
   }
