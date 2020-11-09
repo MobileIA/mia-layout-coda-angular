@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CodaConfigService } from 'projects/mobileia/layout-coda/src/lib/services/coda-config.service';
 import { CodaToolbarConfig } from 'projects/mobileia/layout-coda/src/lib/entities/coda-toolbar-config';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,8 @@ export class AppComponent implements OnInit {
       isInternal: true,
       isLoginWithGoogle: true,
       backgroundImage: '/assets/img/illustration-login.png',
-      onRecovery: null
+      onRecovery: null,
+      recoverySuccessRoute: '',
     });
 
     this.configService.sidebar.next({
@@ -164,6 +166,21 @@ export class AppComponent implements OnInit {
     toolbar.onExtraItemClick.subscribe(item => {
       console.log(item);
     });
+
+    toolbar.searchItemPrint = (item) => {
+      return item;
+    }
+    toolbar.searchQueryRun.subscribe(query => {
+
+      let data = ['One', 'Two', 'Three', 'Four'];
+
+      toolbar.searchQueryResult.next(data.filter(op => op.toLocaleLowerCase().includes(query.toLocaleLowerCase())));
+    });
+    toolbar.searchItemSelected.subscribe(item => {
+      console.log('selected');
+      console.log(item);
+    });
+
     this.configService.toolbar.next(toolbar);
   }
 }

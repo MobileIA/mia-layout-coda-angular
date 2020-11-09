@@ -3,6 +3,8 @@ import { CodaConfigService } from '../../services/coda-config.service';
 import { CodaToolbarConfig } from '../../entities/coda-toolbar-config';
 import { AuthenticationService, MIAUser } from '@mobileia/authentication';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'coda-toolbar',
@@ -14,6 +16,9 @@ export class CodaToolbarComponent implements OnInit {
   isSidebarOpen = true;
   config: CodaToolbarConfig;
   currentUser: MIAUser;
+
+  searchControl = '';
+  searchItems = [];
 
   constructor(
     protected configService: CodaConfigService,
@@ -43,10 +48,32 @@ export class CodaToolbarComponent implements OnInit {
   }
 
   processConfig() {
-    this.configService.toolbar.subscribe(data => this.config = data);
+    this.configService.toolbar.subscribe(data => {
+      this.config = data;
+      this.config.searchQueryResult.subscribe(data => {
+        this.searchItems = data;
+      });
+    });
   }
 
   loadUser() {
     this.authService.currentUser.subscribe(data => this.currentUser = data);
+  }
+
+  searchBar() {
+    if(this.searchControl == ''){
+      return new Subject();
+    }
+
+    this.config.searchQueryRun.next(this.searchControl);
+  }
+
+  searchItemPrint(item) {
+    return this.config.searchItemPrint(item);
+  }
+
+  optionSearchSelected(option) {
+    let item = option.option.value;
+    this.config.searchItemSelected.next(item);
   }
 }

@@ -24,6 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 /* Componente internos */
 import { LayoutCodaComponent } from './layout-coda.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -77,7 +78,8 @@ import { PhotoFieldComponent } from './fields/photo-field/photo-field.component'
     MatMenuModule,
     MatBadgeModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatAutocompleteModule
   ],
   exports: [
     FormsModule,
@@ -92,6 +94,7 @@ import { PhotoFieldComponent } from './fields/photo-field/photo-field.component'
     MatDialogModule,
     MatButtonModule,
     MatDividerModule,
+    MatAutocompleteModule,
 
     LayoutCodaComponent,
     CodaSidebarComponent,

@@ -17,7 +17,13 @@
 
     <div class="search">
         <mat-icon>search</mat-icon>
-        <input type="text" placeholder="Search anywhere..." name="search_input" id="search_input" />
+        <input type="text" placeholder="Search anywhere..." name="search_input" id="search_input" [(ngModel)]="searchControl" (keyup)="searchBar()" [matAutocomplete]="auto" autocomplete="off" />
+
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSearchSelected($event)">
+            <mat-option *ngFor="let item of searchItems" [value]="item">
+                {{ searchItemPrint(item) }}
+              </mat-option>
+          </mat-autocomplete>
     </div>
 
     <div *ngIf="config.isShowNotifications" class="notifications">
