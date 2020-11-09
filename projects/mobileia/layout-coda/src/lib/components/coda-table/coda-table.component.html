@@ -43,6 +43,13 @@
                         </div>
                     </ng-container>
 
+                    <ng-container *ngIf="column.type == 'date_us'">
+                        <div>
+                            <p class="{{ column.classes }}">{{ getDateValueUS(column, item) }}</p>
+                            <p class="{{ column.classes }}"><small>{{ getTimeValue(column, item) }}</small></p>
+                        </div>
+                    </ng-container>
+
                     <ng-container *ngIf="column.type == 'status'">
                         <div class="state new">
                             <div class="circle"></div>

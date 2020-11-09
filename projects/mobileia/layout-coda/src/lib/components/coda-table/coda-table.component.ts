@@ -59,6 +59,10 @@ export class CodaTableComponent implements OnInit {
     });
   }
 
+  getDateValueUS(column, item): string {
+    return moment(this.getFieldValue(column, item)).format('MM/DD/YYYY');
+  }
+
   getDateValue(column, item): string {
     return moment(this.getFieldValue(column, item)).format('DD - MM - YYYY');
   }
